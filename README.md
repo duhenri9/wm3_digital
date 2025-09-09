@@ -34,6 +34,7 @@ A WM3 Digital é uma landing page moderna e responsiva desenvolvida em Next.js 1
 - **SocialFlux** - Automação inteligente para redes sociais
 - **SubHub** - Plataforma de gestão de assinaturas
 - **HumanTic** - Soluções avançadas de IA e automação
+- **Funil que Vende+** - Sistema completo de funil de vendas com automação (a partir de R$ 1.500,00)
 
 ## 🚀 Tecnologias Utilizadas
 
