@@ -6,45 +6,53 @@ import { ArrowRight, Code, Palette, Zap, Globe } from 'lucide-react';
 
 const services = [
   {
-    title: 'SocialFlux∞',
-    description: 'Micro-SaaS de geração automática de anúncios para Instagram e Redes Sociais com IA avançada.',
-    tags: ['Micro-SaaS', 'IA', 'Marketing', 'Automação'],
+    title: 'Funil que Vende+',
+    description: 'Sistema completo de funil de vendas com automação avançada para maximizar conversões e vendas.',
+    tags: ['Automação', 'Vendas', 'Funil', 'Conversão'],
     status: 'Disponível',
-    price: 'A partir de R$ 97/mês',
+    price: 'A partir de R$ 1.500',
     links: {
-      live: '/servicos/socialflux',
-      demo: 'https://socialflux.wm3.digital'
-    }
-  },
-  {
-    title: 'SubHub',
-    description: 'SaaS completo para gestão de subscrições e assinaturas com controle financeiro integrado.',
-    tags: ['SaaS', 'Gestão', 'Financeiro', 'Assinaturas'],
-    status: 'Early Adopters',
-    price: 'A partir de R$ 197/mês',
-    links: {
-      live: '/servicos/subhub',
-      demo: 'https://subhub.wm3.digital'
-    }
-  },
-  {
-    title: 'HumanTic',
-    description: 'Plataforma AaaS para criação e gerenciamento de agentes humanizados inteligentes.',
-    tags: ['AaaS', 'IA', 'Agentes', 'Automação'],
-    status: 'Em Desenvolvimento',
-    price: 'Sob consulta',
-    links: {
-      live: '/servicos/humantic'
+      live: '/servicos/funil-que-vende'
     }
   },
   {
     title: 'Design SaaS Solutions',
-    description: 'Projetos de design completos para SaaS, micro-SaaS, startups, websites e landing pages com foco em conversão.',
+    description: 'Soluções de design, desenvolvimento web, identidade visual, sites e landing pages com foco em conversão.',
     tags: ['Design', 'UX/UI', 'SaaS', 'Conversão'],
     status: 'Disponível',
     price: 'A partir de R$ 652',
     links: {
       live: '/servicos/design-saas'
+    }
+  },
+  {
+    title: 'SocialFlux',
+    description: 'Automação inteligente para redes sociais com geração de conteúdo e gestão automatizada.',
+    tags: ['Automação', 'Social Media', 'Marketing', 'IA'],
+    status: 'Disponível',
+    price: 'Sob consulta',
+    links: {
+      live: '/servicos/socialflux'
+    }
+  },
+  {
+    title: 'SubHub',
+    description: 'Plataforma de gestão de assinaturas com controle financeiro integrado e automação de cobrança.',
+    tags: ['SaaS', 'Gestão', 'Financeiro', 'Assinaturas'],
+    status: 'Early Adopters',
+    price: 'Sob consulta',
+    links: {
+      live: '/servicos/subhub'
+    }
+  },
+  {
+    title: 'HumanTic',
+    description: 'Soluções avançadas de IA e automação com agentes humanizados inteligentes.',
+    tags: ['IA', 'Automação', 'Agentes', 'Tecnologia'],
+    status: 'Em Desenvolvimento',
+    price: 'Sob consulta',
+    links: {
+      live: '/servicos/humantic'
     }
   }
 ];
@@ -175,16 +183,7 @@ export default function ServicosPage() {
                     Ver Serviço
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
-                  {service.links.demo && (
-                    <Link
-                      href={service.links.demo}
-                      target="_blank"
-                      className="inline-flex items-center justify-center rounded-md border border-input bg-background px-4 py-2 text-sm font-medium ring-offset-background transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
-                    >
-                      Demo
-                      <Globe className="ml-2 h-4 w-4" />
-                    </Link>
-                  )}
+
                 </div>
               </div>
             </motion.div>
