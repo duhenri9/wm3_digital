@@ -1215,8 +1215,8 @@ export default HeroSection;
 
 ### 10.1 Serviços da WM3 Digital
 
-#### Design SaaS (R$ 652,00)
-- **Descrição**: Soluções completas de design, desenvolvimento web, identidade visual, websites e landing pages
+#### Design SaaS (soluções a partir de R$ 652,00)
+- **Descrição**: Soluções completas de design, desenvolvimento web, identidade visual, sites e landing pages
 - **Diferenciais**: 5 pontos únicos da WM3
 - **Entregáveis**: 4 itens principais
 - **CTA**: Link para pagamento Stripe
