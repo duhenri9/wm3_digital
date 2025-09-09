@@ -6,7 +6,24 @@
 [![React](https://img.shields.io/badge/React-19.1.0-blue?style=flat-square&logo=react)](https://reactjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.x-blue?style=flat-square&logo=typescript)](https://www.typescriptlang.org/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.4.0-38B2AC?style=flat-square&logo=tailwind-css)](https://tailwindcss.com/)
+[![Turbopack](https://img.shields.io/badge/Turbopack-Enabled-orange?style=flat-square)](https://turbo.build/pack)
 [![License](https://img.shields.io/badge/License-Proprietary-red?style=flat-square)]()
+
+## 🚀 Quick Start
+
+```bash
+# Clone o repositório
+git clone https://github.com/duhenri9/wm3_digital.git
+cd wm3_digital/wm3-landing
+
+# Instale as dependências
+npm install
+
+# Inicie o servidor de desenvolvimento
+npm run dev
+
+# Acesse http://localhost:3000
+```
 
 ## 📋 Sobre o Projeto
 
@@ -134,16 +151,21 @@ src/
 - **Node.js 18+** (Recomendado: 20.x LTS)
 - **npm**, **yarn**, **pnpm** ou **bun**
 - **Git** para controle de versão
+- **VS Code** (recomendado) com extensões:
+  - ES7+ React/Redux/React-Native snippets
+  - Tailwind CSS IntelliSense
+  - TypeScript Importer
+  - Prettier - Code formatter
 
-### Instalação
+### Instalação Completa
 ```bash
-# Clone o repositório
-git clone https://github.com/wm3digital/wm3-landing.git
+# 1. Clone o repositório
+git clone https://github.com/duhenri9/wm3_digital.git
 
-# Entre no diretório
-cd wm3-landing
+# 2. Entre no diretório do projeto
+cd wm3_digital/wm3-landing
 
-# Instale as dependências
+# 3. Instale as dependências
 npm install
 # ou
 yarn install
@@ -151,6 +173,23 @@ yarn install
 pnpm install
 # ou
 bun install
+
+# 4. Verifique se tudo está funcionando
+npm run dev
+```
+
+### Verificação da Instalação
+```bash
+# Verificar versões
+node --version    # Deve ser 18+ 
+npm --version     # Deve ser 8+
+git --version     # Deve ser 2+
+
+# Verificar dependências
+npm list --depth=0
+
+# Verificar tipos TypeScript
+npx tsc --noEmit
 ```
 
 ### Desenvolvimento
@@ -185,10 +224,34 @@ npx tsc --noEmit
 ```
 
 ### Scripts Disponíveis
-- `npm run dev` - Servidor de desenvolvimento com Turbopack
-- `npm run build` - Build de produção com Turbopack
-- `npm start` - Servidor de produção
-- `npm run lint` - Verificação de código com ESLint
+```bash
+# Desenvolvimento
+npm run dev          # Servidor de desenvolvimento com Turbopack
+npm run build        # Build de produção com Turbopack
+npm start            # Servidor de produção
+
+# Qualidade de Código
+npm run lint         # Verificação de código com ESLint
+npx tsc --noEmit     # Verificação de tipos TypeScript
+
+# Utilitários
+npm list --depth=0   # Listar dependências instaladas
+npm outdated         # Verificar dependências desatualizadas
+npm audit            # Verificar vulnerabilidades de segurança
+```
+
+### Comandos de Desenvolvimento
+```bash
+# Limpar cache e reinstalar dependências
+rm -rf node_modules package-lock.json
+npm install
+
+# Atualizar dependências (cuidado em produção)
+npm update
+
+# Verificar problemas de lint e corrigir automaticamente
+npm run lint -- --fix
+```
 
 ## 🎨 Customização
 
@@ -249,14 +312,80 @@ O projeto é totalmente responsivo com breakpoints:
 
 ### Vercel (Recomendado)
 ```bash
-# Conecte seu repositório ao Vercel
-# Deploy automático a cada push na main
+# 1. Instale a CLI do Vercel
+npm i -g vercel
+
+# 2. Faça login
+vercel login
+
+# 3. Deploy do projeto
+vercel
+
+# 4. Deploy de produção
+vercel --prod
+```
+
+### Configuração de Ambiente
+```bash
+# Variáveis de ambiente necessárias (se aplicável)
+NEXT_PUBLIC_SITE_URL=https://wm3digital.com
+NEXT_PUBLIC_ANALYTICS_ID=your_analytics_id
 ```
 
 ### Outras Plataformas
 - **Netlify**: Suporte completo ao Next.js
 - **AWS**: Amplify ou EC2
 - **Digital Ocean**: App Platform
+- **Railway**: Deploy simples com Git
+
+## 🛠️ Troubleshooting
+
+### Problemas Comuns
+
+#### Erro de Hydration
+```bash
+# Se encontrar erros de hidratação:
+# 1. Limpe o cache
+rm -rf .next
+npm run dev
+
+# 2. Verifique componentes client-side
+# Certifique-se de usar 'use client' quando necessário
+```
+
+#### Problemas com Turbopack
+```bash
+# Se o Turbopack não funcionar:
+# Use o bundler padrão temporariamente
+npm run dev -- --no-turbo
+```
+
+#### Erros de TypeScript
+```bash
+# Verificar e corrigir tipos
+npx tsc --noEmit
+
+# Reinstalar tipos se necessário
+npm install -D @types/node @types/react @types/react-dom
+```
+
+#### Problemas de Dependências
+```bash
+# Limpar tudo e reinstalar
+rm -rf node_modules package-lock.json .next
+npm install
+npm run dev
+```
+
+### Logs e Debug
+```bash
+# Executar com logs detalhados
+DEBUG=* npm run dev
+
+# Verificar build de produção localmente
+npm run build
+npm start
+```
 
 ## 📊 Analytics e Monitoramento
 

@@ -31,17 +31,20 @@ A WM3 Digital Landing Page é uma aplicação web moderna desenvolvida para apre
 - **Funil de Vendas**: Integração com Funil que Vende+
 
 ### 1.2 Objetivos de Negócio
-- Apresentar os 5 serviços principais da WM3 Digital
-- Converter visitantes em leads qualificados
+- Apresentar os 4 serviços principais da WM3 Digital (Design SaaS, SocialFlux, SubHub, HumanTic)
+- Converter visitantes em leads qualificados através do Funil que Vende+
 - Estabelecer autoridade no mercado digital
 - Facilitar o contato e vendas
-- Otimizar funis de venda
+- Otimizar funis de venda com automação inteligente
+- Integrar soluções SaaS próprias da WM3
 
 ### 1.3 Público-Alvo
 - Empresários que buscam transformação digital
-- Gestores de marketing
-- Startups e PMEs
-- Profissionais de tecnologia
+- Gestores de marketing digital
+- Startups e PMEs em crescimento
+- Profissionais de tecnologia e desenvolvedores
+- Agências de marketing e design
+- E-commerces que precisam de automação
 
 ---
 
@@ -58,7 +61,8 @@ A WM3 Digital Landing Page é uma aplicação web moderna desenvolvida para apre
     "styling": "Tailwind CSS 3.4.0",
     "animations": "Framer Motion 12.23.12",
     "icons": "Lucide React 0.542.0",
-    "components": "Radix UI"
+    "components": "Radix UI",
+    "ui_library": "shadcn/ui"
   },
   "development": {
     "bundler": "Turbopack",
@@ -69,7 +73,15 @@ A WM3 Digital Landing Page é uma aplicação web moderna desenvolvida para apre
   "deployment": {
     "platform": "Vercel",
     "domain": "wm3digital.com",
-    "ssl": "Automático"
+    "ssl": "Automático",
+    "cdn": "Vercel Edge Network",
+    "analytics": "Vercel Analytics"
+  },
+  "integrations": {
+    "payments": "Stripe",
+    "automation": "n8n",
+    "database": "Supabase",
+    "forms": "React Hook Form"
   }
 }
 ```
@@ -105,9 +117,28 @@ npm --version   # v8.0.0 ou superior
 git --version   # v2.0.0 ou superior
 ```
 
-### 3.2 Criação do Projeto
+### 3.2 Clonagem e Setup do Projeto
 
 ```bash
+# 1. Clonar o repositório existente
+git clone https://github.com/duhenri9/wm3_digital.git
+
+# 2. Entrar no diretório do projeto
+cd wm3_digital/wm3-landing
+
+# 3. Instalar todas as dependências
+npm install
+
+# 4. Verificar se tudo está funcionando
+npm run dev
+
+# 5. Acessar http://localhost:3000
+```
+
+### 3.3 Criação do Projeto do Zero (Opcional)
+
+```bash
+# Se quiser recriar o projeto do zero:
 # 1. Criar projeto Next.js
 npx create-next-app@latest wm3-landing --typescript --tailwind --eslint --app --src-dir
 
@@ -115,13 +146,13 @@ npx create-next-app@latest wm3-landing --typescript --tailwind --eslint --app --
 cd wm3-landing
 
 # 3. Instalar dependências específicas
-npm install framer-motion lucide-react @radix-ui/react-dialog @radix-ui/react-navigation-menu @radix-ui/react-slot class-variance-authority clsx tailwind-merge
+npm install framer-motion lucide-react @radix-ui/react-dialog @radix-ui/react-navigation-menu @radix-ui/react-slot class-variance-authority clsx tailwind-merge autoprefixer
 
 # 4. Instalar dependências de desenvolvimento
-npm install -D @types/node @types/react @types/react-dom autoprefixer
+npm install -D @types/node @types/react @types/react-dom
 ```
 
-### 3.3 Configuração de Scripts
+### 3.4 Configuração de Scripts
 
 ```json
 {
@@ -129,10 +160,40 @@ npm install -D @types/node @types/react @types/react-dom autoprefixer
     "dev": "next dev --turbopack",
     "build": "next build --turbopack",
     "start": "next start",
-    "lint": "eslint",
-    "type-check": "tsc --noEmit"
+    "lint": "eslint"
   }
 }
+```
+
+### 3.5 Comandos Úteis para Desenvolvimento
+
+```bash
+# Desenvolvimento com Turbopack (mais rápido)
+npm run dev
+
+# Desenvolvimento sem Turbopack (fallback)
+npm run dev -- --no-turbo
+
+# Build de produção
+npm run build
+
+# Servidor de produção local
+npm start
+
+# Verificação de tipos TypeScript
+npx tsc --noEmit
+
+# Linting do código
+npm run lint
+
+# Linting com correção automática
+npm run lint -- --fix
+
+# Verificar dependências desatualizadas
+npm outdated
+
+# Auditoria de segurança
+npm audit
 ```
 
 ---
@@ -144,7 +205,7 @@ npm install -D @types/node @types/react @types/react-dom autoprefixer
 ```
 wm3-landing/
 ├── .next/                    # Build output (auto-gerado)
-├── .vscode/                  # Configurações VS Code
+├── .vscode/                  # Configurações VS Code (opcional)
 │   ├── extensions.json       # Extensões recomendadas
 │   └── settings.json         # Configurações do projeto
 ├── public/                   # Arquivos estáticos
@@ -156,6 +217,8 @@ wm3-landing/
 │   ├── Ativo 6.svg          # Logo WM3 (variação 6)
 │   ├── ICONE_BRANCO.png     # Ícone branco
 │   ├── LOGO_COMPLETA_BRANCA.png # Logo completa branca
+│   ├── LOGO_COMPLETA_COLORIDA.png # Logo completa colorida
+│   ├── SOCIALFLUX_LOGO.png  # Logo SocialFlux
 │   ├── wm3-icon.png         # Favicon
 │   └── wm3-logo.png         # Logo principal
 ├── src/
@@ -163,6 +226,11 @@ wm3-landing/
 │   │   ├── layout.tsx       # Layout raiz
 │   │   ├── page.tsx         # Homepage
 │   │   ├── globals.css      # Estilos globais
+│   │   ├── favicon.ico      # Favicon
+│   │   ├── documentacao/    # Documentação
+│   │   │   ├── page.tsx     # Página principal de docs
+│   │   │   └── funil-que-vende/
+│   │   │       └── page.tsx # Docs do Funil que Vende+
 │   │   ├── em-breve/        # Página "Em Breve"
 │   │   │   └── page.tsx
 │   │   ├── projetos/        # Página de Projetos
@@ -170,6 +238,8 @@ wm3-landing/
 │   │   ├── servicos/        # Páginas de Serviços
 │   │   │   ├── page.tsx     # Lista de serviços
 │   │   │   ├── design-saas/ # Design SaaS
+│   │   │   │   └── page.tsx
+│   │   │   ├── funil-que-vende/ # Funil que Vende+
 │   │   │   │   └── page.tsx
 │   │   │   ├── socialflux/  # SocialFlux
 │   │   │   │   └── page.tsx
@@ -179,30 +249,24 @@ wm3-landing/
 │   │   │       └── page.tsx
 │   │   ├── sobre/           # Página Sobre
 │   │   │   └── page.tsx
-│   │   ├── suporte/         # Página de Suporte
-│   │   │   └── page.tsx
-│   │   └── documentacao/    # Página de Documentação
+│   │   └── suporte/         # Página de Suporte
 │   │       └── page.tsx
 │   ├── components/          # Componentes reutilizáveis
 │   │   ├── layout/          # Componentes de layout
-│   │   │   ├── header.tsx   # Cabeçalho
-│   │   │   └── footer.tsx   # Rodapé
+│   │   │   └── header.tsx   # Cabeçalho principal
 │   │   ├── navigation/      # Componentes de navegação
-│   │   │   ├── navbar.tsx   # Barra de navegação
-│   │   │   └── mobile-menu.tsx # Menu mobile
+│   │   │   └── main-nav.tsx # Navegação principal
 │   │   ├── sections/        # Seções da homepage
-│   │   │   ├── hero.tsx     # Seção hero
-│   │   │   ├── services.tsx # Seção de serviços
-│   │   │   ├── projects.tsx # Seção de projetos
-│   │   │   ├── testimonials.tsx # Depoimentos
-│   │   │   └── cta.tsx      # Call-to-action
-│   │   └── ui/              # Componentes base
-│   │       ├── button.tsx   # Botão
-│   │       ├── card.tsx     # Card
-│   │       └── dialog.tsx   # Modal
+│   │   │   ├── about.tsx    # Seção sobre
+│   │   │   ├── cta.tsx      # Call-to-action
+│   │   │   ├── features.tsx # Seção de funcionalidades
+│   │   │   └── hero.tsx     # Seção hero
+│   │   └── ui/              # Componentes base (shadcn/ui)
+│   │       ├── floating-elements.tsx # Elementos flutuantes
+│   │       └── navigation-menu.tsx # Menu de navegação
 │   ├── lib/                 # Utilitários
 │   │   └── utils.ts         # Funções utilitárias
-│   └── styles/              # Estilos adicionais
+│   └── styles/              # Estilos adicionais (se necessário)
 ├── .gitignore               # Arquivos ignorados pelo Git
 ├── CHANGELOG.md             # Histórico de mudanças
 ├── CONTRIBUTING.md          # Guia de contribuição
@@ -211,8 +275,11 @@ wm3-landing/
 ├── detalhamento.landingpage.md # Esta documentação
 ├── eslint.config.mjs        # Configuração ESLint
 ├── next.config.js           # Configuração Next.js
+├── next.config.ts           # Configuração Next.js (TypeScript)
 ├── package.json             # Dependências e scripts
+├── package-lock.json        # Lock de dependências
 ├── postcss.config.js        # Configuração PostCSS
+├── postcss.config.mjs       # Configuração PostCSS (ES modules)
 ├── tailwind.config.js       # Configuração Tailwind
 └── tsconfig.json            # Configuração TypeScript
 ```
@@ -227,9 +294,99 @@ wm3-landing/
 
 ---
 
-## 5. Configurações de Projeto
+## 5. Documentação de Componentes
 
-### 5.1 next.config.js
+### 5.1 Estrutura de Componentes
+
+O projeto segue o padrão **Atomic Design** com componentes organizados por responsabilidade:
+
+#### Layout Components (`src/components/layout/`)
+- **header.tsx**: Cabeçalho principal com navegação e logo
+
+#### Navigation Components (`src/components/navigation/`)
+- **main-nav.tsx**: Componente de navegação principal com menu responsivo
+
+#### Section Components (`src/components/sections/`)
+- **hero.tsx**: Seção principal da homepage com CTA
+- **about.tsx**: Seção sobre a WM3 Digital
+- **features.tsx**: Seção de funcionalidades e serviços
+- **cta.tsx**: Call-to-action final
+
+#### UI Components (`src/components/ui/`)
+- **navigation-menu.tsx**: Menu de navegação baseado em Radix UI
+- **floating-elements.tsx**: Elementos visuais flutuantes
+
+### 5.2 Padrões de Desenvolvimento
+
+#### Convenções de Nomenclatura
+```typescript
+// Componentes: PascalCase
+const MainNavigation = () => {}
+
+// Props: camelCase com interface
+interface NavigationProps {
+  isOpen: boolean;
+  onToggle: () => void;
+}
+
+// Hooks customizados: use + PascalCase
+const useNavigation = () => {}
+
+// Utilitários: camelCase
+const formatDate = (date: Date) => {}
+```
+
+#### Estrutura de Componente
+```typescript
+// Imports
+import React from 'react';
+import { cn } from '@/lib/utils';
+
+// Types/Interfaces
+interface ComponentProps {
+  className?: string;
+  children?: React.ReactNode;
+}
+
+// Component
+export const Component: React.FC<ComponentProps> = ({ 
+  className,
+  children,
+  ...props 
+}) => {
+  return (
+    <div className={cn('base-classes', className)} {...props}>
+      {children}
+    </div>
+  );
+};
+
+// Default export
+export default Component;
+```
+
+### 5.3 Responsividade
+
+Breakpoints do Tailwind CSS:
+- **sm**: 640px (mobile landscape)
+- **md**: 768px (tablet)
+- **lg**: 1024px (desktop)
+- **xl**: 1280px (large desktop)
+- **2xl**: 1536px (extra large)
+
+```typescript
+// Exemplo de componente responsivo
+<div className="
+  grid grid-cols-1 
+  md:grid-cols-2 
+  lg:grid-cols-3 
+  gap-4 md:gap-6 lg:gap-8
+">
+```
+
+## 6. Configurações do Projeto
+
+### 6.1 next.config.js
 
 ```javascript
 /** @type {import('next').NextConfig} */
@@ -256,7 +413,7 @@ const nextConfig = {
 module.exports = nextConfig;
 ```
 
-### 5.2 tailwind.config.js
+### 6.2 tailwind.config.js
 
 ```javascript
 /** @type {import('tailwindcss').Config} */
@@ -337,7 +494,7 @@ module.exports = {
 };
 ```
 
-### 5.3 tsconfig.json
+### 6.3 tsconfig.json
 
 ```json
 {
@@ -369,7 +526,7 @@ module.exports = {
 }
 ```
 
-### 5.4 eslint.config.mjs
+### 6.4 eslint.config.mjs
 
 ```javascript
 import { dirname } from "path";
@@ -392,9 +549,9 @@ export default eslintConfig;
 
 ---
 
-## 6. Design System
+## 7. Design System
 
-### 6.1 Paleta de Cores
+### 7.1 Paleta de Cores
 
 ```css
 /* src/app/globals.css */
@@ -459,7 +616,7 @@ export default eslintConfig;
 }
 ```
 
-### 6.2 Tipografia
+### 7.2 Tipografia
 
 ```css
 /* Hierarquia de títulos */
@@ -498,9 +655,9 @@ export default eslintConfig;
 }
 ```
 
-### 6.3 Componentes Base
+### 7.3 Componentes Base
 
-#### 6.3.1 Button Component
+#### 7.3.1 Button Component
 
 ```typescript
 // src/components/ui/button.tsx
@@ -562,7 +719,7 @@ Button.displayName = "Button";
 export { Button, buttonVariants };
 ```
 
-#### 6.3.2 Utils Library
+#### 7.3.2 Utils Library
 
 ```typescript
 // src/lib/utils.ts
@@ -594,9 +751,9 @@ export function slugify(text: string): string {
 
 ---
 
-## 7. Componentes Base
+## 8. Componentes Base
 
-### 7.1 Layout Principal
+### 8.1 Layout Principal
 
 ```typescript
 // src/app/layout.tsx
@@ -674,7 +831,7 @@ export default function RootLayout({
 }
 ```
 
-### 7.2 Header Component
+### 8.2 Header Component
 
 ```typescript
 // src/components/layout/header.tsx
@@ -885,9 +1042,9 @@ export default Header;
 
 ---
 
-## 8. Páginas e Roteamento
+## 9. Páginas e Roteamento
 
-### 8.1 Homepage
+### 9.1 Homepage
 
 ```typescript
 // src/app/page.tsx
@@ -917,7 +1074,7 @@ export default function HomePage() {
 }
 ```
 
-### 8.2 Hero Section
+### 9.2 Hero Section
 
 ```typescript
 // src/components/sections/hero.tsx
@@ -1054,9 +1211,9 @@ export default HeroSection;
 
 ---
 
-## 9. Funcionalidades Específicas
+## 10. Funcionalidades Específicas
 
-### 9.1 Serviços da WM3 Digital
+### 10.1 Serviços da WM3 Digital
 
 #### Design SaaS (R$ 652,00)
 - **Descrição**: Soluções completas de design, desenvolvimento web, identidade visual, websites e landing pages
@@ -1076,7 +1233,7 @@ export default HeroSection;
 - **Descrição**: Soluções avançadas de IA e automação
 - **Funcionalidades**: Chatbots, processamento de linguagem natural
 
-### 9.2 Estrutura de Dados dos Serviços
+### 10.2 Estrutura de Dados dos Serviços
 
 ```typescript
 // src/lib/services.ts
@@ -1128,7 +1285,7 @@ export const services: Service[] = [
 ];
 ```
 
-### 9.3 Animações com Framer Motion
+### 10.3 Animações com Framer Motion
 
 ```typescript
 // src/lib/animations.ts
@@ -1166,42 +1323,90 @@ export const slideInFromRight = {
 
 ---
 
-## 10. Deploy e Produção
+## 11. Deploy e Produção
 
-### 10.1 Preparação para Deploy
+### 11.1 Preparação para Deploy
 
 ```bash
-# 1. Verificar build local
-npm run build
-npm start
+# Verificar se tudo está funcionando
+npm run dev
 
-# 2. Verificar tipos TypeScript
-npm run type-check
-
-# 3. Executar linting
+# Executar linting
 npm run lint
 
-# 4. Testar em diferentes dispositivos
-# Usar DevTools para simular mobile/tablet
+# Build do projeto
+npm run build
+
+# Testar build localmente
+npm run start
 ```
 
-### 10.2 Deploy na Vercel
+### 11.2 Atualização do Repositório GitHub
 
 ```bash
-# 1. Instalar Vercel CLI
-npm i -g vercel
+# Verificar status dos arquivos
+git status
 
-# 2. Login na Vercel
-vercel login
+# Adicionar todas as mudanças
+git add .
 
-# 3. Deploy
-vercel
+# Commit com mensagem descritiva
+git commit -m "docs: atualizar documentação e estrutura do projeto"
 
-# 4. Deploy para produção
-vercel --prod
+# Push para o repositório
+git push origin main
+
+# Verificar se o push foi bem-sucedido
+git log --oneline -5
 ```
 
-### 10.3 Configurações de Produção
+### 11.3 Deploy na Vercel
+
+```bash
+# Instalar Vercel CLI (se não tiver)
+npm i -g vercel
+
+# Login na Vercel
+vercel login
+
+# Deploy de desenvolvimento
+vercel
+
+# Deploy em produção
+vercel --prod
+
+# Verificar status do deploy
+vercel ls
+```
+
+### 11.4 Configurações de Produção
+
+```javascript
+// next.config.js para produção
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  output: 'standalone',
+  experimental: {
+    turbo: {
+      rules: {
+        '*.svg': {
+          loaders: ['@svgr/webpack'],
+          as: '*.js',
+        },
+      },
+    },
+  },
+  images: {
+    domains: ['localhost'],
+    formats: ['image/webp', 'image/avif'],
+  },
+  compress: true,
+  poweredByHeader: false,
+  generateEtags: false,
+}
+
+module.exports = nextConfig
+```
 
 ```javascript
 // vercel.json
@@ -1240,7 +1445,7 @@ vercel --prod
 }
 ```
 
-### 10.4 Variáveis de Ambiente
+### 11.5 Variáveis de Ambiente
 
 ```bash
 # .env.local (desenvolvimento)
@@ -1254,11 +1459,22 @@ NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=pk_live_...
 STRIPE_SECRET_KEY=sk_live_...
 ```
 
+### 11.6 Checklist de Deploy
+
+- [ ] Documentação atualizada (README.md e detalhamento.landingpage.md)
+- [ ] Código commitado e enviado para GitHub
+- [ ] Build local executado com sucesso
+- [ ] Linting sem erros
+- [ ] Variáveis de ambiente configuradas
+- [ ] Deploy na Vercel realizado
+- [ ] Site funcionando em produção
+- [ ] Performance verificada (Lighthouse)
+
 ---
 
-## 11. Troubleshooting
+## 12. Troubleshooting
 
-### 11.1 Problemas Comuns
+### 12.1 Problemas Comuns
 
 #### Build Errors
 ```bash
@@ -1284,7 +1500,7 @@ npm run dev
 npx tailwindcss -i ./src/app/globals.css -o ./dist/output.css --watch
 ```
 
-### 11.2 Performance Issues
+### 12.2 Performance Issues
 
 #### Otimização de Imagens
 ```typescript
@@ -1312,7 +1528,7 @@ const HeavyComponent = dynamic(() => import("./HeavyComponent"), {
 });
 ```
 
-### 11.3 Debugging
+### 12.3 Debugging
 
 ```typescript
 // Debug de animações Framer Motion
