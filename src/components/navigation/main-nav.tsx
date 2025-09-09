@@ -3,7 +3,7 @@
 import * as React from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Rocket, BarChart3, Bot, Palette } from 'lucide-react';
+import { Rocket, BarChart3, Bot, Palette, Sparkles } from 'lucide-react';
 
 import { cn } from '@/lib/utils';
 import {
@@ -22,9 +22,25 @@ const items = [
     description: 'Conheça nossas soluções digitais',
     items: [
       {
-        title: 'SocialFlux∞',
+        title: 'Funil que Vende+',
+        href: '/servicos/funil-que-vende',
+        description: 'Sistema completo de automação de vendas com IA',
+        icon: Sparkles,
+        status: 'A partir de R$ 1.500',
+        highlight: true
+      },
+      {
+        title: 'Design SaaS',
+        href: '/servicos/design-saas',
+        description: 'Soluções de Design para SaaS e Startups (R$ 652,00)',
+        icon: Palette,
+        status: 'Disponível',
+        highlight: true
+      },
+      {
+        title: 'SocialFlux',
         href: '/servicos/socialflux',
-        description: 'Campanhas de marketing automáticas com IA',
+        description: 'Automação inteligente para redes sociais',
         icon: Rocket,
         status: 'Disponível',
         highlight: false
@@ -32,26 +48,18 @@ const items = [
       {
         title: 'SubHub',
         href: '/servicos/subhub',
-        description: 'Gestão inteligente de assinaturas',
+        description: 'Plataforma de gestão de assinaturas',
         icon: BarChart3,
-        status: 'Disponível',
+        status: 'Early Adopters',
         highlight: false
       },
       {
         title: 'HumanTic',
         href: '/servicos/humantic',
-        description: 'Automação de marketing para relacionamentos',
+        description: 'Soluções avançadas de IA e automação',
         icon: Bot,
-        status: 'Disponível',
+        status: 'Em Desenvolvimento',
         highlight: false
-      },
-      {
-        title: 'Design SaaS',
-        href: '/servicos/design-saas',
-        description: 'Soluções de Design para SaaS e Startups',
-        icon: Palette,
-        status: 'Pagamento Disponível',
-        highlight: true
       },
     ],
   },
