@@ -27,7 +27,7 @@ npm run dev
 
 ## 📋 Sobre o Projeto
 
-A WM3 Digital é uma landing page moderna e responsiva desenvolvida em Next.js 15, focada em apresentar soluções digitais inovadoras para empresas que buscam transformação tecnológica. O projeto utiliza tecnologias de ponta para garantir performance, acessibilidade e uma experiência de usuário excepcional.
+Este é o projeto da landing page oficial da **WM3 Digital**, uma agência especializada em soluções digitais inovadoras. A landing page foi desenvolvida em Next.js 15 com foco em apresentar os serviços da agência para empresas que buscam transformação tecnológica. O projeto utiliza tecnologias de ponta para garantir performance, acessibilidade e uma experiência de usuário excepcional.
 
 ### 🎯 Principais Serviços
 - **Design SaaS** - Soluções de design, desenvolvimento web, identidade visual, websites e landing pages (R$ 652,00)
