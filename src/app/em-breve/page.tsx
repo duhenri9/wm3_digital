@@ -17,7 +17,7 @@ const upcomingFeatures = [
       'Dashboard analytics avançado',
       'API completa para desenvolvedores'
     ],
-    color: 'from-purple-500 to-pink-500'
+    color: 'from-[#0066FF] to-[#00D1FF]'
   },
   {
     icon: Zap,
@@ -326,9 +326,9 @@ export default function EmBreve() {
             </div>
             
             <div className="flex flex-wrap justify-center gap-4 text-xs text-white/60">
-              <span>✓ Sem spam</span>
-              <span>✓ Apenas conteúdo relevante</span>
-              <span>✓ Cancele quando quiser</span>
+              <span>• Sem spam</span>
+                <span>• Apenas conteúdo relevante</span>
+                <span>• Cancele quando quiser</span>
             </div>
           </div>
         </div>

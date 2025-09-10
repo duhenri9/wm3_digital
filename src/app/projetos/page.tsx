@@ -46,7 +46,7 @@ const projects = [
     description: 'Projetos de design completos para SaaS, micro-SaaS, startups, websites e landing pages com foco em conversão.',
     image: '/images/design-saas-preview.jpg',
     tags: ['Design', 'UX/UI', 'SaaS', 'Conversão'],
-    status: 'Disponível',
+    status: 'Em Desenvolvimento',
     links: {
       live: '/servicos/design-saas'
     },

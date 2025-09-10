@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 // import { Acumin } from '@/lib/fonts';
 import { cn } from '@/lib/utils';
 import { Header } from '@/components/layout/header';
+import { Footer } from '@/components/layout/footer';
 import { FloatingElements } from '@/components/ui/floating-elements';
 import './globals.css';
 
@@ -28,6 +29,7 @@ export default function RootLayout({
         <div className="relative z-10">
           {children}
         </div>
+        <Footer />
       </body>
     </html>
   );

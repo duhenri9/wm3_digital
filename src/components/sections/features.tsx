@@ -6,14 +6,6 @@ import Link from 'next/link';
 
 const features = [
   {
-    icon: Clock,
-    title: 'Design SaaS',
-    description: 'Soluções de design, desenvolvimento web, identidade visual, sites e landing pages (R$ 652,00)',
-    href: '/servicos/design-saas',
-    color: 'from-orange-500 to-red-500',
-    status: 'Disponível'
-  },
-  {
     icon: Sparkles,
     title: 'SocialFlux',
     description: 'Automação inteligente para redes sociais',
@@ -35,7 +27,15 @@ const features = [
     description: 'Soluções avançadas de IA e automação',
     href: '/servicos/humantic',
     color: 'from-purple-500 to-violet-500',
-    status: 'Em Desenvolvimento'
+    status: 'Early Adopters'
+  },
+  {
+    icon: Clock,
+    title: 'Design SaaS',
+    description: 'Soluções de Design, Desenvolvimento Web, Identidade Visual, WebSites, Landing Pages e muito mais (Implementações e projetos a partir de R$ 652,00)',
+    href: '/servicos/design-saas',
+    color: 'from-orange-500 to-red-500',
+    status: 'Early Adopters'
   }
 ];
 
@@ -44,9 +44,9 @@ const funilQueVende = {
   title: 'Funil que Vende+',
   description: 'Sistema completo de automação de vendas - do lead à conversão com IA avançada',
   href: '/servicos/funil-que-vende',
-  color: 'from-pink-500 to-rose-500',
+  color: 'from-[#0066FF] to-[#00D1FF]',
   status: 'Disponível',
-  price: 'A partir de R$ 1.500,00'
+  price: 'Soluções a partir de R$ 1.500,00'
 };
 
 export function FeaturesSection() {
@@ -76,14 +76,14 @@ export function FeaturesSection() {
           viewport={{ once: true }}
           className="mb-16"
         >
-          <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-pink-500 to-rose-500 p-1">
+          <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#0066FF] to-[#00D1FF] p-1">
             <div className="bg-card rounded-3xl p-8 md:p-12">
               <div className="grid md:grid-cols-2 gap-8 items-center">
                 <div>
-                  <div className="inline-flex items-center justify-center w-16 h-16 rounded-xl bg-gradient-to-br from-pink-500 to-rose-500 text-white mb-6">
+                  <div className="inline-flex items-center justify-center w-16 h-16 rounded-xl bg-gradient-to-br from-[#0066FF] to-[#00D1FF] text-white mb-6">
                     <Sparkles className="w-8 h-8" />
                   </div>
-                  <h3 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-pink-500 to-rose-500 bg-clip-text text-transparent">
+                  <h3 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-[#0066FF] to-[#00D1FF] bg-clip-text text-transparent">
                     {funilQueVende.title}
                   </h3>
                   <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
@@ -93,12 +93,12 @@ export function FeaturesSection() {
                     <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-green-500/20 text-green-700 dark:text-green-300">
                       {funilQueVende.status}
                     </span>
-                    <span className="text-2xl font-bold text-primary">
+                    <span className="text-xl font-bold text-primary">
                       {funilQueVende.price}
                     </span>
                   </div>
                   <Link href={funilQueVende.href}>
-                    <button className="inline-flex items-center justify-center rounded-xl bg-gradient-to-r from-pink-500 to-rose-500 text-white px-8 py-4 text-lg font-medium transition-all duration-300 hover:shadow-lg hover:shadow-pink-500/25 hover:scale-105">
+                    <button className="inline-flex items-center justify-center rounded-xl bg-gradient-to-r from-[#0066FF] to-[#00D1FF] text-white px-8 py-4 text-lg font-medium transition-all duration-300 hover:shadow-lg hover:shadow-[#0066FF]/25 hover:scale-105">
                       Conhecer o Funil que Vende+
                       <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
@@ -107,25 +107,21 @@ export function FeaturesSection() {
                   </Link>
                 </div>
                 <div className="relative">
-                  <div className="absolute inset-0 bg-gradient-to-br from-pink-500/20 to-rose-500/20 rounded-2xl transform rotate-3"></div>
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#0066FF]/20 to-[#00D1FF]/20 rounded-2xl transform rotate-3"></div>
                   <div className="relative bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-xl">
                     <h4 className="font-bold text-lg mb-4">Principais Benefícios:</h4>
-                    <ul className="space-y-3">
-                      <li className="flex items-center gap-3">
-                        <div className="w-2 h-2 bg-pink-500 rounded-full"></div>
-                        <span>Automação completa de vendas</span>
+                    <ul className="space-y-3 list-none">
+                      <li className="flex items-center gap-3 before:content-[''] before:w-2 before:h-2 before:bg-green-500 before:rounded-full before:flex-shrink-0">
+                        Automação completa de vendas
                       </li>
-                      <li className="flex items-center gap-3">
-                        <div className="w-2 h-2 bg-pink-500 rounded-full"></div>
-                        <span>IA para qualificação de leads</span>
+                      <li className="flex items-center gap-3 before:content-[''] before:w-2 before:h-2 before:bg-green-500 before:rounded-full before:flex-shrink-0">
+                        IA para qualificação de leads
                       </li>
-                      <li className="flex items-center gap-3">
-                        <div className="w-2 h-2 bg-pink-500 rounded-full"></div>
-                        <span>Integração WhatsApp e e-mail</span>
+                      <li className="flex items-center gap-3 before:content-[''] before:w-2 before:h-2 before:bg-green-500 before:rounded-full before:flex-shrink-0">
+                        Integração WhatsApp e e-mail
                       </li>
-                      <li className="flex items-center gap-3">
-                        <div className="w-2 h-2 bg-pink-500 rounded-full"></div>
-                        <span>ROI superior a 200%</span>
+                      <li className="flex items-center gap-3 before:content-[''] before:w-2 before:h-2 before:bg-green-500 before:rounded-full before:flex-shrink-0">
+                        ROI superior a 200%
                       </li>
                     </ul>
                   </div>

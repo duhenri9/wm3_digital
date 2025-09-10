@@ -48,7 +48,7 @@ export function CTASection() {
               className="relative"
             >
               <div className="absolute -top-2 -right-2 bg-secondary text-white text-xs px-2 py-1 rounded-full font-bold animate-pulse z-10">
-                🔥 Oferta Especial
+                Oferta Especial
               </div>
               <Link
                  href="#"
@@ -61,7 +61,7 @@ export function CTASection() {
                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                      <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
                    </svg>
-                   <span className="group-hover:mr-1 transition-all duration-200">Design SaaS da WM3: Transforme sua ideia em websites, landing pages e presença digital que conquista.</span>
+                   <span className="group-hover:mr-1 transition-all duration-200 text-sm">Design SaaS da WM3: Transforme sua ideia em WebSites Dinâmicos, Landing Pages Criativas e garanta uma Presença Digital que Conquista.</span>
                    <motion.span
                      initial={{ x: 0 }}
                      whileHover={{ x: 3 }}
@@ -111,7 +111,7 @@ export function CTASection() {
                <svg className="w-4 h-4 inline mr-1" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7z"/>
                 </svg>
-                <strong>Condições especiais para Early-adopters:</strong> De R$ 6,000.00 por R$ 2,300.00 com sinal de R$ 652,00.
+                <strong>Condições especiais para Early Adopters:</strong> De R$ 6,000.00 por R$ 2,652.00 com sinal de R$ 652,00.
              </motion.p>
              
              <motion.p 
@@ -195,19 +195,10 @@ export function CTASection() {
               <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20">
                 <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2">
                   <div>
-                    <h4 className="font-semibold text-lg">Design SaaS</h4>
-                    <p className="text-sm text-white/95">Design para Micro-SaaS / SaaS / Landing Page e Startups</p>
-                  </div>
-                  <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-green-500/20 text-green-100 border border-green-400/30">✓ Disponível</span>
-                </div>
-              </div>
-              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20">
-                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2">
-                  <div>
                     <h4 className="font-semibold text-lg">SocialFlux ∞</h4>
-                    <p className="text-sm text-white/95">(Micro-SaaS) de Geração automática de anúncios para Instagram e Redes Sociais</p>
+                    <p className="text-sm text-white/95">Solução para geração automática de anúncios e campanhas no Instagram e Redes Sociais com recursos de IA avançada</p>
                   </div>
-                  <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-green-500/20 text-green-100 border border-green-400/30">✓ Disponível</span>
+                  <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-green-500/20 text-green-100 border border-green-400/30">Disponível</span>
                 </div>
               </div>
               <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20">
@@ -216,7 +207,7 @@ export function CTASection() {
                     <h4 className="font-semibold text-lg">SubHub</h4>
                     <p className="text-sm text-white/95">(SaaS) - Gestão de subscrições e Assinaturas com controle financeiro integrado</p>
                   </div>
-                  <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-yellow-500/20 text-yellow-100 border border-yellow-400/30">✓ Fase Early-adopters</span>
+                  <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-yellow-500/20 text-yellow-100 border border-yellow-400/30">Fase Early-adopters</span>
                 </div>
               </div>
               <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20">
@@ -225,7 +216,16 @@ export function CTASection() {
                     <h4 className="font-semibold text-lg">HumanTic</h4>
                     <p className="text-sm text-white/95">(AaaS) - Criação e Gerenciamento de Agentes Humanizados Inteligentes</p>
                   </div>
-                  <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-500/20 text-blue-100 border border-blue-400/30">✓ Em Desenvolvimento</span>
+                  <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-yellow-500/20 text-yellow-100 border border-yellow-400/30">Early Adopters</span>
+                </div>
+              </div>
+              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20">
+                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2">
+                  <div>
+                    <h4 className="font-semibold text-lg">Design SaaS</h4>
+                    <p className="text-sm text-white/95">Design para Micro-SaaS / SaaS / Landing Page e Startups</p>
+                  </div>
+                  <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-yellow-500/20 text-yellow-100 border border-yellow-400/30">Early Adopters</span>
                 </div>
               </div>
             </div>

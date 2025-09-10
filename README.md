@@ -30,11 +30,11 @@ npm run dev
 Este é o projeto da landing page oficial da **WM3 Digital**, uma agência especializada em soluções digitais inovadoras. A landing page foi desenvolvida em Next.js 15 com foco em apresentar os serviços da agência para empresas que buscam transformação tecnológica. O projeto utiliza tecnologias de ponta para garantir performance, acessibilidade e uma experiência de usuário excepcional.
 
 ### 🎯 Principais Serviços
-- **Design SaaS** - Soluções de design, desenvolvimento web, identidade visual, sites e landing pages (soluções a partir de R$ 652,00)
-- **SocialFlux** - Automação inteligente para redes sociais
-- **SubHub** - Plataforma de gestão de assinaturas
-- **HumanTic** - Soluções avançadas de IA e automação
-- **Funil que Vende+** - Sistema completo de funil de vendas com automação (a partir de R$ 1.500,00)
+- **Funil que Vende+** - Sistema completo de funil de vendas com automação (a partir de R$ 1.500,00) - **Disponível**
+- **Design SaaS** - Soluções de design, desenvolvimento web, identidade visual, sites e landing pages (a partir de R$ 652,00) - **Early Adopters**
+- **SocialFlux** - Solução para geração automática de anúncios e campanhas no Instagram e Redes Sociais com recursos de IA avançada - **Disponível**
+- **SubHub** - Plataforma de gestão de assinaturas - **Early Adopters**
+- **HumanTic** - Soluções avançadas de IA e automação - **Early Adopters**
 
 ## 🚀 Tecnologias Utilizadas
 
@@ -60,11 +60,12 @@ Este é o projeto da landing page oficial da **WM3 Digital**, uma agência espec
 
 ## 🎨 Design System
 
-### Cores Principais
-- **Primary**: Gradiente azul-roxo (#3B82F6 → #8B5CF6)
-- **Secondary**: Tons complementares
+### Identidade Visual WM3
+- **Primary**: #0066FF (Azul principal da marca)
+- **Secondary**: #00D1FF (Azul claro complementar)
+- **Accent**: #FF3D00 (Laranja de destaque)
 - **Background**: Sistema de cores adaptável (light/dark)
-- **Accent**: Cores de destaque para CTAs
+- **Gradientes**: Combinações harmoniosas das cores da marca
 
 ### Tipografia
 - **Font Family**: Sistema de fontes otimizado
@@ -76,12 +77,33 @@ Este é o projeto da landing page oficial da **WM3 Digital**, uma agência espec
 - **Buttons**: Estados hover, focus e active
 - **Animations**: Transições suaves com Framer Motion
 - **Icons**: Lucide React para consistência visual
+- **Footer**: Design moderno com identidade visual WM3
+- **Gradientes**: Aplicação consistente das cores da marca
+
+## 🎯 Melhorias Recentes
+
+### Identidade Visual Implementada
+- ✅ **Footer Moderno**: Novo componente com design profissional e informações atualizadas
+- ✅ **Cores da Marca**: Aplicação consistente da identidade WM3 em todos os componentes
+- ✅ **Gradientes Personalizados**: Uso das cores oficiais (#0066FF → #00D1FF)
+- ✅ **Hover Effects**: Efeitos visuais com cores da marca
+- ✅ **Status Badges**: Indicadores com cor accent (#FF3D00)
+- ✅ **Informações de Contato**: Email atualizado para info@wm3digital.com.br
+- ✅ **Telefone Atualizado**: Novo número +55 (11) 9 5037-7457
+
+### Componentes Atualizados
+- **Features Section**: Gradientes e cores alinhadas à marca
+- **Footer Component**: Design moderno com animações e contatos atualizados
+- **Button Components**: Hover effects com cores WM3
+- **Social Icons**: Consistência visual mantida
+- **CTA Section**: Textos otimizados e preços atualizados
+- **Product Status**: Design SaaS alterado para Early Adopters
 
 ## 📁 Estrutura do Projeto
 
 ```
 src/
-├── app/                    # App Router (Next.js 14)
+├── app/                    # App Router (Next.js 15)
 │   ├── layout.tsx         # Layout principal
 │   ├── page.tsx           # Homepage
 │   ├── globals.css        # Estilos globais
@@ -89,10 +111,11 @@ src/
 │   ├── projetos/          # Portfólio de projetos
 │   └── servicos/          # Páginas de serviços
 │       ├── page.tsx       # Lista de serviços
+│       ├── funil-que-vende/ # Funil que Vende+
 │       ├── design-saas/   # Design SaaS
-│       ├── humantic/      # HumanTic
 │       ├── socialflux/    # SocialFlux
-│       └── subhub/        # SubHub
+│       ├── subhub/        # SubHub
+│       └── humantic/      # HumanTic
 ├── components/            # Componentes reutilizáveis
 │   ├── layout/           # Componentes de layout
 │   ├── navigation/       # Navegação e menus
@@ -111,11 +134,11 @@ src/
 - **/em-breve** - Funcionalidades em desenvolvimento
 
 ### Serviços Específicos
+- **/servicos/funil-que-vende** - Funil que Vende+ (sistema completo de automação)
 - **/servicos/design-saas** - Página de diferenciais do Design SaaS
 - **/servicos/socialflux** - Automação de redes sociais
 - **/servicos/subhub** - Gestão de assinaturas
 - **/servicos/humantic** - Soluções de IA e automação
-- **/servicos/funil-que-vende** - Funil que Vende+
 
 ## 🎯 Funcionalidades Principais
 
@@ -404,15 +427,28 @@ npm start
 
 ## 📝 Changelog
 
-### v3.0.0 - 2025-01-XX (Atual)
+### v3.1.0 - 2025-01-XX (Atual)
+- 📧 **FEATURE**: Atualização do email de contato para info@wm3digital.com.br
+- 📞 **FEATURE**: Novo telefone de contato +55 (11) 9 5037-7457
+- 💰 **FEATURE**: Atualização do preço Early Adopters para R$ 2.652,00
+- 🏷️ **FEATURE**: Design SaaS alterado para status Early Adopters
+- 📝 **FEATURE**: Textos otimizados na seção CTA
+- 🎨 **IMPROVEMENT**: Ajustes de fonte e espaçamento
+- 📄 **IMPROVEMENT**: Documentação atualizada com todas as mudanças
+
+### v3.0.0 - 2025-01-XX
 - 🚀 **MAJOR**: Atualização para Next.js 15.5.2 com Turbopack
 - ⚛️ **MAJOR**: Migração para React 19.1.0
 - 💰 **FEATURE**: Atualização do preço Design SaaS para R$ 652,00
 - 🌐 **FEATURE**: Expansão da comunicação incluindo websites e landing pages
 - 📄 **FEATURE**: Páginas completas de suporte e documentação
+- 🎨 **FEATURE**: Implementação da identidade visual WM3 (#0066FF, #00D1FF, #FF3D00)
+- 🦶 **FEATURE**: Footer moderno com design profissional e animações
 - 🎨 **IMPROVEMENT**: Melhorias no design system e UX
 - 🔧 **IMPROVEMENT**: Otimizações de performance com Turbopack
 - 📱 **IMPROVEMENT**: Aprimoramentos na responsividade
+- 🌈 **IMPROVEMENT**: Gradientes personalizados com cores da marca
+- ✨ **IMPROVEMENT**: Hover effects consistentes com identidade visual
 - 🛠️ **TECH**: Atualização de todas as dependências
 
 ### v2.0.0 - 2024-12-XX
@@ -434,8 +470,8 @@ npm start
 
 ## 📞 Suporte
 
-- **Email**: contato@wm3digital.com
-- **Telefone**: +55 (11) 99999-9999
+- **Email**: info@wm3digital.com.br
+- **Telefone**: +55 (11) 9 5037-7457
 - **Website**: [wm3digital.com](https://wm3digital.com)
 
 ## 📄 Licença

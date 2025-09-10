@@ -23,7 +23,7 @@ export default function FunilQueVendePage() {
               transition={{ duration: 0.5 }}
             >
               <span className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tighter bg-clip-text text-transparent bg-gradient-to-r from-primary via-primary/80 to-primary/60 drop-shadow-sm inline-flex items-center">
-                Funil que Vende<span style={{color: '#F9A688'}}>+</span>
+                Funil que Vende<span style={{color: '#FF3D00'}}>+</span>
               </span>
               <span className="text-base sm:text-lg md:text-xl font-light tracking-widest uppercase text-gray-600 dark:text-gray-400 mt-4 letter-spacing-[0.2em]">by WM3</span>
             </motion.h1>
@@ -82,7 +82,7 @@ export default function FunilQueVendePage() {
       <section className="w-full py-12 md:py-24 lg:py-32">
         <div className="container px-4 md:px-6">
           <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center mb-8">
-            Como Funciona o Funil que <span className="text-primary">Vende</span><span style={{color: '#F9A688'}}>+</span>
+            Como Funciona o Funil que <span className="text-primary">Vende</span><span style={{color: '#FF3D00'}}>+</span>
           </h2>
           <div className="grid gap-8 lg:grid-cols-7">
             {/* Lead Version */}
@@ -194,10 +194,10 @@ export default function FunilQueVendePage() {
               <h3 className="text-2xl font-bold mb-4">Funil Express</h3>
               <div className="text-4xl font-bold mb-6">R$ 1.500</div>
               <ul className="space-y-3 mb-6 flex-grow">
-                <li className="flex items-center">✓ 1 funil completo</li>
-                <li className="flex items-center">✓ Automação inteligente</li>
-                <li className="flex items-center">✓ Integração WhatsApp</li>
-                <li className="flex items-center">✓ Suporte via chamados</li>
+                <li className="flex items-center">• 1 funil completo</li>
+                <li className="flex items-center">• Automação inteligente</li>
+                <li className="flex items-center">• Integração WhatsApp</li>
+                <li className="flex items-center">• Suporte via chamados</li>
               </ul>
               <button className="w-full py-3 px-6 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors">
                 Começar agora
@@ -215,11 +215,11 @@ export default function FunilQueVendePage() {
               <h3 className="text-2xl font-bold mb-4">B2B Funil Profissional</h3>
               <div className="text-4xl font-bold mb-6">R$ 3.000</div>
               <ul className="space-y-3 mb-6 flex-grow">
-                <li className="flex items-center">✓ Funis integrados</li>
-                <li className="flex items-center">✓ Automação avançada</li>
-                <li className="flex items-center gap-1">✓ IA para copywriting (Acesso parcial ao <h4 className="font-semibold text-lg inline text-primary">SocialFlux∞</h4>)</li>
-                <li className="flex items-center">✓ Analytics completo</li>
-                <li className="flex items-center">✓ Suporte Híbrido (IA + Humano)</li>
+                <li className="flex items-center">• Funis integrados</li>
+                <li className="flex items-center">• Automação avançada</li>
+                <li className="flex items-center gap-1">• IA para copywriting (Acesso parcial ao <h4 className="font-semibold text-lg inline text-primary">SocialFlux∞</h4>)</li>
+                <li className="flex items-center">• Analytics completo</li>
+                <li className="flex items-center">• Suporte Híbrido (IA + Humano)</li>
               </ul>
               <button className="w-full py-3 px-6 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors">
                 Escolher plano
@@ -237,10 +237,10 @@ export default function FunilQueVendePage() {
               <h3 className="text-2xl font-bold mb-4">B2B Growth</h3>
               <div className="text-4xl font-bold mb-6">R$ 6.000</div>
               <ul className="space-y-3 mb-6 flex-grow">
-                <li className="flex items-center">✓ Funis integrados</li>
-                <li className="flex items-center gap-1">✓ Áudio personalizado (Integração nativa sndflw para Áudios)</li>
-                <li className="flex items-center">✓ Automações Estratégicas + Inteligência para Conversão</li>
-                <li className="flex items-center">✓ Suporte Dedicado</li>
+                <li className="flex items-center">• Funis integrados</li>
+                <li className="flex items-center gap-1">• Áudio personalizado (Integração nativa sndflw para Áudios)</li>
+                <li className="flex items-center">• Automações Estratégicas + Inteligência para Conversão</li>
+                <li className="flex items-center">• Suporte Dedicado</li>
               </ul>
               <button className="w-full py-3 px-6 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors">
                 Saiba mais
@@ -258,11 +258,11 @@ export default function FunilQueVendePage() {
               <h3 className="text-2xl font-bold mb-4">B2B Scale</h3>
               <div className="text-4xl font-bold mb-6">R$ 9.000</div>
               <ul className="space-y-3 mb-6 flex-grow">
-                <li className="flex items-center">✓ Funis integrados</li>
-                <li className="flex items-center">✓ Automações Estratégicas + Inteligência para Conversão</li>
-                <li className="flex items-center gap-1">✓ IA para anúncios (Acesso completo e ilimitado ao <h4 className="font-semibold text-lg inline text-primary">SocialFlux∞</h4>)</li>
-                <li className="flex items-center">✓ Gestão de tráfego (Orquestração + Inteligência com Insights)</li>
-                <li className="flex items-center">✓ Suporte Prioritário</li>
+                <li className="flex items-center">• Funis integrados</li>
+                <li className="flex items-center">• Automações Estratégicas + Inteligência para Conversão</li>
+                <li className="flex items-center gap-1">• IA para anúncios (Acesso completo e ilimitado ao <h4 className="font-semibold text-lg inline text-primary">SocialFlux∞</h4>)</li>
+                <li className="flex items-center">• Gestão de tráfego (Orquestração + Inteligência com Insights)</li>
+                <li className="flex items-center">• Suporte Prioritário</li>
               </ul>
               <button className="w-full py-3 px-6 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors">
                 Falar com especialista

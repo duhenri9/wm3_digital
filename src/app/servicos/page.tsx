@@ -19,16 +19,16 @@ const services = [
     title: 'Design SaaS Solutions',
     description: 'Soluções de design, desenvolvimento web, identidade visual, sites e landing pages com foco em conversão.',
     tags: ['Design', 'UX/UI', 'SaaS', 'Conversão'],
-    status: 'Disponível',
+    status: 'Em Desenvolvimento',
     price: 'A partir de R$ 652',
     links: {
       live: '/servicos/design-saas'
     }
   },
   {
-    title: 'SocialFlux',
-    description: 'Automação inteligente para redes sociais com geração de conteúdo e gestão automatizada.',
-    tags: ['Automação', 'Social Media', 'Marketing', 'IA'],
+    title: 'SocialFlux∞',
+    description: 'Micro-SaaS de geração automática de anúncios para Instagram e Redes Sociais com IA avançada. Automação inteligente, otimização em tempo real e segmentação precisa.',
+    tags: ['Micro-SaaS', 'IA', 'Marketing', 'Automação'],
     status: 'Disponível',
     price: 'Sob consulta',
     links: {

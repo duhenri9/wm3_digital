@@ -31,12 +31,19 @@ A WM3 Digital Landing Page é uma aplicação web moderna desenvolvida para apre
 - **Funil de Vendas**: Integração com Funil que Vende+
 
 ### 1.2 Objetivos de Negócio
-- Apresentar os 4 serviços principais da WM3 Digital (Design SaaS, SocialFlux, SubHub, HumanTic)
+- Apresentar os 5 serviços principais da WM3 Digital com status atualizados:
+  - **Funil que Vende+** (Disponível)
+  - **Design SaaS** (Early Adopters)
+  - **SocialFlux** (Disponível)
+  - **SubHub** (Early Adopters)
+  - **HumanTic** (Early Adopters)
 - Converter visitantes em leads qualificados através do Funil que Vende+
 - Estabelecer autoridade no mercado digital
-- Facilitar o contato e vendas
+- Facilitar o contato e vendas com informações atualizadas
 - Otimizar funis de venda com automação inteligente
 - Integrar soluções SaaS próprias da WM3
+- Manter consistência visual com a identidade da marca WM3
+- Proporcionar experiência de usuário moderna e profissional
 
 ### 1.3 Público-Alvo
 - Empresários que buscam transformação digital
@@ -103,6 +110,28 @@ App Router (Next.js 15)
 - **Mobile First**: Design responsivo começando pelo mobile
 - **Progressive Enhancement**: Funcionalidades básicas primeiro
 - **Component Composition**: Componentes compostos e reutilizáveis
+- **Brand Consistency**: Identidade visual consistente da WM3
+
+### 2.4 Identidade Visual WM3
+
+#### Cores Oficiais da Marca
+```css
+/* Cores principais da identidade WM3 */
+--wm3-primary: #0066FF;    /* Azul principal */
+--wm3-secondary: #00D1FF;  /* Azul claro */
+--wm3-accent: #FF3D00;     /* Laranja de destaque */
+```
+
+#### Aplicação das Cores
+- **Primary (#0066FF)**: Elementos principais, botões primários, títulos
+- **Secondary (#00D1FF)**: Gradientes, elementos secundários, hover states
+- **Accent (#FF3D00)**: Status badges, pontos de destaque, call-to-actions
+
+#### Componentes com Identidade WM3
+- **Footer**: Design moderno com cores da marca e animações suaves
+- **Gradientes**: `from-[#0066FF] to-[#00D1FF]` para elementos visuais
+- **Status Badges**: `bg-[#FF3D00]/20 text-[#FF3D00]` para indicadores
+- **Hover Effects**: `hover:shadow-[#0066FF]/25` para interações
 
 ---
 
@@ -841,36 +870,11 @@ import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isServicesOpen, setIsServicesOpen] = useState(false);
-
-  const services = [
-    {
-      name: "Design SaaS",
-      href: "/servicos/design-saas",
-      description: "Soluções de design e desenvolvimento web",
-      price: "R$ 652,00"
-    },
-    {
-      name: "SocialFlux",
-      href: "/servicos/socialflux",
-      description: "Automação inteligente para redes sociais"
-    },
-    {
-      name: "SubHub",
-      href: "/servicos/subhub",
-      description: "Plataforma de gestão de assinaturas"
-    },
-    {
-      name: "HumanTic",
-      href: "/servicos/humantic",
-      description: "Soluções avançadas de IA e automação"
-    }
-  ];
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -895,51 +899,13 @@ const Header: React.FC = () => {
             Início
           </Link>
           
-          {/* Services Dropdown */}
-          <div className="relative">
-            <button
-              className="flex items-center space-x-1 text-sm font-medium transition-colors hover:text-primary"
-              onClick={() => setIsServicesOpen(!isServicesOpen)}
-            >
-              <span>Serviços</span>
-              <ChevronDown className="h-4 w-4" />
-            </button>
-            
-            <AnimatePresence>
-              {isServicesOpen && (
-                <motion.div
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -10 }}
-                  className="absolute top-full left-0 mt-2 w-80 rounded-md border bg-popover p-4 shadow-md"
-                >
-                  <div className="grid gap-3">
-                    {services.map((service) => (
-                      <Link
-                        key={service.name}
-                        href={service.href}
-                        className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
-                      >
-                        <div className="flex items-center justify-between">
-                          <div className="text-sm font-medium leading-none">
-                            {service.name}
-                          </div>
-                          {service.price && (
-                            <div className="text-xs text-muted-foreground">
-                              {service.price}
-                            </div>
-                          )}
-                        </div>
-                        <p className="line-clamp-2 text-xs leading-snug text-muted-foreground">
-                          {service.description}
-                        </p>
-                      </Link>
-                    ))}
-                  </div>
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </div>
+          {/* Services Direct Link */}
+          <Link
+            href="/servicos"
+            className="text-sm font-medium transition-colors hover:text-primary"
+          >
+            Serviços
+          </Link>
 
           <Link
             href="/projetos"
@@ -990,21 +956,13 @@ const Header: React.FC = () => {
                 Início
               </Link>
               
-              <div className="space-y-2">
-                <div className="text-sm font-medium text-muted-foreground">
-                  Serviços
-                </div>
-                {services.map((service) => (
-                  <Link
-                    key={service.name}
-                    href={service.href}
-                    className="block pl-4 text-sm"
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    {service.name}
-                  </Link>
-                ))}
-              </div>
+              <Link
+                href="/servicos"
+                className="block text-sm font-medium"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Serviços
+              </Link>
               
               <Link
                 href="/projetos"
@@ -1215,21 +1173,43 @@ export default HeroSection;
 
 ### 10.1 Serviços da WM3 Digital
 
-#### Design SaaS (soluções a partir de R$ 652,00)
+#### Funil que Vende+ (a partir de R$ 1.500)
+- **Descrição**: Sistema completo de automação de vendas e marketing digital
+- **Funcionalidades**: Funis de conversão, automação de email, landing pages otimizadas
+- **Diferenciais**: Integração completa com CRM, analytics avançados
+- **CTA**: Link para página específica do serviço
+
+#### Design SaaS (Early Adopters - R$ 2.652,00)
 - **Descrição**: Soluções completas de design, desenvolvimento web, identidade visual, sites e landing pages
+- **Status**: Early Adopters (atualizado de "Em Desenvolvimento")
+- **Preço**: R$ 2.652,00 (preço especial para Early Adopters)
 - **Diferenciais**: 5 pontos únicos da WM3
 - **Entregáveis**: 4 itens principais
 - **CTA**: Link para pagamento Stripe
 
-#### SocialFlux
-- **Descrição**: Automação inteligente para redes sociais
-- **Funcionalidades**: Agendamento, análise, engajamento automático
+#### SocialFlux (Disponível)
+- **Descrição**: Solução para geração automática de anúncios e campanhas no Instagram e Redes Sociais com recursos de IA avançada
+- **Funcionalidades Principais**:
+  - **Automação Inteligente**: Criação e agendamento de campanhas automaticamente com IA avançada
+  - **Otimização em Tempo Real**: Ajustes automáticos baseados em performance para maximizar resultados
+  - **Segmentação Precisa**: Alcance do público certo com targeting baseado em dados e IA
+- **Características**:
+  - Geração automática de anúncios para Instagram e redes sociais
+  - IA avançada para criação de conteúdo
+  - Gestão automatizada de campanhas
+  - Analytics e relatórios em tempo real
+- **Status**: Disponível
+- **Teste Gratuito**: 14 dias sem compromisso
+- **Demo**: https://socialflux.wm3.digital
+- **Tags**: Micro-SaaS, IA, Marketing, Automação
 
-#### SubHub
+#### SubHub (Early Adopters)
 - **Descrição**: Plataforma de gestão de assinaturas
+- **Status**: Early Adopters
+- **Funcionalidades**: Gestão completa de assinaturas e pagamentos recorrentes
 - **Funcionalidades**: Billing, analytics, customer management
 
-#### HumanTic
+#### HumanTic (sob consulta)
 - **Descrição**: Soluções avançadas de IA e automação
 - **Funcionalidades**: Chatbots, processamento de linguagem natural
 
@@ -1255,10 +1235,37 @@ export interface Service {
 
 export const services: Service[] = [
   {
+    id: "funil-que-vende",
+    name: "Funil que Vende+",
+    description: "Sistema completo de automação de vendas e marketing digital com funis de conversão otimizados.",
+    price: "A partir de R$ 1.500",
+    features: [
+      "Funis de conversão personalizados",
+      "Automação de email marketing",
+      "Landing pages otimizadas",
+      "Integração com CRM",
+      "Analytics avançados"
+    ],
+    benefits: [
+      "Aumento de até 500% nas vendas",
+      "Automação completa do processo",
+      "Relatórios detalhados",
+      "Suporte especializado",
+      "ROI comprovado"
+    ],
+    cta: {
+      text: "Saiba Mais",
+      href: "/servicos/funil-que-vende",
+      external: false
+    },
+    icon: "TrendingUp",
+    color: "from-green-500 to-blue-600"
+  },
+  {
     id: "design-saas",
     name: "Design SaaS",
     description: "Soluções completas de design, desenvolvimento web, identidade visual, websites e landing pages modernas que convertem visitantes em clientes.",
-    price: "R$ 652,00",
+    price: "A partir de R$ 652,00",
     features: [
       "Design de interfaces modernas",
       "Desenvolvimento web responsivo",
@@ -1281,8 +1288,39 @@ export const services: Service[] = [
     icon: "Palette",
     color: "from-blue-500 to-purple-600"
   },
-  // ... outros serviços
-];
+  {
+    id: "socialflux",
+    name: "SocialFlux∞",
+    description: "Micro-SaaS de geração automática de anúncios para Instagram e Redes Sociais com IA avançada.",
+    price: "Sob consulta",
+    features: [
+      "Automação Inteligente com IA",
+      "Geração automática de anúncios",
+      "Otimização em tempo real",
+      "Segmentação precisa de público",
+      "Analytics e relatórios avançados",
+      "Gestão automatizada de campanhas"
+    ],
+    benefits: [
+      "Economia de tempo na criação de anúncios",
+      "Melhores resultados com IA",
+      "Targeting mais eficiente",
+      "ROI otimizado automaticamente",
+      "Teste gratuito por 14 dias"
+    ],
+    cta: {
+      text: "Experimentar SocialFlux∞",
+      href: "/servicos/socialflux",
+      external: false
+    },
+    demo: "https://socialflux.wm3.digital",
+    icon: "Bot",
+    color: "from-primary to-secondary",
+    tags: ["Micro-SaaS", "IA", "Marketing", "Automação"],
+    status: "Disponível"
+  },
+  // ... outros serviços (SubHub, HumanTic)
+];}
 ```
 
 ### 10.3 Animações com Framer Motion
@@ -1549,10 +1587,11 @@ import { motion } from "framer-motion";
 
 Para dúvidas sobre esta documentação ou problemas técnicos:
 
-- **Email**: dev@wm3digital.com
+- **Email**: info@wm3digital.com.br
+- **Telefone**: +55 (11) 9 5037-7457
 - **Documentação**: /documentacao
 - **Suporte**: /suporte
-- **GitHub**: https://github.com/wm3digital/wm3-landing
+- **GitHub**: https://github.com/duhenri9/wm3_digital
 
 ---
 

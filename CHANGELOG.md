@@ -7,6 +7,39 @@ e este projeto adere ao [Semantic Versioning](https://semver.org/lang/pt-BR/).
 
 ## [Não Lançado]
 
+### Em Desenvolvimento
+- Novas funcionalidades em planejamento
+- Melhorias contínuas de performance
+
+## [3.1.0] - 2025-01-XX
+
+### ✨ Adicionado
+- **Contato**: Novo email info@wm3digital.com.br
+- **Contato**: Novo telefone +55 (11) 9 5037-7457
+- **Footer**: Informações de contato atualizadas no footer
+- **Documentação**: Atualização completa de README.md e detalhamento.landingpage.md
+- **Identidade Visual**: Implementação completa das cores da marca WM3 (#0066FF, #00D1FF, #FF3D00)
+- **Footer**: Design moderno com animações e gradientes da marca
+
+### 🔧 Alterado
+- **Design SaaS**: Status alterado de "Em Desenvolvimento" para "Early Adopters"
+- **Design SaaS**: Preço atualizado para R$ 2.652,00 (Early Adopters)
+- **SocialFlux**: Descrição atualizada para "Solução para geração automática de anúncios e campanhas no Instagram e Redes Sociais com recursos de IA avançada"
+- **SubHub**: Status alterado para "Early Adopters"
+- **HumanTic**: Status alterado para "Early Adopters"
+- **Funil que Vende+**: Status confirmado como "Disponível"
+- **SocialFlux**: Status confirmado como "Disponível"
+- **CTA Section**: Textos otimizados e preços atualizados
+- **Features Section**: Status badges atualizados com novas informações
+- **Documentação**: Informações de contato atualizadas em todos os arquivos
+
+### 🐛 Corrigido
+- **Footer**: Correção das informações de contato desatualizadas
+- **Features**: Atualização dos status dos produtos
+- **Documentação**: Sincronização de todas as informações entre arquivos
+
+## [3.0.1] - 2025-01-15
+
 ### Adicionado
 - Documentação completa do projeto
 - Guia de contribuição (CONTRIBUTING.md)
@@ -140,8 +173,9 @@ e este projeto adere ao [Semantic Versioning](https://semver.org/lang/pt-BR/).
 
 ## Links de Comparação
 
-- [Não Lançado]: https://github.com/wm3digital/wm3-landing/compare/v3.0.0...HEAD
-- [3.0.0]: https://github.com/wm3digital/wm3-landing/compare/v2.0.0...v3.0.0
-- [2.0.0]: https://github.com/wm3digital/wm3-landing/compare/v1.5.0...v2.0.0
-- [1.5.0]: https://github.com/wm3digital/wm3-landing/compare/v1.0.0...v1.5.0
-- [1.0.0]: https://github.com/wm3digital/wm3-landing/releases/tag/v1.0.0
+- [Não Lançado]: https://github.com/duhenri9/wm3_digital/compare/v3.1.0...HEAD
+- [3.1.0]: https://github.com/duhenri9/wm3_digital/compare/v3.0.0...v3.1.0
+- [3.0.0]: https://github.com/duhenri9/wm3_digital/compare/v2.0.0...v3.0.0
+- [2.0.0]: https://github.com/duhenri9/wm3_digital/compare/v1.5.0...v2.0.0
+- [1.5.0]: https://github.com/duhenri9/wm3_digital/compare/v1.0.0...v1.5.0
+- [1.0.0]: https://github.com/duhenri9/wm3_digital/releases/tag/v1.0.0
