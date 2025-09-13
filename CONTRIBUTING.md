@@ -481,9 +481,10 @@ Qualquer outra informação relevante.
 
 Se você tiver dúvidas sobre como contribuir:
 
-- **Email**: dev@wm3digital.com
-- **Discord**: [Link do servidor]
+- **Email**: info@wm3digital.com.br
+- **Telefone**: +55 (11) 9 5037-7457
 - **Issues**: Para discussões técnicas
+- **GitHub**: https://github.com/duhenri9/wm3_digital
 
 ## 🙏 Reconhecimento
 

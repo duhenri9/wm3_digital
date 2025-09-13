@@ -177,7 +177,10 @@ Se encontrar problemas:
 1. Verifique se seguiu todos os passos corretamente
 2. Consulte a seção "Troubleshooting" no README.md
 3. Verifique as issues no GitHub do projeto
-4. Entre em contato com a equipe WM3 Digital
+4. Entre em contato com a equipe WM3 Digital:
+   - **Email**: info@wm3digital.com.br
+   - **Telefone**: +55 (11) 9 5037-7457
+   - **GitHub**: https://github.com/duhenri9/wm3_digital
 
 ---
 
