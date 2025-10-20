@@ -10,6 +10,10 @@ e este projeto adere ao [Semantic Versioning](https://semver.org/lang/pt-BR/).
 ### Em Desenvolvimento
 - Novas funcionalidades em planejamento
 - Melhorias contínuas de performance
+- Higienização de código: remoção de ativos legados não utilizados (fonts, estilos, configs duplicadas)
+- Redesign minimalista da landing (Hero, About, Features, Benefits, CTA) com copy migrada do `versao_bubble` e contraste AA.
+- Novo gateway `/api/wm3/services` com cache tipado, CORS seletivo e integração com observabilidade Supabase/n8n.
+- Atualização do footer com novo logo (`brand/wm3-footer-logo.svg`) e portfólio WM3 completo.
 
 ## [3.1.0] - 2025-01-XX
 

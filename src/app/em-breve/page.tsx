@@ -1,7 +1,6 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import Link from 'next/link';
 import { ArrowRight, Bell, Calendar, Rocket, Sparkles, Zap, Brain, Target } from 'lucide-react';
 
 const upcomingFeatures = [

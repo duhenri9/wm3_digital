@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowRight, ExternalLink, Github, Globe } from 'lucide-react';
+import { ArrowRight, ExternalLink } from 'lucide-react';
 
 const projects = [
   {
@@ -215,11 +215,13 @@ export default function ProjetosPage() {
                   &ldquo;{testimonial.content}&rdquo;
                 </p>
                 <div className="flex items-center space-x-3">
-                  <div className="w-10 h-10 rounded-full overflow-hidden">
-                    <img 
-                      src={testimonial.avatar} 
+                  <div className="relative h-10 w-10 overflow-hidden rounded-full">
+                    <Image
+                      src={testimonial.avatar}
                       alt={testimonial.name}
-                      className="w-full h-full object-cover"
+                      fill
+                      sizes="40px"
+                      className="object-cover"
                     />
                   </div>
                   <div>

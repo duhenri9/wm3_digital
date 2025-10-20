@@ -51,16 +51,22 @@ export function HeroSection() {
             <Link
               href="#humanTic"
               prefetch={false}
-              className="inline-flex h-12 items-center justify-center rounded-full bg-gradient-to-r from-primary to-secondary px-8 text-sm font-semibold text-primary-foreground shadow-[0_20px_40px_-20px_rgba(0,102,255,0.6)] transition-transform duration-200 hover:-translate-y-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0B1220]"
+              className="inline-flex min-h-[3.25rem] flex-col items-center justify-center gap-1 rounded-full bg-gradient-to-r from-[#F9A688] via-[#F98B61] to-[#F77438] px-8 text-center text-sm font-semibold text-[#2C1406] shadow-[0_20px_46px_-24px_rgba(249,166,136,0.75)] transition-all duration-200 hover:scale-[1.03] hover:shadow-[0_0_32px_rgba(249,166,136,0.55)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F77438]/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0B1220]"
             >
-              Conheça HumanTic
+              <span className="text-[0.7rem] font-medium uppercase tracking-[0.22em] text-[#46220E]">
+                24/7 e gerenciado
+              </span>
+              <span className="text-base font-semibold">Obter HumanTic</span>
             </Link>
             <Link
               href="#eryon"
               prefetch={false}
-              className="inline-flex h-12 items-center justify-center rounded-full border border-slate-500/40 px-8 text-sm font-semibold text-slate-100 transition-all duration-200 hover:border-secondary hover:text-secondary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0B1220]"
+              className="inline-flex min-h-[3.25rem] flex-col items-center justify-center gap-1 rounded-full border border-slate-500/40 px-8 text-center text-sm font-semibold text-slate-100 transition-all duration-200 hover:scale-[1.03] hover:border-secondary hover:text-secondary hover:shadow-[0_0_28px_rgba(148,163,184,0.35)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0B1220]"
             >
-              Conheça Eryon
+              <span className="text-[0.7rem] font-medium uppercase tracking-[0.22em] text-slate-300">
+                Chat que vira Ação
+              </span>
+              <span className="text-base font-semibold">Conheça Eryon Core</span>
             </Link>
           </div>
         </motion.div>

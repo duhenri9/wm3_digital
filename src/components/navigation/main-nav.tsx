@@ -3,28 +3,25 @@
 import * as React from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Rocket, BarChart3, Bot, Palette, Sparkles } from 'lucide-react';
 
 import { cn } from '@/lib/utils';
 import {
   NavigationMenu,
-  NavigationMenuContent,
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
-  NavigationMenuTrigger,
 } from '@/components/ui/navigation-menu';
 
 const items = [
   {
     title: 'Serviços',
     href: '/servicos',
-    description: 'Conheça nossas soluções digitais',
+    description: 'Design SaaS, Funil que Vende+, SocialFlux∞',
   },
   {
-    title: 'Projetos',
-    href: '/projetos',
-    description: 'Conheça nossos cases de sucesso',
+    title: 'Portfólio WM3',
+    href: '/portfolio',
+    description: 'SubHub, Metrify, HumanTic, Eryon Core, Aurion',
   },
   {
     title: 'Prepare-se para o novo',

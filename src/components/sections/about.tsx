@@ -1,152 +1,121 @@
 'use client';
 
-import { motion, useInView } from 'framer-motion';
-import { Brain, Zap, Target, Users } from 'lucide-react';
-import { useRef, useEffect, useState } from 'react';
+import { motion } from 'framer-motion';
+import { ArrowRight, Sparkles } from 'lucide-react';
+import { useMemo } from 'react';
 
-const features = [
-  {
-    icon: Brain,
-    title: 'Inteligência Artificial',
-    description: 'Soluções powered by IA para automatizar e otimizar seus processos de negócio.'
-  },
-  {
-    icon: Zap,
-    title: 'Automação Avançada',
-    description: 'Workflows inteligentes que economizam tempo e aumentam a produtividade.'
-  },
-  {
-    icon: Target,
-    title: 'Resultados Mensuráveis',
-    description: 'Estratégias baseadas em dados para maximizar seu ROI e crescimento.'
-  },
-  {
-    icon: Users,
-    title: 'Experiência do Cliente',
-    description: 'Interfaces modernas e intuitivas que encantam seus usuários.'
-  }
-];
+import { serviceOfferings, type ServiceOffering } from '@/data';
 
-function AnimatedCounter({ end, suffix = '', duration = 2000 }: { end: number; suffix?: string; duration?: number }) {
-  const [count, setCount] = useState(0);
-  const [isClient, setIsClient] = useState(false);
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
-
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
-
-  useEffect(() => {
-    if (isInView && isClient) {
-      let startTime: number;
-      const animate = (currentTime: number) => {
-        if (!startTime) startTime = currentTime;
-        const progress = Math.min((currentTime - startTime) / duration, 1);
-        setCount(Math.floor(progress * end));
-        if (progress < 1) {
-          requestAnimationFrame(animate);
-        }
-      };
-      requestAnimationFrame(animate);
-    }
-  }, [isInView, isClient, end, duration]);
-
-  return (
-    <span ref={ref} className="text-3xl font-bold text-primary mb-2">
-      {isClient ? count : end}{suffix}
-    </span>
-  );
-}
+const duoSolutionsIds = ['humantic', 'eryon-core'] as const;
 
 export function AboutSection() {
+  const duoSolutions = useMemo(
+    () =>
+      duoSolutionsIds
+        .map((id) => serviceOfferings.find((service) => service.id === id))
+        .filter(Boolean) as ServiceOffering[],
+    [],
+  );
+
   return (
-    <section className="py-24 bg-muted/30">
+    <section className="bg-[#F8FAFF] py-24 md:py-32">
       <div className="container">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="mx-auto flex max-w-5xl flex-col gap-10 md:flex-row md:items-center"
         >
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
-            Liderando a <span className="text-primary">Transformação Digital</span>
-          </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-            Somos uma agência digital especializada em IA e automação, 
-            criando soluções inovadoras que impulsionam o crescimento dos nossos clientes.
-          </p>
+          <div className="flex-1 space-y-6">
+            <span className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-white px-4 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-primary">
+              <Sparkles className="h-4 w-4" />
+              WM3 Digital
+            </span>
+            <h2 className="text-3xl font-semibold leading-tight text-slate-900 md:text-4xl">
+              WM3 Digital: Inteligência Operacional em Duas Soluções Complementares
+            </h2>
+            <p className="text-base text-slate-600 md:text-lg">
+              Somos uma empresa de transformação digital que conecta automação inteligente e agentes
+              multimodais para resolver gargalos de atendimento, dados e operações críticas.
+              HumanTic reduz filas e gera relacionamento contínuo com automação empática, enquanto
+              Eryon Core executa rotinas pré-definidas com agentes multimodais para manter sistemas
+              sincronizados e governados.
+            </p>
+          </div>
+
+          <div className="flex-1 space-y-4">
+            {duoSolutions.map((solution) => (
+              <motion.article
+                key={solution.id}
+                id={solution.id === 'humantic' ? 'humanTic' : 'eryon'}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4 }}
+                viewport={{ once: true }}
+                className="rounded-3xl border border-slate-200 bg-white/85 p-6 shadow-[0_20px_60px_-24px_rgba(15,23,42,0.25)] backdrop-blur"
+              >
+                <div className="flex items-center justify-between gap-3">
+                  <h3 className="text-xl font-semibold text-slate-900">{solution.name}</h3>
+                  <span className="rounded-full border border-slate-200 px-3 py-1 text-xs font-semibold text-slate-500">
+                    {solution.status}
+                  </span>
+                </div>
+                <p className="mt-2 text-sm font-medium uppercase tracking-[0.2em] text-primary">
+                  {solution.headline}
+                </p>
+                <p className="mt-3 text-sm leading-relaxed text-slate-600">{solution.description}</p>
+                <div className="mt-4 flex flex-wrap gap-2">
+                  {solution.tags?.slice(0, 3).map((tag) => (
+                    <span
+                      key={tag}
+                      className="rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-xs font-semibold text-primary"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+                <a
+                  href={solution.href}
+                  className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-primary transition-transform duration-200 hover:translate-x-1"
+                >
+                  Ver detalhes
+                  <ArrowRight className="h-4 w-4" />
+                </a>
+              </motion.article>
+            ))}
+          </div>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {features.map((feature, index) => {
-            const Icon = feature.icon;
-            return (
-              <motion.div
-                key={feature.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className="text-center group"
-              >
-                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 text-primary mb-6 group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-300">
-                  <Icon className="w-8 h-8" />
-                </div>
-                <h3 className="text-xl font-semibold mb-3">{feature.title}</h3>
-                <p className="text-gray-600 dark:text-gray-300 leading-relaxed">{feature.description}</p>
-              </motion.div>
-            );
-          })}
-        </div>
-
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.4 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
           viewport={{ once: true }}
-          className="mt-20 text-center"
+          className="mx-auto mt-16 max-w-5xl rounded-3xl border border-primary/15 bg-white/90 p-10 shadow-[0_20px_60px_-24px_rgba(5,30,77,0.25)]"
         >
-          <div className="bg-gradient-to-r from-primary/10 to-secondary/10 rounded-2xl p-8 md:p-12">
-            <h3 className="text-2xl md:text-3xl font-bold mb-4">
-              Mais de <span className="text-primary">17+ projetos</span> entregues
-            </h3>
-            <p className="text-lg text-gray-600 dark:text-gray-300 mb-6">
-              Transformamos ideias em soluções digitais que geram resultados reais para nossos clientes.
-            </p>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
-              <motion.div
-                initial={{ opacity: 0, scale: 0.5 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-                viewport={{ once: true }}
-              >
-                <div className="mb-2">
-                  <AnimatedCounter end={91} suffix="%" />
-                </div>
-                <div className="text-sm text-gray-500 dark:text-gray-400">Satisfação dos Clientes</div>
-              </motion.div>
-              <motion.div
-                initial={{ opacity: 0, scale: 0.5 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5, delay: 0.4 }}
-                viewport={{ once: true }}
-              >
-                <div className="mb-2">
-                  <AnimatedCounter end={3} suffix="x" />
-                </div>
-                <div className="text-sm text-gray-500 dark:text-gray-400">Aumento Médio de Conversão</div>
-              </motion.div>
-              <motion.div
-                initial={{ opacity: 0, scale: 0.5 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5, delay: 0.6 }}
-                viewport={{ once: true }}
-              >
-                <div className="text-3xl font-bold text-primary mb-2">24/7</div>
-                <div className="text-sm text-gray-500 dark:text-gray-400">Suporte Especializado</div>
-              </motion.div>
+          <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+            <div className="max-w-2xl space-y-3">
+              <h3 className="text-2xl font-semibold text-slate-900">Integração Perfeita</h3>
+              <p className="text-base text-slate-600">
+                HumanTic automatiza jornadas complexas, Eryon Core garante atendimento omnichannel
+                assistido por IA e Metrify monitora a operação em tempo real. O ecossistema WM3 foi
+                concebido para compartilhar dados e acelerar upsell com governança total.
+              </p>
+            </div>
+            <div className="grid w-full max-w-xs gap-3 rounded-3xl bg-slate-900 p-6 text-slate-100 md:w-auto">
+              <div>
+                <p className="text-2xl font-semibold text-secondary">Squads WM3</p>
+                <span className="text-xs uppercase tracking-[0.3em] text-slate-300">
+                  Especialistas multidisciplinares
+                </span>
+              </div>
+              <div>
+                <p className="text-2xl font-semibold text-secondary">+200</p>
+                <span className="text-xs uppercase tracking-[0.3em] text-slate-300">
+                  Fluxos automatizados
+                </span>
+              </div>
             </div>
           </div>
         </motion.div>

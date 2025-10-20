@@ -30,11 +30,13 @@ npm run dev
 Este é o projeto da landing page oficial da **WM3 Digital**, uma agência especializada em soluções digitais inovadoras. A landing page foi desenvolvida em Next.js 15 com foco em apresentar os serviços da agência para empresas que buscam transformação tecnológica. O projeto utiliza tecnologias de ponta para garantir performance, acessibilidade e uma experiência de usuário excepcional.
 
 ### 🎯 Principais Serviços
-- **Funil que Vende+** - Sistema completo de funil de vendas com automação (a partir de R$ 1.500,00) - **Disponível**
-- **Design SaaS** - Soluções de design, desenvolvimento web, identidade visual, sites e landing pages (a partir de R$ 652,00) - **Early Adopters**
-- **SocialFlux** - Solução para geração automática de anúncios e campanhas no Instagram e Redes Sociais com recursos de IA avançada - **Disponível**
-- **SubHub** - Plataforma de gestão de assinaturas - **Early Adopters**
-- **HumanTic** - Soluções avançadas de IA e automação - **Early Adopters**
+- **Funil que Vende+** – Automação completa de vendas com IA e jornadas omnichannel (a partir de R$ 1.500,00) — **Disponível**
+- **SocialFlux∞** – Automação inteligente para redes sociais com orquestração via n8n — **Disponível**
+- **SubHub** – Gestão de assinaturas e billing recorrente — **Early Adopters**
+- **HumanTic** – Plataforma de agentes digitais, RPA e copilotos operacionais — **Early Adopters**
+- **Metrify** – Monitoramento contínuo de métricas SaaS com alertas inteligentes — **Em Beta**
+- **Eryon Core** – Atendimento omnichannel com roteamento inteligente e templates CX — **Early Adopters**
+- **Aurion by Veridex** – Motor de verificação e compliance orientado a dados — **Em Beta**
 
 ## 🚀 Tecnologias Utilizadas
 
@@ -107,6 +109,9 @@ src/
 │   ├── layout.tsx         # Layout principal
 │   ├── page.tsx           # Homepage
 │   ├── globals.css        # Estilos globais
+│   ├── api/               # Route handlers tipados
+│   │   └── leads/
+│   │       └── route.ts   # Gateway de leads com CORS restrito
 │   ├── em-breve/          # Página "Em Breve"
 │   ├── projetos/          # Portfólio de projetos
 │   └── servicos/          # Páginas de serviços
@@ -119,9 +124,17 @@ src/
 ├── components/            # Componentes reutilizáveis
 │   ├── layout/           # Componentes de layout
 │   ├── navigation/       # Navegação e menus
-│   ├── sections/         # Seções da homepage
+│   ├── sections/         # Seções da homepage (hero, about, features, benefits, CTA)
 │   └── ui/              # Componentes de interface
-├── lib/                  # Utilitários e configurações
+├── data/                 # Conteúdo estruturado e tipagens
+│   ├── benefits.ts       # Benefícios estratégicos (versao_bubble)
+│   ├── index.ts          # Barrel de exports
+│   └── services.ts       # Portfólio WM3 completo
+├── lib/                  # Camada de integrações e utilitários
+│   ├── cors.ts           # Helper para CORS seletivo
+│   ├── leads.ts          # Tipagem e gateway de leads
+│   ├── observability.ts  # Logs Supabase / n8n / console
+│   └── utils.ts          # Helpers compartilhados
 └── styles/              # Estilos adicionais
 ```
 
@@ -169,6 +182,45 @@ src/
 - **Mobile**: Menu hambúrguer responsivo
 - **Footer**: Links úteis e informações de contato
 
+## 🧭 Checklist de Migração `versao_bubble`
+
+| Status | Bloco do `versao_bubble` | Componente/Seção destino | Observações de implementação |
+| :----: | ------------------------ | ------------------------- | ---------------------------- |
+| ✅ | “Transformação Digital com Automação Inteligente...” + CTAs “Conheça HumanTic / Eryon” | `src/components/sections/hero.tsx` | Headline e sub-hero preferida aplicadas com layout minimalista, contraste AA e métricas-chave. |
+| ✅ | “WM3 Digital: Duas Frentes, Uma Visão” + parágrafo | `src/components/sections/about.tsx` | Duas colunas enxutas destacando HumanTic e Eryon, cards minimalistas com âncoras e visão integrada. |
+| ✅ | Cards “HumanTic”, “Eryon”, “Integração Perfeita” | `src/components/sections/features.tsx` | Portfólio reorganizado: destaque Funil que Vende+ + grid de serviços WM3, animações sutis e CTA por card. |
+| ✅ | Lista “Por Que Escolher WM3 Digital?” (ROI, Expertise, Suporte, Escalabilidade, Integração Fácil, Analytics Avançado) | `src/components/sections/benefits.tsx` | Layout dark minimal com contraste AA, duas colunas apenas no desktop e métricas enxutas. |
+| ✅ | CTA final “Pronto Para Transformar Sua Operação?” | `src/components/sections/cta.tsx` | Copy concisa e formulário de lead destacado; CTAs secundárias apontam para HumanTic/Eryon. |
+
+**Conteúdos preservados da versão anterior**
+- Sub-hero preferida: “Transforme seu negócio com soluções digitais inovadoras...”.
+- Estrutura de animações Framer Motion já validada (fade/slide/pulse) a ser mantida ao reaproveitar componentes.
+
+**Componentes com revisão de contraste/layout**
+- ✅ Hero — fundo `#0B1220`, cards translúcidos e CTAs com sombra suave.
+- ✅ About — cartões minimalistas com bordas claras e estatísticas em destaque.
+- ✅ Features & Benefits — contraste AA garantido em cards neutros/escuros alternados.
+- ✅ CTA — formulário claro com botões em destaque e layout de duas colunas minimalista.
+
+## 🔌 Integrações Vercel ↔ VPS WM3
+
+- **Gateway de Leads**: `POST /api/leads` valida payload, aplica CORS restrito (`https://wm3digital.com`, `https://app.wm3digital.com`, `NEXT_PUBLIC_SITE_URL`) e encaminha dados para o VPS Hostinger quando configurado.
+- **Gateway de Leads**: `POST /api/leads` valida payload, aplica CORS restrito (`https://wm3digital.com`, `https://app.wm3digital.com`, `NEXT_PUBLIC_SITE_URL`) e encaminha dados para o VPS Hostinger quando configurado.
+- **Gateway de Conteúdo**: `GET/POST /api/wm3/services` centraliza sincronização de serviços entre SaaS e landing. Webhooks autenticados atualizam o snapshot em memória e disparam `revalidatePath('/')` e `/servicos`.
+- **Env vars necessárias**:
+  - `VPS_GATEWAY_URL` – endpoint no VPS (MySQL/API) que receberá os leads.
+  - `VPS_GATEWAY_KEY` – chave privada enviada no header `X-WM3-API-KEY`.
+  - `SUPABASE_METRICS_WEBHOOK` – registro de eventos de observabilidade.
+  - `N8N_WEBHOOK_URL` – automações de nurture / alertas.
+  - `NEXT_PUBLIC_SITE_URL` – usada localmente para liberar origem nos testes.
+  - `WM3_API_SECRET` – assinatura compartilhada para webhooks dos SaaS WM3 (`X-WM3-SIGNATURE`).
+- **Observabilidade**: `recordLeadLifecycle` e `recordSyncEvent` enviam logs/telemetria para console, Supabase e n8n, mantendo histórico dos fluxos de leads e sincronizações SaaS.
+- **CTA Form**: `CTASection` envia dados via `fetch` para `/api/leads`, exibindo retorno contextual (stored/pending) e mantendo feedback ao usuário.
+- **Configuração**: copie `.env.example` para `.env.local` (e `.env.production`) e atualize cada variável antes de publicar na Vercel. Sem esses valores, o gateway de leads fica em modo `pending`.
+- **CORS aplicado**:
+  - `/api/leads` — origens `https://wm3digital.com`, `https://app.wm3digital.com`, `NEXT_PUBLIC_SITE_URL`; métodos `POST/OPTIONS`.
+  - `/api/wm3/services` — origens `https://wm3digital.com`, `https://app.wm3digital.com`; métodos `POST/OPTIONS`; headers `Content-Type`, `X-WM3-SIGNATURE`, `X-WM3-API-KEY`.
+
 ## 🔧 Instalação e Desenvolvimento
 
 ### Pré-requisitos
@@ -198,7 +250,11 @@ pnpm install
 # ou
 bun install
 
-# 4. Verifique se tudo está funcionando
+# 4. Configure as variáveis de ambiente
+cp .env.example .env.local
+# edite cada valor antes de iniciar o projeto
+
+# 5. Verifique se tudo está funcionando
 npm run dev
 ```
 

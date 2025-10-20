@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { ArrowLeft, Mail, Phone, MessageCircle, FileText, Clock, Users } from 'lucide-react'
+import { ArrowLeft, Mail, Phone, MessageCircle } from 'lucide-react'
 import Link from 'next/link'
 
 const supportOptions = [

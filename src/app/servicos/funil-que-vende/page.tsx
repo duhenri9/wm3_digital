@@ -1,15 +1,8 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { useEffect, useState } from 'react';
 
 export default function FunilQueVendePage() {
-  const [isClient, setIsClient] = useState(false);
-
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
-
   return (
     <main className="flex min-h-screen flex-col items-center justify-between">
       {/* Hero Section */}

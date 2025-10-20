@@ -1,10 +1,11 @@
 import type { Metadata } from 'next';
-// import { Acumin } from '@/lib/fonts';
-import { cn } from '@/lib/utils';
+import { Inter } from 'next/font/google';
 import { Header } from '@/components/layout/header';
 import { Footer } from '@/components/layout/footer';
 import { FloatingElements } from '@/components/ui/floating-elements';
 import './globals.css';
+
+const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 
 export const metadata: Metadata = {
   title: 'WM3 Digital - Inovação e Tecnologia',
@@ -23,7 +24,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pt-BR" suppressHydrationWarning>
-      <body className="font-sans antialiased relative" suppressHydrationWarning>
+      <body className={`${inter.variable} font-sans antialiased relative`} suppressHydrationWarning>
         <FloatingElements />
         <Header />
         <div className="relative z-10">
