@@ -31,6 +31,16 @@ const items = [
     href: '/em-breve',
     description: 'Novidades que estão por vir',
   },
+  {
+    title: 'Links',
+    href: '/links',
+    description: 'Todos os nossos links e projetos',
+  },
+  {
+    title: 'Admin',
+    href: '/login',
+    description: 'Área administrativa',
+  },
 ];
 
 interface MainNavProps {

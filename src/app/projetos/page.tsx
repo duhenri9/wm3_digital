@@ -3,56 +3,10 @@
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowRight, ExternalLink, Github, Globe } from 'lucide-react';
-
-const projects = [
-  {
-    title: 'SocialFlux∞',
-    description: 'Micro-SaaS de geração automática de anúncios para Instagram e Redes Sociais com IA avançada.',
-    image: '/images/socialflux-preview.jpg',
-    tags: ['Micro-SaaS', 'IA', 'Marketing', 'Automação'],
-    status: 'Disponível',
-    links: {
-      live: '/servicos/socialflux',
-      demo: 'https://socialflux.wm3.digital'
-    },
-
-  },
-  {
-    title: 'SubHub',
-    description: 'SaaS completo para gestão de subscrições e assinaturas com controle financeiro integrado.',
-    image: '/images/subhub-preview.jpg',
-    tags: ['SaaS', 'Gestão', 'Financeiro', 'Assinaturas'],
-    status: 'Early Adopters',
-    links: {
-      live: '/servicos/subhub',
-      demo: 'https://subhub.wm3.digital'
-    },
-
-  },
-  {
-    title: 'HumanTic',
-    description: 'Plataforma AaaS para criação e gerenciamento de agentes humanizados inteligentes.',
-    image: '/images/humantic-preview.jpg',
-    tags: ['AaaS', 'IA', 'Agentes', 'Automação'],
-    status: 'Em Desenvolvimento',
-    links: {
-      live: '/servicos/humantic'
-    },
-
-  },
-  {
-    title: 'Design SaaS Solutions',
-    description: 'Projetos de design completos para SaaS, micro-SaaS, startups, websites e landing pages com foco em conversão.',
-    image: '/images/design-saas-preview.jpg',
-    tags: ['Design', 'UX/UI', 'SaaS', 'Conversão'],
-    status: 'Em Desenvolvimento',
-    links: {
-      live: '/servicos/design-saas'
-    },
-
-  }
-];
+import { ArrowRight, ExternalLink } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { getAvailableProjects } from '@/lib/projects-api';
+import { Project } from '@/lib/projects';
 
 const testimonials = [
   {
@@ -79,6 +33,34 @@ const testimonials = [
 ];
 
 export default function ProjetosPage() {
+  const [projects, setProjects] = useState<Project[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function loadProjects() {
+      try {
+        const allAvailable = await getAvailableProjects();
+        const filtered = allAvailable.filter(p => p.category === 'projeto');
+        setProjects(filtered);
+      } catch (error) {
+        console.error('Erro ao carregar projetos:', error);
+      } finally {
+        setLoading(false);
+      }
+    }
+    loadProjects();
+  }, []);
+
+  if (loading) {
+    return (
+      <div className="container py-16">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary mx-auto"></div>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="container py-16 space-y-16">
       {/* Header */}
@@ -128,11 +110,26 @@ export default function ProjetosPage() {
         transition={{ duration: 0.5, delay: 0.3 }}
         className="space-y-8"
       >
-        <h2 className="text-2xl font-bold text-center">Cases de Sucesso</h2>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {projects.map((project, index) => (
+        <div className="text-center space-y-2">
+          <h2 className="text-2xl font-bold">Cases de Sucesso</h2>
+          <p className="text-muted-foreground">Projetos disponíveis e em produção</p>
+        </div>
+        {projects.length === 0 ? (
+          <div className="text-center py-12">
+            <p className="text-muted-foreground mb-4">Nenhum projeto disponível no momento.</p>
+            <Link
+              href="/em-breve"
+              className="inline-flex items-center text-primary hover:underline"
+            >
+              Ver projetos em desenvolvimento
+              <ArrowRight className="ml-2 h-4 w-4" />
+            </Link>
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {projects.map((project, index) => (
             <motion.div
-              key={project.title}
+              key={project.id}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 * index }}
@@ -144,11 +141,7 @@ export default function ProjetosPage() {
                     <h3 className="text-xl font-semibold group-hover:text-primary transition-colors">
                       {project.title}
                     </h3>
-                    <span className={`inline-flex items-center px-2 py-1 rounded-full text-xs font-medium ${
-                      project.status === 'Disponível' ? 'bg-green-500/20 text-green-700 dark:text-green-300' :
-                      project.status === 'Early Adopters' ? 'bg-yellow-500/20 text-yellow-700 dark:text-yellow-300' :
-                      'bg-blue-500/20 text-blue-700 dark:text-blue-300'
-                    }`}>
+                    <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-green-500/20 text-green-700 dark:text-green-300">
                       {project.status}
                     </span>
                   </div>
@@ -169,17 +162,20 @@ export default function ProjetosPage() {
 
                 
                 <div className="flex gap-2 pt-4">
-                  <Link
-                    href={project.links.live}
-                    className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground ring-offset-background transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
-                  >
-                    Ver Projeto
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </Link>
+                  {project.links.live && (
+                    <Link
+                      href={project.links.live}
+                      className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground ring-offset-background transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                    >
+                      Ver Projeto
+                      <ArrowRight className="ml-2 h-4 w-4" />
+                    </Link>
+                  )}
                   {project.links.demo && (
                     <Link
                       href={project.links.demo}
                       target="_blank"
+                      rel="noopener noreferrer"
                       className="inline-flex items-center justify-center rounded-md border border-input bg-background px-4 py-2 text-sm font-medium ring-offset-background transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
                     >
                       Demo
@@ -189,8 +185,9 @@ export default function ProjetosPage() {
                 </div>
               </div>
             </motion.div>
-          ))}
-        </div>
+            ))}
+          </div>
+        )}
       </motion.div>
 
       {/* Testimonials */}

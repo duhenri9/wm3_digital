@@ -21,10 +21,12 @@ const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
 
   const services = [
-    { name: "Funil que Vende+", href: "/servicos/funil-que-vende" },
-    { name: "Design SaaS", href: "/servicos/design-saas" },
+    { name: "Design SaaS Solutions", href: "/servicos/design-saas" },
+    { name: "SEO Blog", href: "/servicos/seo-blog" },
     { name: "SocialFlux∞", href: "/servicos/socialflux" },
+    { name: "Metrify", href: "/servicos/metrify" },
     { name: "SubHub", href: "/servicos/subhub" },
+    { name: "Funil que Vende+", href: "/servicos/funil-que-vende" },
     { name: "HumanTic", href: "/servicos/humantic" },
   ];
 

@@ -1,94 +1,30 @@
-'use client';
-
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { ArrowRight, Bell, Calendar, Rocket, Sparkles, Zap, Brain, Target } from 'lucide-react';
+import { ArrowRight, Bell, Calendar, Rocket, Sparkles, Zap, Shield, Clock } from 'lucide-react';
+import { getUpcomingProjects } from '@/lib/projects-api';
 
-const upcomingFeatures = [
-  {
-    icon: Brain,
-    title: 'HumanTic 2.0',
-    description: 'Nova versão da nossa plataforma de agentes humanizados com IA ainda mais avançada.',
-    status: 'Em Desenvolvimento',
-    timeline: 'Q2 2024',
-    features: [
-      'Processamento de linguagem natural aprimorado',
-      'Integração com múltiplas plataformas',
-      'Dashboard analytics avançado',
-      'API completa para desenvolvedores'
-    ],
-    color: 'from-[#0066FF] to-[#00D1FF]'
-  },
-  {
-    icon: Zap,
-    title: 'AutoFlow Pro',
-    description: 'Plataforma completa de automação de workflows empresariais com IA.',
-    status: 'Planejamento',
-    timeline: 'Q3 2024',
-    features: [
-      'Automação de processos complexos',
-      'Integração com ERPs populares',
-      'Machine Learning para otimização',
-      'Relatórios em tempo real'
-    ],
-    color: 'from-blue-500 to-cyan-500'
-  },
-  {
-    icon: Target,
-    title: 'ConvertMax',
-    description: 'Suite de ferramentas para otimização de conversão com A/B testing automático.',
-    status: 'Conceito',
-    timeline: 'Q4 2024',
-    features: [
-      'A/B testing automatizado',
-      'Heatmaps e analytics',
-      'Otimização por IA',
-      'Integração com CRMs'
-    ],
-    color: 'from-green-500 to-emerald-500'
-  },
-  {
-    icon: Sparkles,
-    title: 'DesignAI Studio',
-    description: 'Ferramenta de design automatizado para criação de materiais visuais com IA.',
-    status: 'Pesquisa',
-    timeline: 'Q1 2025',
-    features: [
-      'Geração automática de designs',
-      'Templates inteligentes',
-      'Branding consistente',
-      'Exportação multi-formato'
-    ],
-    color: 'from-orange-500 to-red-500'
-  }
-];
+// Função para obter ícone do projeto
+function getProjectIcon(title: string) {
+  if (title.includes('SocialFlux')) return Sparkles;
+  if (title.includes('SubHub')) return Shield;
+  if (title.includes('HumanTic')) return Rocket;
+  if (title.includes('Design')) return Clock;
+  if (title.includes('Funil')) return Zap;
+  return Rocket;
+}
 
-const roadmapItems = [
-  {
-    quarter: 'Q2 2024',
-    title: 'Lançamento HumanTic',
-    description: 'Primeira versão pública da plataforma de agentes humanizados',
-    status: 'active'
-  },
-  {
-    quarter: 'Q3 2024',
-    title: 'AutoFlow Pro Beta',
-    description: 'Versão beta da plataforma de automação empresarial',
-    status: 'upcoming'
-  },
-  {
-    quarter: 'Q4 2024',
-    title: 'ConvertMax MVP',
-    description: 'Lançamento do MVP da suite de otimização de conversão',
-    status: 'upcoming'
-  },
-  {
-    quarter: 'Q1 2025',
-    title: 'DesignAI Studio',
-    description: 'Ferramenta de design automatizado com IA',
-    status: 'planned'
-  }
-];
+// Função para obter cor do projeto
+function getProjectColor(title: string): string {
+  if (title.includes('SocialFlux')) return 'from-blue-500 to-cyan-500';
+  if (title.includes('SubHub')) return 'from-green-500 to-emerald-500';
+  if (title.includes('HumanTic')) return 'from-purple-500 to-violet-500';
+  if (title.includes('Design')) return 'from-orange-500 to-red-500';
+  if (title.includes('Funil')) return 'from-[#0066FF] to-[#00D1FF]';
+  return 'from-gray-500 to-gray-600';
+}
+
+// Roadmap pode ser mantido ou removido dependendo da necessidade
+const roadmapItems: any[] = [];
 
 const notifications = [
   {
@@ -108,7 +44,9 @@ const notifications = [
   }
 ];
 
-export default function EmBreve() {
+export default async function EmBreve() {
+  const upcomingProjects = await getUpcomingProjects();
+  
   return (
     <div className="container py-16 space-y-16">
       {/* Header */}
@@ -134,74 +72,100 @@ export default function EmBreve() {
         className="space-y-8"
       >
         <div className="text-center space-y-2">
-          <h2 className="text-2xl font-bold">Próximos Lançamentos</h2>
-          <p className="text-muted-foreground">Inovações que vão revolucionar seu negócio</p>
+          <h2 className="text-2xl font-bold">Projetos em Desenvolvimento</h2>
+          <p className="text-muted-foreground">Inovações que estão sendo desenvolvidas e em breve estarão disponíveis</p>
         </div>
         
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {upcomingFeatures.map((feature, index) => (
-            <motion.div
-              key={feature.title}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.1 * index }}
-              className="group relative overflow-hidden rounded-lg border bg-card text-card-foreground shadow-sm hover:shadow-lg transition-all duration-300"
+        {upcomingProjects.length === 0 ? (
+          <div className="text-center py-12">
+            <p className="text-muted-foreground mb-4">Todos os projetos estão disponíveis!</p>
+            <Link
+              href="/projetos"
+              className="inline-flex items-center text-primary hover:underline"
             >
-              <div className={`absolute inset-0 bg-gradient-to-br ${feature.color} opacity-5 group-hover:opacity-10 transition-opacity`} />
-              <div className="relative p-6 space-y-4">
-                <div className="flex items-start justify-between">
-                  <div className="flex items-center space-x-3">
-                    <div className={`p-2 rounded-lg bg-gradient-to-br ${feature.color} text-white`}>
-                      <feature.icon className="w-5 h-5" />
-                    </div>
-                    <div>
-                      <h3 className="text-xl font-semibold group-hover:text-primary transition-colors">
-                        {feature.title}
-                      </h3>
-                      <div className="flex items-center space-x-2 mt-1">
-                        <span className={`inline-flex items-center px-2 py-1 rounded-full text-xs font-medium ${
-                          feature.status === 'Em Desenvolvimento' ? 'bg-blue-500/20 text-blue-700 dark:text-blue-300' :
-                          feature.status === 'Planejamento' ? 'bg-yellow-500/20 text-yellow-700 dark:text-yellow-300' :
-                          feature.status === 'Conceito' ? 'bg-purple-500/20 text-purple-700 dark:text-purple-300' :
-                          'bg-gray-500/20 text-gray-700 dark:text-gray-300'
-                        }`}>
-                          {feature.status}
-                        </span>
-                        <span className="text-xs text-muted-foreground flex items-center">
-                          <Calendar className="w-3 h-3 mr-1" />
-                          {feature.timeline}
-                        </span>
+              Ver projetos disponíveis
+              <ArrowRight className="ml-2 h-4 w-4" />
+            </Link>
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {upcomingProjects.map((project, index) => {
+              const Icon = getProjectIcon(project.title);
+              const color = getProjectColor(project.title);
+              
+              return (
+                <motion.div
+                  key={project.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.1 * index }}
+                  className="group relative overflow-hidden rounded-lg border bg-card text-card-foreground shadow-sm hover:shadow-lg transition-all duration-300"
+                >
+                  <div className={`absolute inset-0 bg-gradient-to-br ${color} opacity-5 group-hover:opacity-10 transition-opacity`} />
+                  <div className="relative p-6 space-y-4">
+                    <div className="flex items-start justify-between">
+                      <div className="flex items-center space-x-3">
+                        <div className={`p-2 rounded-lg bg-gradient-to-br ${color} text-white`}>
+                          <Icon className="w-5 h-5" />
+                        </div>
+                        <div>
+                          <h3 className="text-xl font-semibold group-hover:text-primary transition-colors">
+                            {project.title}
+                          </h3>
+                          <div className="flex items-center space-x-2 mt-1">
+                            <span className={`inline-flex items-center px-2 py-1 rounded-full text-xs font-medium ${
+                              project.status === 'Em Desenvolvimento' ? 'bg-blue-500/20 text-blue-700 dark:text-blue-300' :
+                              project.status === 'Early Adopters' ? 'bg-yellow-500/20 text-yellow-700 dark:text-yellow-300' :
+                              project.status === 'Beta' ? 'bg-purple-500/20 text-purple-700 dark:text-purple-300' :
+                              project.status === 'Upcoming' ? 'bg-pink-500/20 text-pink-700 dark:text-pink-300' :
+                              'bg-gray-500/20 text-gray-700 dark:text-gray-300'
+                            }`}>
+                              {project.status}
+                            </span>
+                          </div>
+                        </div>
                       </div>
                     </div>
+                    
+                    <p className="text-gray-600 dark:text-gray-300">
+                      {project.description}
+                    </p>
+                    
+                    {project.tags && project.tags.length > 0 && (
+                      <div className="flex flex-wrap gap-2">
+                        {project.tags.slice(0, 4).map((tag) => (
+                          <span key={tag} className="px-2 py-1 bg-accent text-accent-foreground rounded-md text-xs">
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                    )}
+                    
+                    {project.price && (
+                      <div className="pt-2">
+                        <span className="text-sm font-semibold text-primary">
+                          {project.price}
+                        </span>
+                      </div>
+                    )}
+                    
+                    {project.links.live && (
+                      <div className="pt-4 border-t">
+                        <Link
+                          href={project.links.live}
+                          className="inline-flex items-center text-sm font-medium text-primary hover:text-primary/80 transition-colors"
+                        >
+                          Ver detalhes
+                          <ArrowRight className="ml-2 h-4 w-4" />
+                        </Link>
+                      </div>
+                    )}
                   </div>
-                </div>
-                
-                <p className="text-gray-600 dark:text-gray-300">
-                  {feature.description}
-                </p>
-                
-                <div className="space-y-2">
-                  <h4 className="font-medium text-sm">Principais funcionalidades:</h4>
-                  <ul className="space-y-1">
-                    {feature.features.map((feat, idx) => (
-                      <li key={idx} className="flex items-center text-sm text-muted-foreground">
-                        <div className="w-1.5 h-1.5 rounded-full bg-primary mr-2" />
-                        {feat}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                
-                <div className="pt-4 border-t">
-                  <button className="inline-flex items-center text-sm font-medium text-primary hover:text-primary/80 transition-colors">
-                    Quero ser notificado
-                    <Bell className="ml-2 h-4 w-4" />
-                  </button>
-                </div>
-              </div>
-            </motion.div>
-          ))}
-        </div>
+                </motion.div>
+              );
+            })}
+          </div>
+        )}
       </motion.div>
 
       {/* Roadmap */}

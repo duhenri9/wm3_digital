@@ -128,58 +128,7 @@ export function CTASection() {
           </motion.div>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            viewport={{ once: true }}
-            className="bg-card rounded-2xl p-8 border shadow-lg hover:shadow-xl transition-shadow duration-300"
-          >
-            <div className="flex items-center mb-6">
-              <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mr-4">
-                <MessageCircle className="w-6 h-6 text-primary" />
-              </div>
-              <h3 className="text-2xl font-bold">Consultoria Gratuita</h3>
-            </div>
-            <p className="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
-              Converse com nossos especialistas e descubra como nossas soluções de IA e automação podem transformar seu negócio.
-            </p>
-            <ul className="space-y-3 mb-8">
-              <li className="flex items-center text-sm">
-                <div className="w-2 h-2 rounded-full bg-primary mr-3" />
-                Análise das suas necessidades
-              </li>
-              <li className="flex items-center text-sm">
-                <div className="w-2 h-2 rounded-full bg-primary mr-3" />
-                Demonstração das soluções
-              </li>
-              <li className="flex items-center text-sm">
-                <div className="w-2 h-2 rounded-full bg-primary mr-3" />
-                Proposta personalizada
-              </li>
-            </ul>
-            <motion.div
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              <Link
-                href="#contact"
-                className="inline-flex items-center justify-center w-full rounded-lg bg-primary text-primary-foreground px-6 py-3 font-medium transition-all duration-300 hover:bg-primary/90 hover:shadow-lg hover:shadow-primary/25 group"
-              >
-                <Calendar className="w-4 h-4 mr-2 group-hover:animate-pulse" />
-                Falar com Especialista
-                <motion.div
-                  className="ml-2"
-                  animate={{ x: [0, 4, 0] }}
-                  transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-                >
-                  <ArrowRight className="w-4 h-4" />
-                </motion.div>
-              </Link>
-            </motion.div>
-          </motion.div>
-
+        <div className="grid grid-cols-1 lg:grid-cols-1 gap-8 mb-16 max-w-2xl mx-auto">
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}

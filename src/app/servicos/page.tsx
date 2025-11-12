@@ -2,60 +2,10 @@
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { ArrowRight, Code, Palette, Zap, Globe } from 'lucide-react';
-
-const services = [
-  {
-    title: 'Funil que Vende+',
-    description: 'Sistema completo de funil de vendas com automação avançada para maximizar conversões e vendas.',
-    tags: ['Automação', 'Vendas', 'Funil', 'Conversão'],
-    status: 'Disponível',
-    price: 'A partir de R$ 1.500',
-    links: {
-      live: '/servicos/funil-que-vende'
-    }
-  },
-  {
-    title: 'Design SaaS Solutions',
-    description: 'Soluções de design, desenvolvimento web, identidade visual, sites e landing pages com foco em conversão.',
-    tags: ['Design', 'UX/UI', 'SaaS', 'Conversão'],
-    status: 'Em Desenvolvimento',
-    price: 'A partir de R$ 652',
-    links: {
-      live: '/servicos/design-saas'
-    }
-  },
-  {
-    title: 'SocialFlux∞',
-    description: 'Micro-SaaS de geração automática de anúncios para Instagram e Redes Sociais com IA avançada. Automação inteligente, otimização em tempo real e segmentação precisa.',
-    tags: ['Micro-SaaS', 'IA', 'Marketing', 'Automação'],
-    status: 'Disponível',
-    price: 'Sob consulta',
-    links: {
-      live: '/servicos/socialflux'
-    }
-  },
-  {
-    title: 'SubHub',
-    description: 'Plataforma de gestão de assinaturas com controle financeiro integrado e automação de cobrança.',
-    tags: ['SaaS', 'Gestão', 'Financeiro', 'Assinaturas'],
-    status: 'Early Adopters',
-    price: 'Sob consulta',
-    links: {
-      live: '/servicos/subhub'
-    }
-  },
-  {
-    title: 'HumanTic',
-    description: 'Soluções avançadas de IA e automação com agentes humanizados inteligentes.',
-    tags: ['IA', 'Automação', 'Agentes', 'Tecnologia'],
-    status: 'Em Desenvolvimento',
-    price: 'Sob consulta',
-    links: {
-      live: '/servicos/humantic'
-    }
-  }
-];
+import { ArrowRight } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { getAvailableProjects } from '@/lib/projects-api';
+import { Project } from '@/lib/projects';
 
 const testimonials = [
   {
@@ -82,6 +32,34 @@ const testimonials = [
 ];
 
 export default function ServicosPage() {
+  const [services, setServices] = useState<Project[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function loadServices() {
+      try {
+        const allAvailable = await getAvailableProjects();
+        const filtered = allAvailable.filter(p => p.category === 'servico');
+        setServices(filtered);
+      } catch (error) {
+        console.error('Erro ao carregar serviços:', error);
+      } finally {
+        setLoading(false);
+      }
+    }
+    loadServices();
+  }, []);
+
+  if (loading) {
+    return (
+      <div className="container py-16">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary mx-auto"></div>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="container py-16 space-y-16">
       {/* Header */}
@@ -131,64 +109,85 @@ export default function ServicosPage() {
         transition={{ duration: 0.5, delay: 0.3 }}
         className="space-y-8"
       >
-        <h2 className="text-2xl font-bold text-center">Nossos Serviços</h2>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {services.map((service, index) => (
-            <motion.div
-              key={service.title}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.1 * index }}
-              className="group rounded-lg border bg-card text-card-foreground shadow-sm hover:shadow-lg transition-all duration-300"
+        <div className="text-center space-y-2">
+          <h2 className="text-2xl font-bold">Nossos Serviços</h2>
+          <p className="text-muted-foreground">Serviços disponíveis e prontos para uso</p>
+        </div>
+        {services.length === 0 ? (
+          <div className="text-center py-12">
+            <p className="text-muted-foreground mb-4">Nenhum serviço disponível no momento.</p>
+            <Link
+              href="/em-breve"
+              className="inline-flex items-center text-primary hover:underline"
             >
-              <div className="p-6 space-y-4">
-                <div className="flex items-start justify-between">
-                  <div className="space-y-2">
-                    <h3 className="text-xl font-semibold group-hover:text-primary transition-colors">
-                      {service.title}
-                    </h3>
-                    <span className={`inline-flex items-center px-2 py-1 rounded-full text-xs font-medium ${
-                      service.status === 'Disponível' ? 'bg-green-500/20 text-green-700 dark:text-green-300' :
-                      service.status === 'Early Adopters' ? 'bg-yellow-500/20 text-yellow-700 dark:text-yellow-300' :
-                      'bg-blue-500/20 text-blue-700 dark:text-blue-300'
-                    }`}>
-                      {service.status}
-                    </span>
+              Ver serviços em desenvolvimento
+              <ArrowRight className="ml-2 h-4 w-4" />
+            </Link>
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {services.map((service, index) => (
+              <motion.div
+                key={service.id}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.1 * index }}
+                className="group rounded-lg border bg-card text-card-foreground shadow-sm hover:shadow-lg transition-all duration-300"
+              >
+                <div className="p-6 space-y-4">
+                  <div className="flex items-start justify-between">
+                    <div className="space-y-2">
+                      <h3 className="text-xl font-semibold group-hover:text-primary transition-colors">
+                        {service.title}
+                      </h3>
+                      <span className={`inline-flex items-center px-2 py-1 rounded-full text-xs font-medium ${
+                        service.status === 'Disponível' 
+                          ? 'bg-green-500/20 text-green-700 dark:text-green-300'
+                          : service.status === 'Making & Beta'
+                          ? 'bg-yellow-500/20 text-yellow-700 dark:text-yellow-300'
+                          : 'bg-blue-500/20 text-blue-700 dark:text-blue-300'
+                      }`}>
+                        {service.status}
+                      </span>
+                    </div>
+                  </div>
+                  
+                  <p className="text-gray-600 dark:text-gray-300">
+                    {service.description}
+                  </p>
+                  
+                  <div className="flex flex-wrap gap-2">
+                    {service.tags.map((tag) => (
+                      <span key={tag} className="px-2 py-1 bg-accent text-accent-foreground rounded-md text-xs">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                  
+                  {service.price && (
+                    <div className="flex items-center justify-between pt-2">
+                      <span className="text-lg font-semibold text-primary">
+                        {service.price}
+                      </span>
+                    </div>
+                  )}
+                  
+                  <div className="flex gap-2 pt-4">
+                    {service.links.live && (
+                      <Link
+                        href={service.links.live}
+                        className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground ring-offset-background transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                      >
+                        Ver Serviço
+                        <ArrowRight className="ml-2 h-4 w-4" />
+                      </Link>
+                    )}
                   </div>
                 </div>
-                
-                <p className="text-gray-600 dark:text-gray-300">
-                  {service.description}
-                </p>
-                
-                <div className="flex flex-wrap gap-2">
-                  {service.tags.map((tag) => (
-                    <span key={tag} className="px-2 py-1 bg-accent text-accent-foreground rounded-md text-xs">
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-                
-                <div className="flex items-center justify-between pt-2">
-                  <span className="text-lg font-semibold text-primary">
-                    {service.price}
-                  </span>
-                </div>
-                
-                <div className="flex gap-2 pt-4">
-                  <Link
-                    href={service.links.live}
-                    className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground ring-offset-background transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
-                  >
-                    Ver Serviço
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </Link>
-
-                </div>
-              </div>
-            </motion.div>
-          ))}
-        </div>
+              </motion.div>
+            ))}
+          </div>
+        )}
       </motion.div>
 
       {/* Testimonials */}
