@@ -173,8 +173,21 @@ export async function getUserById(userId: number): Promise<User | null> {
       role: users[0].role,
     };
   } catch (error) {
-    console.error('Erro ao buscar usuário:', error);
-    return null;
+    console.error('Erro ao buscar usuário no MySQL, usando fallback:', error);
+
+    // Fallback: usar usuários em memória
+    const user = FALLBACK_USERS.find(u => u.id === userId);
+
+    if (!user) {
+      return null;
+    }
+
+    return {
+      id: user.id,
+      username: user.username,
+      email: user.email,
+      role: user.role,
+    };
   }
 }
 
