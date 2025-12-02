@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import {
   ArrowRight,
+  ArrowUpRight,
   Brain,
   BrainCircuit,
   CreditCard,
@@ -92,12 +93,23 @@ export function FeaturesSection() {
                 </span>
               )}
             </div>
-            <Link
-              href={primary.href}
-              className="inline-flex h-11 items-center justify-center rounded-full bg-slate-900 px-6 text-sm font-semibold text-slate-100 shadow-[0_20px_60px_-24px_rgba(15,23,42,0.45)] transition-transform duration-200 hover:-translate-y-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-slate-50"
-            >
-              Conhecer o Design SaaS
-            </Link>
+            <div className="flex flex-col gap-3 sm:flex-row">
+              <Link
+                href={primary.href}
+                className="inline-flex h-11 items-center justify-center rounded-full bg-slate-900 px-6 text-sm font-semibold text-slate-100 shadow-[0_20px_60px_-24px_rgba(15,23,42,0.45)] transition-transform duration-200 hover:-translate-y-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-slate-50"
+              >
+                Conhecer o Design SaaS
+              </Link>
+              <Link
+                href="https://designsaas.wm3digital.com.br"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex h-11 items-center justify-center rounded-full border border-slate-300 bg-white px-6 text-sm font-semibold text-slate-700 transition-transform duration-200 hover:-translate-y-1"
+              >
+                Abrir site
+                <ArrowUpRight className="ml-2 h-4 w-4" />
+              </Link>
+            </div>
           </div>
           <div className="space-y-4 rounded-3xl border border-slate-200 bg-white p-6">
             <h4 className="text-sm font-semibold uppercase tracking-[0.3em] text-slate-500">

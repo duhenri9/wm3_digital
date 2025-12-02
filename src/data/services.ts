@@ -107,6 +107,17 @@ export const serviceOfferings: ServiceOffering[] = [
     category: 'Serviço',
     tags: ['Compliance', 'Data', 'Segurança'],
   },
+  {
+    id: 'solo-in-public',
+    name: 'Solo in Public',
+    headline: 'Construa seu produto compartilhando progresso com a comunidade.',
+    description:
+      'Plataforma para creators e makers documentarem etapas, métricas e aprendizados em tempo real, fortalecendo audiência e validação contínua.',
+    status: 'Em Beta',
+    href: '/em-breve',
+    category: 'SaaS',
+    tags: ['Comunidade', 'Product-Led', 'Build in Public'],
+  },
 ];
 
 export const flagshipServiceId = 'funil-que-vende';
