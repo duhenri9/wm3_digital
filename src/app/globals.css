@@ -55,102 +55,108 @@
   }
   body {
     @apply bg-background text-foreground font-sans antialiased;
-    line-height: 1.6;
+    line-height: 1.7;
+    font-weight: 400;
   }
-  
-  /* Typography improvements */
+
+  /* Typography improvements - Minimalist style inspired by OpenAI */
   h1, h2, h3, h4, h5, h6 {
-    @apply font-bold tracking-tight;
-    line-height: 1.2;
+    @apply font-semibold tracking-tight;
+    line-height: 1.15;
+    font-weight: 600;
   }
-  
+
   h1 {
-    @apply text-4xl sm:text-5xl md:text-6xl;
+    @apply text-4xl sm:text-5xl md:text-6xl lg:text-7xl;
+    letter-spacing: -0.03em;
+    font-weight: 600;
+  }
+
+  h2 {
+    @apply text-3xl sm:text-4xl md:text-5xl lg:text-6xl;
     letter-spacing: -0.02em;
   }
-  
-  h2 {
-    @apply text-3xl sm:text-4xl md:text-5xl;
-    letter-spacing: -0.01em;
-  }
-  
+
   h3 {
-    @apply text-2xl sm:text-3xl md:text-4xl;
+    @apply text-2xl sm:text-3xl md:text-4xl lg:text-5xl;
+    letter-spacing: -0.015em;
   }
-  
+
   h4 {
-    @apply text-xl sm:text-2xl md:text-3xl;
+    @apply text-xl sm:text-2xl md:text-3xl lg:text-4xl;
   }
-  
+
   h5 {
-    @apply text-lg sm:text-xl md:text-2xl;
+    @apply text-lg sm:text-xl md:text-2xl lg:text-3xl;
   }
-  
+
   h6 {
-    @apply text-base sm:text-lg md:text-xl;
+    @apply text-base sm:text-lg md:text-xl lg:text-2xl;
   }
-  
+
   p {
     @apply leading-relaxed;
-    margin-bottom: 1rem;
+    margin-bottom: 1.25rem;
+    font-weight: 400;
   }
-  
+
   .lead {
-    @apply text-xl text-muted-foreground leading-relaxed;
+    @apply text-lg sm:text-xl md:text-2xl text-muted-foreground leading-relaxed;
+    font-weight: 400;
   }
-  
+
   .small {
     @apply text-sm text-muted-foreground;
   }
-  
+
   .large {
-    @apply text-lg;
+    @apply text-lg sm:text-xl;
   }
-  
+
   /* Link styles */
   a {
     @apply transition-colors duration-200;
   }
-  
+
   a:hover {
     @apply text-primary;
   }
-  
-  /* Focus styles */
+
+  /* Focus styles - subtle and modern */
   *:focus-visible {
-    @apply outline-none ring-2 ring-primary ring-offset-2 ring-offset-background;
+    @apply outline-none ring-2 ring-primary/50 ring-offset-2 ring-offset-background;
   }
-  
-  /* Container improvements */
+
+  /* Container improvements - more whitespace */
   .container {
-    @apply mx-auto px-4 sm:px-6 lg:px-8;
+    @apply mx-auto px-6 sm:px-8 lg:px-12 max-w-7xl;
   }
-  
-  /* Section spacing */
+
+  /* Section spacing - generous vertical rhythm */
   section {
-    @apply py-16 md:py-20 lg:py-24;
+    @apply py-20 md:py-28 lg:py-36;
   }
-  
-  /* Card improvements */
+
+  /* Card improvements - minimal shadows */
   .card {
-    @apply rounded-xl border bg-card text-card-foreground shadow-sm;
+    @apply rounded-2xl border border-border/50 bg-card text-card-foreground shadow-sm hover:shadow-md transition-shadow duration-300;
   }
-  
-  /* Button improvements */
+
+  /* Button improvements - clean and modern */
   .btn {
-    @apply inline-flex items-center justify-center rounded-lg px-6 py-3 text-sm font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2;
+    @apply inline-flex items-center justify-center rounded-xl px-8 py-4 text-base font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:ring-offset-2;
   }
-  
+
   .btn-primary {
-    @apply bg-primary text-primary-foreground hover:bg-primary/90 shadow-md hover:shadow-lg;
+    @apply bg-primary text-primary-foreground hover:bg-primary/90 shadow-sm hover:shadow-md;
   }
-  
+
   .btn-secondary {
-    @apply bg-secondary text-secondary-foreground hover:bg-secondary/80 shadow-md hover:shadow-lg;
+    @apply bg-secondary text-secondary-foreground hover:bg-secondary/90 shadow-sm hover:shadow-md;
   }
-  
+
   .btn-outline {
-    @apply border border-input bg-background hover:bg-accent hover:text-accent-foreground shadow-sm hover:shadow-md;
+    @apply border border-border/70 bg-background hover:bg-accent/5 hover:border-accent shadow-sm hover:shadow-md;
   }
 }
 

@@ -1,0 +1,154 @@
+{
+  "navigation": {
+    "home": "Inicio",
+    "services": "Servicios",
+    "projects": "Proyectos",
+    "contact": "Contacto"
+  },
+  "hero": {
+    "badge": "WM3 Digital",
+    "title": "WM3 Digital: Tu agencia de conversión AI-First.",
+    "subtitle": "Soluciones creadas con modelos de IA avanzados, con precio fijo y entrega inmediata después de la aprobación de la vista previa.",
+    "cta": {
+      "primary": "Conocer las herramientas",
+      "secondary": "Ver servicios y precios"
+    }
+  },
+  "stack": {
+    "title": "Stack y métricas que usamos en WM3",
+    "designSaasPro": {
+      "badge": "PLANTILLA OFICIAL WM3",
+      "title": "Design SaaS Pro",
+      "description": "Base SaaS en producción para lanzar proyectos en días.",
+      "cta": "Ver Design SaaS Pro"
+    },
+    "metricaas": {
+      "badge": "SOCIO OFICIAL WM3",
+      "title": "Metricaas.ai",
+      "description": "Panel de métricas SaaS con visión de inversor.",
+      "cta": "Conocer Metricaas.ai"
+    }
+  },
+  "services": {
+    "title": "Servicios: herramientas de IA",
+    "subtitle": "Impulsa tu presencia online con estas innovadoras herramientas de IA.",
+    "viewDetails": "Ver detalles",
+    "startNow": "Comenzar ahora"
+  },
+  "mural": {
+    "title": "Mural WM3",
+    "subtitle": "Ideas de quienes viven SaaS, IA y recurrencia todos los días – curadas por WM3.",
+    "viewSource": "Ver fuente",
+    "previous": "Anterior",
+    "next": "Siguiente"
+  },
+  "differentials": {
+    "title": "¿Por qué WM3?",
+    "speed": {
+      "title": "Velocidad AI-First",
+      "description": "Completas un formulario, la IA genera la vista previa, apruebas y recibes la entrega final en minutos."
+    },
+    "clarity": {
+      "title": "Claridad de alcance",
+      "description": "Cada herramienta tiene precio fijo y entregables definidos. Nada de presupuestos infinitos."
+    },
+    "mindset": {
+      "title": "Mentalidad SaaS",
+      "description": "Estamos obsesionados con la recurrencia, métricas y conversión – no solo por la estética."
+    }
+  },
+  "featuredProjects": {
+    "title": "Proyectos WM3 destacados",
+    "designSaasPro": {
+      "badge": "PLANTILLA OFICIAL WM3",
+      "title": "Design SaaS Pro",
+      "description": "Plantilla profesional para lanzar SaaS en días.",
+      "cta": "Ver plantilla"
+    },
+    "metricaas": {
+      "badge": "SOCIO OFICIAL WM3",
+      "title": "Metricaas.ai",
+      "description": "Métricas SaaS con visión de inversor.",
+      "cta": "Conocer Metricaas"
+    },
+    "vettReport": {
+      "badge": "En desarrollo",
+      "title": "Vett Report",
+      "description": "Informes inteligentes de análisis de datos.",
+      "cta": "Entrar en lista de espera"
+    },
+    "devYearRecap": {
+      "badge": "MVP en desarrollo",
+      "title": "DevYear Recap",
+      "description": "Retrospectiva anual de tu código.",
+      "cta": "Entrar en lista de espera"
+    }
+  },
+  "finalCta": {
+    "title": "¿Necesitas ayuda para elegir la herramienta correcta?",
+    "subtitle": "Cuéntanos tu desafío actual en pocas líneas. Responderemos con un camino directo y honesto.",
+    "cta": "Contactar"
+  },
+  "servicesPage": {
+    "title": "Servicios: herramientas de IA",
+    "subtitle": "Impulsa tu presencia online con estas innovadoras herramientas de IA.",
+    "intro": "Herramientas con precio fijo, vista previa generada por IA antes de pagar, entrega final en minutos, 100% automatizada.",
+    "comparison": {
+      "title": "Por qué no cobramos por tokens de IA",
+      "description": "Tokens y modelos son infraestructura. No compras infraestructura, compras resultados listos.",
+      "tokenBased": "Pagar por tokens",
+      "solutionBased": "Pagar por herramientas listas WM3",
+      "items": {
+        "pricing": {
+          "token": "Precio variable según uso",
+          "solution": "Precio fijo por entrega"
+        },
+        "complexity": {
+          "token": "Necesitas entender modelos y APIs",
+          "solution": "Completas formulario, recibes resultado"
+        },
+        "preview": {
+          "token": "Pagas para probar",
+          "solution": "Ves vista previa gratis antes de pagar"
+        },
+        "delivery": {
+          "token": "Necesitas procesar la respuesta",
+          "solution": "Recibes entrega final formateada"
+        }
+      }
+    }
+  },
+  "projectsPage": {
+    "title": "Proyectos WM3",
+    "subtitle": "Conoce nuestros productos y soluciones en desarrollo.",
+    "active": "Proyectos Activos",
+    "inDevelopment": "En Desarrollo",
+    "waitingList": {
+      "title": "Entrar en lista de espera",
+      "email": "Tu email",
+      "submit": "Entrar en lista",
+      "success": "¡Gracias! Has entrado en la lista de espera."
+    }
+  },
+  "contactPage": {
+    "title": "Habla con WM3",
+    "subtitle": "Cuéntanos tu desafío y encontraremos la solución correcta juntos.",
+    "form": {
+      "name": "Nombre",
+      "email": "Email",
+      "company": "Empresa (opcional)",
+      "message": "Mensaje",
+      "submit": "Enviar mensaje",
+      "success": "¡Mensaje enviado! Te responderemos pronto."
+    }
+  },
+  "footer": {
+    "description": "Agencia de conversión AI-First. Herramientas de IA con precio fijo y entrega inmediata.",
+    "rights": "Todos los derechos reservados.",
+    "links": {
+      "about": "Acerca de",
+      "privacy": "Privacidad",
+      "terms": "Términos"
+    }
+  }
+}

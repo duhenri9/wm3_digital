@@ -1,0 +1,154 @@
+{
+  "navigation": {
+    "home": "Home",
+    "services": "Services",
+    "projects": "Projects",
+    "contact": "Contact"
+  },
+  "hero": {
+    "badge": "WM3 Digital",
+    "title": "WM3 Digital: Your AI-First conversion agency.",
+    "subtitle": "Solutions created with advanced AI models, with fixed pricing and immediate delivery after preview approval.",
+    "cta": {
+      "primary": "Explore the tools",
+      "secondary": "View services & pricing"
+    }
+  },
+  "stack": {
+    "title": "Stack and metrics we use at WM3",
+    "designSaasPro": {
+      "badge": "OFFICIAL WM3 TEMPLATE",
+      "title": "Design SaaS Pro",
+      "description": "Production-ready SaaS base to launch projects in days.",
+      "cta": "View Design SaaS Pro"
+    },
+    "metricaas": {
+      "badge": "OFFICIAL WM3 PARTNER",
+      "title": "Metricaas.ai",
+      "description": "SaaS metrics dashboard with investor view.",
+      "cta": "Discover Metricaas.ai"
+    }
+  },
+  "services": {
+    "title": "Services: AI tools",
+    "subtitle": "Boost your online presence with these innovative AI tools.",
+    "viewDetails": "View details",
+    "startNow": "Start now"
+  },
+  "mural": {
+    "title": "WM3 Wall",
+    "subtitle": "Ideas from those who live SaaS, AI and recurring revenue every day – curated by WM3.",
+    "viewSource": "View source",
+    "previous": "Previous",
+    "next": "Next"
+  },
+  "differentials": {
+    "title": "Why WM3?",
+    "speed": {
+      "title": "AI-First Speed",
+      "description": "You fill out a form, AI generates a preview, you approve and receive the final delivery in minutes."
+    },
+    "clarity": {
+      "title": "Clear Scope",
+      "description": "Each tool has a fixed price and defined deliverables. No infinite budgets."
+    },
+    "mindset": {
+      "title": "SaaS Mindset",
+      "description": "We're obsessed with recurring revenue, metrics and conversion – not just aesthetics."
+    }
+  },
+  "featuredProjects": {
+    "title": "Featured WM3 Projects",
+    "designSaasPro": {
+      "badge": "OFFICIAL WM3 TEMPLATE",
+      "title": "Design SaaS Pro",
+      "description": "Professional template to launch SaaS in days.",
+      "cta": "View template"
+    },
+    "metricaas": {
+      "badge": "OFFICIAL WM3 PARTNER",
+      "title": "Metricaas.ai",
+      "description": "SaaS metrics with investor view.",
+      "cta": "Discover Metricaas"
+    },
+    "vettReport": {
+      "badge": "In development",
+      "title": "Vett Report",
+      "description": "Intelligent data analysis reports.",
+      "cta": "Join waiting list"
+    },
+    "devYearRecap": {
+      "badge": "MVP in development",
+      "title": "DevYear Recap",
+      "description": "Your code's annual retrospective.",
+      "cta": "Join waiting list"
+    }
+  },
+  "finalCta": {
+    "title": "Need help choosing the right tool?",
+    "subtitle": "Tell us about your current challenge in a few lines. We'll respond with a direct and honest path.",
+    "cta": "Get in touch"
+  },
+  "servicesPage": {
+    "title": "Services: AI tools",
+    "subtitle": "Boost your online presence with these innovative AI tools.",
+    "intro": "Tools with fixed pricing, AI-generated preview before payment, final delivery in minutes, 100% automated.",
+    "comparison": {
+      "title": "Why we don't charge per AI token",
+      "description": "Tokens and models are infrastructure. You don't buy infrastructure, you buy ready-made results.",
+      "tokenBased": "Pay per token",
+      "solutionBased": "Pay for ready-made WM3 tools",
+      "items": {
+        "pricing": {
+          "token": "Variable pricing based on usage",
+          "solution": "Fixed price per delivery"
+        },
+        "complexity": {
+          "token": "Need to understand models and APIs",
+          "solution": "Fill out form, get result"
+        },
+        "preview": {
+          "token": "Pay to test",
+          "solution": "See free preview before paying"
+        },
+        "delivery": {
+          "token": "Need to process the response",
+          "solution": "Receive formatted final delivery"
+        }
+      }
+    }
+  },
+  "projectsPage": {
+    "title": "WM3 Projects",
+    "subtitle": "Discover our products and solutions in development.",
+    "active": "Active Projects",
+    "inDevelopment": "In Development",
+    "waitingList": {
+      "title": "Join waiting list",
+      "email": "Your email",
+      "submit": "Join list",
+      "success": "Thank you! You've joined the waiting list."
+    }
+  },
+  "contactPage": {
+    "title": "Talk to WM3",
+    "subtitle": "Tell us your challenge and we'll find the right solution together.",
+    "form": {
+      "name": "Name",
+      "email": "Email",
+      "company": "Company (optional)",
+      "message": "Message",
+      "submit": "Send message",
+      "success": "Message sent! We'll get back to you soon."
+    }
+  },
+  "footer": {
+    "description": "AI-First conversion agency. AI tools with fixed pricing and immediate delivery.",
+    "rights": "All rights reserved.",
+    "links": {
+      "about": "About",
+      "privacy": "Privacy",
+      "terms": "Terms"
+    }
+  }
+}
