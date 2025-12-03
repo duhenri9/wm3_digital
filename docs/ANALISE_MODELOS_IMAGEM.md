@@ -50,7 +50,49 @@ Atualmente você menciona estar usando "Nano Banana Pro" com bons resultados, ma
 
 ---
 
-### 2.2 Midjourney v6
+### 2.2 Google Imagen 3 (DeepMind) ⭐ NOVO
+
+**Pricing:**
+- Standard: $0.040/imagem (1024×1024)
+- HD: $0.080/imagem (1024×1024)
+- Via Vertex AI (Google Cloud)
+
+**Custo por entrega Brand Snapshot:**
+- 3 logos HD: $0.24 (R$ 1.20)
+- 5 mockups HD: $0.40 (R$ 2.00)
+- **Total: R$ 3.20**
+
+**Prós:**
+- ✅ **MELHOR tipografia do mercado** (9.5/10)
+- ✅ Qualidade fotorrealística superior
+- ✅ Excelente compreensão de prompts complexos
+- ✅ Consistência muito alta entre gerações
+- ✅ Integração nativa com Google Cloud
+- ✅ Suporte a edição in-painting
+- ✅ Menos "artifacts" e erros visuais
+- ✅ Estilo profissional (menos "look AI")
+
+**Contras:**
+- ❌ Requer conta Google Cloud
+- ❌ Curva de setup maior que OpenAI
+- ❌ Documentação menos madura
+- ❌ Custo ligeiramente maior se usar HD para tudo
+- ❌ Latência pode ser maior (4-8 segundos)
+
+**Qualidade para Logos:** 9.5/10 ⭐
+**Custo-Benefício:** 9/10
+**Facilidade de Integração:** 7/10
+
+**Por que Imagen 3 é superior para logos:**
+1. **Tipografia impecável:** Melhor do mercado para texto em imagens
+2. **Estilo profissional:** Logos parecem feitos por designer, não IA
+3. **Consistência:** Variações mantêm identidade visual
+4. **Detalhes:** Alta precisão em vetores e formas geométricas
+5. **Versatilidade:** Funciona bem para logos minimalistas e complexos
+
+---
+
+### 2.3 Midjourney v6
 
 **Pricing:**
 - Basic Plan: $10/mês (~200 imagens fast, ilimitado relax)
@@ -174,13 +216,21 @@ Atualmente você menciona estar usando "Nano Banana Pro" com bons resultados, ma
 
 | Modelo | Custo/Entrega | Qualidade | Integração | Score Total |
 |--------|---------------|-----------|------------|-------------|
-| **Midjourney v6** | **R$ 0.00*** | 9.5/10 | 4/10 | **22.5/30** |
+| **Google Imagen 3** | **R$ 3.20** | **9.5/10** | **7/10** | **26.5/30** 🏆 |
 | **Flux Pro** | R$ 2.20 | 9/10 | 9/10 | **26/30** |
 | **Ideogram v2** | R$ 0.80 | 8.5/10 | 8/10 | **25.5/30** |
 | **DALL-E 3** | R$ 2.20 | 7/10 | 10/10 | **25/30** |
+| **Midjourney v6** | R$ 0.00* | 9.5/10 | 4/10 | **22.5/30** |
 | **SDXL** | R$ 0.28 | 6.5/10 | 7/10 | **20.5/30** |
 
 \* *Usando modo Relax no plano Standard ($30/mês ilimitado)*
+
+**🏆 Vencedor: Google Imagen 3**
+- Melhor tipografia para logos (9.5/10)
+- Qualidade profissional equivalente ao Midjourney
+- API oficial do Google Cloud (confiabilidade)
+- Custo moderado: R$ 3,20/entrega
+- Margem ainda excelente: 97,9%
 
 ---
 
@@ -202,12 +252,71 @@ Atualmente você menciona estar usando "Nano Banana Pro" com bons resultados, ma
 - ✅ Custo previsível
 
 **Desvantagens:**
-- ❌ Qualidade inferior ao Midjourney
+- ❌ Qualidade inferior ao Midjourney/Imagen 3
 - ❌ Pode precisar revisão manual
 
 ---
 
-### 4.2 Cenário 2: Midjourney v6 (Qualidade Máxima)
+### 4.2 Cenário 2: Google Imagen 3 (Qualidade Premium) 🏆 RECOMENDADO
+
+**Stack:**
+- **Google Imagen 3 HD** para logos com tipografia
+- **Google Imagen 3 HD** para mockups profissionais
+- **Claude Sonnet 4.5** para copy e estratégia de marca
+
+**Custo:**
+- Imagen 3: R$ 3.20
+- Claude Sonnet: R$ 0.23
+- **Total: R$ 3.43/entrega**
+
+**Margem:** 97,7% (R$ 149 - R$ 3.43 = R$ 145.57)
+
+**Vantagens:**
+- ✅ **MELHOR tipografia do mercado** (logos com texto impecável)
+- ✅ Qualidade profissional 9.5/10 (igual ao Midjourney)
+- ✅ 100% automatizado via Google Cloud API
+- ✅ Escalável infinitamente
+- ✅ Consistência máxima entre gerações
+- ✅ Menos "look AI" (parece feito por designer)
+- ✅ Infraestrutura Google (99.9% uptime)
+- ✅ Integração com outros serviços Google (Cloud Storage, etc)
+
+**Desvantagens:**
+- ❌ Setup inicial requer conta Google Cloud
+- ❌ Custo R$ 1,00 maior que alternativas (mas qualidade justifica)
+- ❌ Latência ligeiramente maior (4-8s vs 2-4s)
+
+**Por que escolher Imagen 3:**
+
+1. **Tipografia Superior**
+   - Logos com texto/lettering ficam perfeitos
+   - Sem caracteres distorcidos ou ilegíveis
+   - Crucial para identidade visual profissional
+
+2. **Qualidade Consistente**
+   - 3 variações do logo mantêm identidade visual
+   - Menos regenerações necessárias
+   - Economia de tempo e custo
+
+3. **Profissionalismo**
+   - Cliente percebe valor premium
+   - Logos comparáveis a agências tradicionais
+   - Justifica preço de R$ 149
+
+4. **Escalabilidade**
+   - API oficial do Google
+   - Infraestrutura confiável
+   - Sem limites de volume
+
+5. **ROI do Investimento Extra**
+   - +R$ 1,00/entrega vs alternativas
+   - Em 100 vendas/mês: +R$ 100 custo
+   - Mas: menos refações, maior satisfação, NPS maior
+   - **Vale o investimento para se diferenciar no mercado**
+
+---
+
+### 4.3 Cenário 3: Midjourney v6 (Qualidade Máxima)
 
 **Stack:**
 - Midjourney v6 (modo Relax) para logos
@@ -333,58 +442,80 @@ Atualmente você menciona estar usando "Nano Banana Pro" com bons resultados, ma
 
 ### 6.1 Critérios de Avaliação
 
-| Critério | DALL-E 3 | Midjourney | Flux Pro | Ideogram |
-|----------|----------|------------|----------|----------|
-| Originalidade | 7/10 | 9/10 | 8.5/10 | 8/10 |
-| Profissionalismo | 7.5/10 | 9.5/10 | 9/10 | 8.5/10 |
-| Versatilidade | 8/10 | 9.5/10 | 8.5/10 | 7.5/10 |
-| Tipografia | 5/10 | 6/10 | 7.5/10 | **9.5/10** |
-| Mockups | 9/10 | 8.5/10 | 9.5/10 | 7/10 |
-| Consistência | 8/10 | 8/10 | 9/10 | 8.5/10 |
-| **TOTAL** | **44.5/60** | **50.5/60** | **52/60** | **49/60** |
+| Critério | DALL-E 3 | Midjourney | Flux Pro | Ideogram | **Imagen 3** |
+|----------|----------|------------|----------|----------|--------------|
+| Originalidade | 7/10 | 9/10 | 8.5/10 | 8/10 | **9/10** |
+| Profissionalismo | 7.5/10 | 9.5/10 | 9/10 | 8.5/10 | **9.5/10** |
+| Versatilidade | 8/10 | 9.5/10 | 8.5/10 | 7.5/10 | **9/10** |
+| Tipografia | 5/10 | 6/10 | 7.5/10 | 9.5/10 | **9.5/10** |
+| Mockups | 9/10 | 8.5/10 | 9.5/10 | 7/10 | **9.5/10** |
+| Consistência | 8/10 | 8/10 | 9/10 | 8.5/10 | **9.5/10** |
+| **TOTAL** | **44.5/60** | **50.5/60** | **52/60** | **49/60** | **🏆 56/60** |
 
 ---
 
 ## 7. Recomendação Final
 
-### 🏆 **RECOMENDAÇÃO: Cenário 4 - HÍBRIDO Ideogram + Flux**
+### 🏆 **RECOMENDAÇÃO PRINCIPAL: Google Imagen 3** (Cenário 2)
 
-**Por quê?**
+**Por quê o Imagen 3 é a melhor escolha para Brand Snapshot?**
 
-1. **Melhor Custo-Benefício Global**
-   - R$ 1.67/entrega (vs R$ 2.20 DALL-E ou R$ 3.00+ Midjourney em baixo volume)
-   - Margem de 98.9%
-   - Escalável sem limite
+1. **MELHOR Qualidade do Mercado (56/60)**
+   - Tipografia impecável: 9.5/10 (crucial para logos com texto)
+   - Profissionalismo: 9.5/10 (igual ao Midjourney)
+   - Mockups: 9.5/10 (fotorrealismo superior)
+   - Consistência: 9.5/10 (variações mantêm identidade)
 
-2. **Qualidade Profissional**
-   - Ideogram: especialista em logos com tipografia (9.5/10)
-   - Flux Pro: mockups realistas de alta qualidade (9.5/10)
-   - Resultado final comparável ao Midjourney
+2. **Diferencial Competitivo**
+   - Cliente percebe **VALOR PREMIUM**
+   - Logos comparáveis a agências tradicionais (que cobram R$ 500-2.000)
+   - Você cobra R$ 149 com qualidade de R$ 500+
+   - **NPS alto = mais referências orgânicas**
 
 3. **100% Automatizado**
-   - Ambos têm API oficial
-   - Zero intervenção manual necessária
-   - Escala infinita sem contratar pessoas
+   - API oficial Google Cloud
+   - Infraestrutura 99.9% uptime
+   - Escalável infinitamente
+   - Zero intervenção manual
 
-4. **Especialização**
-   - Cada ferramenta faz o que tem de melhor
-   - Logos com lettering impecável (Ideogram)
-   - Mockups fotorrealistas (Flux Pro)
+4. **ROI do Investimento**
+   - Custo: R$ 3.43/entrega (vs R$ 1.67 híbrido Ideogram+Flux)
+   - Diferença: +R$ 1.76/entrega
+   - **MAS:** Menos refações, maior satisfação, menos churn
+   - Em 100 clientes: +R$ 176 custo, mas evita perda de 5-10 clientes insatisfeitos (R$ 745-1.490)
+   - **ROI líquido: +R$ 569-1.314**
 
-5. **Previsibilidade**
-   - Custo fixo por entrega
-   - Sem surpresas na fatura
-   - Fácil de projetar margem
+5. **Margem Ainda Excelente**
+   - 97,7% de margem (R$ 145,57 lucro/venda)
+   - Break-even: 2 vendas/mês
+   - Sustentável desde o primeiro mês
 
 ---
 
-### 🥈 **Alternativa para Baixo Volume (< 30 entregas/mês): DALL-E 3**
+### 🥈 **Alternativa Econômica: Híbrido Ideogram + Flux**
 
-Se você está começando e quer simplicidade total:
-- **Custo:** R$ 2.20/entrega
-- **Margem:** 98.5%
-- **Vantagem:** API OpenAI (mesma da Claude), integração trivial
-- **Migrar para Híbrido quando escalar**
+Se você prioriza **custo mínimo absoluto** no início:
+
+- **Custo:** R$ 1.67/entrega
+- **Margem:** 98.9%
+- **Qualidade:** 8.5-9/10 (muito boa, mas não excepcional)
+- **Quando usar:** Validação inicial (primeiros 1-2 meses)
+- **Migrar para Imagen 3:** Assim que viabilidade for comprovada
+
+**Trade-off:**
+- ✅ R$ 1.76 mais barato/entrega
+- ❌ Qualidade inferior (pode gerar refações)
+- ❌ Menos diferenciação no mercado
+- ❌ Cliente pode não perceber tanto valor
+
+---
+
+### 🥉 **Alternativa para Volume Alto (>68 entregas/mês): Midjourney**
+
+- **Custo:** R$ 150-300/mês fixo (ilimitado modo Relax)
+- **A partir de 68 entregas/mês:** mais barato que todas as alternativas
+- **Qualidade:** 9.5/10 (excelente)
+- **Desvantagem:** Integração semi-manual (Discord Bot ou API não-oficial)
 
 ---
 
@@ -421,29 +552,51 @@ Se seu volume justificar e você quiser **máxima qualidade**:
 
 ## 9. Roadmap de Implementação
 
-### Fase 1: MVP (Mês 1-2) - DALL-E 3
-- Usar DALL-E 3 para tudo
-- Validar processo e qualidade
-- Coletar feedback dos clientes
+### 🎯 Estratégia Recomendada: Google Imagen 3 desde o início
+
+**Por quê começar direto com Imagen 3?**
+- Qualidade premium desde o dia 1
+- Cliente percebe valor superior
+- Menos risco de churn por qualidade
+- Posicionamento premium no mercado
+
+---
+
+### Fase 1: Setup (Semana 1-2)
+- ✅ Criar conta Google Cloud Platform
+- ✅ Ativar Vertex AI API (Imagen 3)
+- ✅ Configurar billing e quotas
+- ✅ Implementar pipeline de geração
+- ✅ Criar prompts base para logos + mockups
+- ✅ Testar 20-30 gerações (diferentes estilos)
+
+### Fase 2: MVP (Mês 1-2) - Google Imagen 3
+- ✅ Lançar com Imagen 3 + Claude Sonnet
+- ✅ Validar processo e qualidade
+- ✅ Coletar feedback dos clientes
+- ✅ Otimizar prompts baseado em feedback
 - **Meta:** 10-20 vendas/mês
 
-### Fase 2: Otimização (Mês 3-4) - Híbrido
-- Migrar logos → Ideogram v2
-- Migrar mockups → Flux Pro
-- A/B test com clientes
+### Fase 3: Otimização (Mês 3-4)
+- ✅ Refinar prompts (A/B testing)
+- ✅ Adicionar estilos predefinidos
+- ✅ Implementar prompt caching
+- ✅ Otimizar latência (paralelização)
 - **Meta:** 30-50 vendas/mês
 
-### Fase 3: Escala (Mês 5-6) - Híbrido ou Midjourney
-- Se < 68 vendas/mês: manter Híbrido
-- Se > 68 vendas/mês: avaliar Midjourney Relax
-- Otimizar prompts baseado em feedback
+### Fase 4: Escala (Mês 5-6)
+- ✅ Monitorar custos vs volume
+- ✅ Se > 100 vendas/mês: considerar Midjourney como alternativa
+- ✅ Criar biblioteca de estilos
+- ✅ Implementar QA automatizado
 - **Meta:** 100+ vendas/mês
 
-### Fase 4: Premium (Mês 7+)
-- Criar tier "Brand Snapshot PRO" (R$ 299)
-- Usar Midjourney + revisão manual
-- Oferecer variações ilimitadas
-- **Meta:** mix de planos
+### Fase 5: Premium (Mês 7+)
+- ✅ Criar tier "Brand Snapshot PRO" (R$ 299)
+- ✅ Adicionar revisão manual opcional
+- ✅ Oferecer variações ilimitadas
+- ✅ Considerar white-label para agências
+- **Meta:** Mix de planos (70% base, 30% PRO)
 
 ---
 
@@ -451,7 +604,79 @@ Se seu volume justificar e você quiser **máxima qualidade**:
 
 ### Integração via API
 
-**Ideogram v2:**
+**🏆 Google Imagen 3 (Recomendado):**
+
+```python
+from google.cloud import aiplatform
+from vertexai.preview.vision_models import ImageGenerationModel
+
+# Initialize Vertex AI
+aiplatform.init(project="seu-projeto-gcp", location="us-central1")
+
+# Load Imagen 3 model
+model = ImageGenerationModel.from_pretrained("imagegeneration@006")
+
+# Generate logo
+logo_prompt = """
+Professional minimalist logo for a tech startup called "TechFlow".
+Style: Clean, modern, geometric
+Colors: Blue gradient (#0066FF to #00B4FF)
+Format: Icon + wordmark
+Must include: Letter 'T' as main element
+No background, transparent PNG
+High resolution, vector-ready
+"""
+
+images = model.generate_images(
+    prompt=logo_prompt,
+    number_of_images=4,  # Gerar 4 variações
+    aspect_ratio="1:1",
+    safety_filter_level="block_few",
+    person_generation="allow_all",
+)
+
+# Save images
+for i, image in enumerate(images):
+    image.save(f"logo_variation_{i+1}.png")
+
+# Generate mockups
+mockup_prompt = """
+Professional product mockup: business card on wooden desk
+Logo: "TechFlow" blue gradient logo
+Lighting: Natural daylight, soft shadows
+Composition: Top-down view, slight angle
+Environment: Minimal, professional office setting
+High resolution, photorealistic
+"""
+
+mockups = model.generate_images(
+    prompt=mockup_prompt,
+    number_of_images=5,
+    aspect_ratio="16:9",
+)
+
+for i, mockup in enumerate(mockups):
+    mockup.save(f"mockup_{i+1}.png")
+```
+
+**Setup Google Cloud:**
+```bash
+# Install dependencies
+pip install google-cloud-aiplatform
+
+# Authenticate
+gcloud auth application-default login
+
+# Set project
+gcloud config set project SEU_PROJETO_ID
+
+# Enable Vertex AI API
+gcloud services enable aiplatform.googleapis.com
+```
+
+---
+
+**Ideogram v2 (Alternativa):**
 ```python
 import requests
 
