@@ -57,7 +57,7 @@ export function ComparisonTable() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-lg text-muted-foreground max-w-2xl mx-auto"
+            className="text-lg text-slate-800 max-w-2xl mx-auto"
           >
             Tokens e modelos são infraestrutura. Você não compra
             infraestrutura, compra resultados prontos.
@@ -75,7 +75,7 @@ export function ComparisonTable() {
             <table className="w-full">
               <thead>
                 <tr className="border-b border-border/50">
-                  <th className="p-6 text-left text-sm font-semibold text-muted-foreground">
+                  <th className="p-6 text-left text-sm font-semibold text-slate-700">
                     Aspecto
                   </th>
                   <th className="p-6 text-center text-base font-semibold">
@@ -105,7 +105,7 @@ export function ComparisonTable() {
                     className="border-b border-border/30 last:border-0 hover:bg-accent/5 transition-colors"
                   >
                     <td className="p-6 font-medium">{item.label}</td>
-                    <td className="p-6 text-center text-muted-foreground">
+                    <td className="p-6 text-center text-slate-700">
                       <div className="flex items-center justify-center gap-2">
                         <item.tokenIcon className="w-4 h-4 text-destructive shrink-0" />
                         <span className="text-sm">{item.tokenBased}</span>

@@ -1,10 +1,18 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { ArrowLeft, FileText, Code, Zap, Shield, Globe, Database } from 'lucide-react'
+import { ArrowLeft, FileText, Code, Zap, Shield, Globe, Database, type LucideIcon } from 'lucide-react'
 import Link from 'next/link'
 
-const documentationSections = [
+type DocumentationSection = {
+  id?: string
+  icon: LucideIcon
+  title: string
+  description: string
+  items: string[]
+}
+
+const documentationSections: DocumentationSection[] = [
   {
     icon: Code,
     title: 'Guias de Desenvolvimento',
@@ -18,6 +26,7 @@ const documentationSections = [
   },
   {
     icon: Zap,
+    id: 'apis',
     title: 'APIs e Integrações',
     description: 'Documentação de APIs e serviços externos',
     items: [
@@ -116,6 +125,48 @@ export default function DocumentationPage() {
         </div>
       </section>
 
+      {/* Preview & APIs quickstart */}
+      <section className="pb-10">
+        <div className="container mx-auto px-4">
+          <div className="grid gap-6 rounded-2xl border bg-background shadow-sm md:grid-cols-[1.15fr,0.85fr]">
+            <div className="p-6 md:p-8 space-y-3">
+              <p className="text-xs font-semibold uppercase tracking-[0.25em] text-secondary">
+                Fluxo de Preview
+              </p>
+              <h2 className="text-2xl md:text-3xl font-semibold text-foreground">
+                Envie, receba o preview e conecte via API
+              </h2>
+              <ul className="space-y-2 text-sm text-gray-700">
+                <li>1) Escolha a solução e envie o briefing inicial.</li>
+                <li>2) IA gera o preview antes de qualquer pagamento.</li>
+                <li>3) Aprove e integre pelas APIs para produção.</li>
+              </ul>
+              <div className="flex flex-wrap gap-3 pt-2">
+                <Link
+                  href="/servicos"
+                  className="inline-flex items-center justify-center rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground transition-colors duration-200 hover:bg-primary/90"
+                >
+                  Ver soluções com preview
+                </Link>
+                <Link
+                  href="#apis"
+                  className="inline-flex items-center justify-center rounded-lg border border-border px-4 py-2 text-sm font-semibold text-foreground transition-colors duration-200 hover:border-primary hover:text-primary"
+                >
+                  Ir direto para APIs
+                </Link>
+              </div>
+            </div>
+            <div className="flex items-center rounded-b-2xl bg-gradient-to-br from-primary/10 via-secondary/10 to-accent/20 p-6 md:rounded-r-2xl md:rounded-bl-none">
+              <p className="text-sm text-foreground">
+                Todas as rotas de preview e contratação usam autenticação simples, CORS liberado para
+                os domínios wm3digital.com e app.wm3digital.com e logs observáveis para times de
+                produto.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Documentation Sections */}
       <section className="py-20 bg-muted/30">
         <div className="container mx-auto px-4">
@@ -134,6 +185,7 @@ export default function DocumentationPage() {
               return (
                 <motion.div
                   key={index}
+                  id={section.id}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}

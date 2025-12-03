@@ -28,17 +28,17 @@ export function FinalCTASection() {
               </h2>
 
               {/* Subtitle */}
-              <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-8 leading-relaxed">
+              <p className="text-lg md:text-xl text-slate-800 max-w-2xl mx-auto mb-8 leading-relaxed">
                 Conte em poucas linhas seu desafio atual. Respondemos com um
                 caminho direto e honesto.
               </p>
 
               {/* CTA Button */}
               <Link
-                href="/contato"
+                href="/suporte"
                 className="btn btn-primary group inline-flex items-center gap-2"
               >
-                Entrar em contato
+                Falar com nosso suporte
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Link>
 

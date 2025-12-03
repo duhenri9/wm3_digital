@@ -121,7 +121,7 @@ export default function DesignSaaSPage() {
       </section>
 
       {/* O que você recebe Section */}
-      <section className="bg-accent/20 py-16">
+      <section className="bg-gradient-to-br from-slate-900 via-[#041026] to-slate-950 py-16 text-slate-100">
         <div className="container space-y-12">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -129,10 +129,10 @@ export default function DesignSaaSPage() {
             transition={{ duration: 0.6, delay: 0.4 }}
             className="text-center space-y-4"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground">
+            <h2 className="text-3xl md:text-4xl font-bold text-white">
               O que você recebe
             </h2>
-            <p className="text-lg text-gray-700 max-w-2xl mx-auto">
+            <p className="text-lg text-slate-200/90 max-w-2xl mx-auto">
               Entrega completa e transparente para sua total autonomia
             </p>
           </motion.div>

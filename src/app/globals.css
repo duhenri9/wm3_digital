@@ -5,24 +5,24 @@
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 213 22% 34%;
+    --foreground: 222 47% 11%;
     --card: 0 0% 100%;
-    --card-foreground: 213 22% 34%;
+    --card-foreground: 222 47% 11%;
     --popover: 0 0% 100%;
-    --popover-foreground: 213 22% 34%;
-    --primary: 201 31% 52%;
+    --popover-foreground: 222 47% 11%;
+    --primary: 201 31% 46%;
     --primary-foreground: 0 0% 95%;
-    --secondary: 18 69% 76%;
-    --secondary-foreground: 213 22% 34%;
-    --muted: 0 0% 50%;
-    --muted-foreground: 213 22% 45%;
-    --accent: 194 95% 14%;
-    --accent-foreground: 0 0% 95%;
+    --secondary: 18 69% 64%;
+    --secondary-foreground: 222 47% 11%;
+    --muted: 220 15% 92%;
+    --muted-foreground: 222 34% 18%;
+    --accent: 201 82% 22%;
+    --accent-foreground: 0 0% 98%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
     --border: 240 5.9% 90%;
     --input: 240 5.9% 90%;
-    --ring: 201 31% 52%;
+    --ring: 201 31% 46%;
     --radius: 0.5rem;
   }
 
@@ -322,27 +322,15 @@
   }
 }
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
-  background: var(--background);
-  color: var(--foreground);
+  background: hsl(var(--background));
+  color: hsl(var(--foreground));
   font-family: Arial, Helvetica, sans-serif;
 }

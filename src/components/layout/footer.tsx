@@ -13,25 +13,7 @@ import {
   Phone,
 } from "lucide-react";
 
-const serviceLinks = [
-  { name: "Design SaaS", href: "/servicos/design-saas" },
-  { name: "Funil que Vende+", href: "/servicos/funil-que-vende" },
-  { name: "SocialFlux∞", href: "/servicos/socialflux" },
-];
-
-const companyLinks = [
-  { name: "Sobre", href: "/sobre" },
-  { name: "Serviços", href: "/servicos" },
-  { name: "Portfólio", href: "/portfolio" },
-  { name: "Documentação", href: "/documentacao" },
-  { name: "Suporte", href: "/suporte" },
-];
-
-const socialLinks = [
-  { icon: Instagram, label: "Instagram", href: "#" },
-  { icon: Linkedin, label: "LinkedIn", href: "#" },
-  { icon: Github, label: "GitHub", href: "#" },
-];
+import { aiServices } from "@/data/ai-services";
 
 const contactDetails = [
   {
@@ -51,33 +33,59 @@ const contactDetails = [
   },
 ];
 
-// Define a type for the `service` object
-interface ServiceLink {
-  name: string;
-  href: string;
-}
-
-const portfolioLinks = [
-  { name: "Metrify", href: "/portfolio#metrify" },
-  { name: "SubHub", href: "/portfolio#subhub" },
-  { name: "HumanTic", href: "/portfolio#humantic" },
-  { name: "Eryon Core", href: "/portfolio#eryon-core" },
-  { name: "Aurion by Veridex", href: "/portfolio#aurion-veridex" },
+const companyLinks = [
+  { name: "Portfólio", href: "/portfolio" },
+  { name: "Projetos", href: "/projetos" },
+  { name: "Sobre", href: "/sobre" },
+  { name: "Documentação", href: "/documentacao#apis" },
+  { name: "Suporte", href: "/suporte" },
+  { name: "Em breve", href: "/em-breve" },
 ];
+
+const legalLinks = [
+  { name: "Política de Privacidade", href: "/privacidade" },
+  { name: "Termos de Uso", href: "/termos" },
+  { name: "Cookies", href: "/cookies" },
+];
+
+const socialLinks = [
+  { icon: Instagram, label: "Instagram", href: "https://www.instagram.com" },
+  { icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com" },
+  { icon: Github, label: "GitHub", href: "https://github.com" },
+];
+
+const badgeTone = (status: string) => {
+  switch (status) {
+    case "Disponível":
+      return "bg-emerald-400/15 text-emerald-200 border-emerald-400/30";
+    case "Early Adopters":
+      return "bg-amber-400/20 text-amber-100 border-amber-300/40";
+    default:
+      return "bg-sky-400/20 text-sky-100 border-sky-300/40";
+  }
+};
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
+  const solutions = aiServices;
+  const getSolutionHref = (solutionId: string) => `/servicos#${solutionId}`;
 
   return (
-    <footer className="bg-[#050C1F] text-slate-200">
-      <div className="container py-16 md:py-24">
-        <div className="grid gap-12 md:grid-cols-[1.1fr,1fr] lg:grid-cols-[1.2fr,0.9fr,0.9fr]">
+    <footer className="relative overflow-hidden bg-[#050C1F] text-slate-200">
+      <div className="pointer-events-none absolute inset-0">
+        <div className="absolute left-0 top-0 h-48 w-48 rounded-full bg-primary/10 blur-3xl" />
+        <div className="absolute bottom-0 right-10 h-64 w-64 rounded-full bg-secondary/15 blur-3xl" />
+        <div className="absolute inset-x-0 top-1/2 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+      </div>
+
+      <div className="relative container py-16 md:py-24">
+        <div className="grid gap-12 lg:grid-cols-[1.05fr,1fr,1fr]">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
-            className="space-y-6"
+            className="space-y-8"
           >
             <Link href="/" className="flex items-center gap-3">
               <Image
@@ -89,19 +97,41 @@ export function Footer() {
                 priority
               />
             </Link>
-            <p className="max-w-sm text-sm leading-relaxed text-slate-300">
-              WM3 Digital combina automação inteligente, agentes multimodais e governança de dados para acelerar crescimento sustentável em ecossistemas SaaS, B2B e B2C.
+            <p className="max-w-sm text-sm leading-relaxed text-slate-200/80">
+              WM3 Digital combina automação inteligente, agentes multimodais e governança de dados
+              para acelerar crescimento sustentável em ecossistemas SaaS, B2B e B2C.
             </p>
-            <div className="space-y-3 text-sm text-slate-300">
+
+            <div className="space-y-3 text-sm text-slate-200/80">
               {contactDetails.map(({ icon: Icon, label, href }) => (
                 <Link
                   key={label}
                   href={href}
-                  className="flex items-center gap-3 transition-colors duration-200 hover:text-secondary"
+                  className="flex items-center gap-3 rounded-lg transition-colors duration-200 hover:bg-white/5 hover:text-secondary"
                   aria-label={label}
                 >
                   <Icon className="h-4 w-4 text-secondary" />
                   <span>{label}</span>
+                </Link>
+              ))}
+            </div>
+
+            <div className="flex flex-wrap gap-3">
+              <Link
+                href="/documentacao#apis"
+                className="inline-flex items-center gap-2 rounded-xl bg-white/5 px-4 py-2 text-sm font-semibold text-slate-100 shadow-inner transition-all duration-200 hover:-translate-y-0.5 hover:bg-white/10"
+              >
+                Preview & APIs
+                <ArrowUpRight className="h-4 w-4" />
+              </Link>
+              {socialLinks.map(({ icon: Icon, label, href }) => (
+                <Link
+                  key={label}
+                  href={href}
+                  className="flex h-10 w-10 items-center justify-center rounded-full border border-white/15 text-slate-200 transition-all duration-200 hover:scale-105 hover:border-secondary hover:text-secondary"
+                  aria-label={label}
+                >
+                  <Icon className="h-4 w-4" />
                 </Link>
               ))}
             </div>
@@ -115,38 +145,33 @@ export function Footer() {
             className="space-y-4"
           >
             <h3 className="text-sm font-semibold uppercase tracking-[0.3em] text-secondary">
-              Serviços
+              Ferramentas com preview
             </h3>
-            <ul className="grid grid-cols-1 gap-2 text-sm text-slate-300">
-              {serviceLinks.map((service: ServiceLink) => (
-                <li key={service.name}>
+            <ul className="grid grid-cols-1 gap-2 text-sm text-slate-200/80 sm:grid-cols-2">
+              {solutions.map((solution) => (
+                <li key={solution.id}>
                   <Link
-                    href={service.href}
-                    className="group inline-flex items-center gap-2 transition-colors duration-200 hover:text-secondary"
+                    href={getSolutionHref(solution.id)}
+                    className="group inline-flex w-full items-start justify-between gap-2 rounded-lg px-2 py-2 transition-colors duration-200 hover:bg-white/5 hover:text-secondary"
                   >
-                    <ArrowUpRight className="h-3.5 w-3.5 opacity-70 transition-transform duration-200 group-hover:translate-x-1 group-hover:opacity-100" />
-                    {service.name}
+                    <span className="inline-flex items-start gap-2">
+                      <ArrowUpRight className="h-3.5 w-3.5 opacity-70 transition-transform duration-200 group-hover:translate-x-1 group-hover:opacity-100" />
+                      <span className="font-semibold leading-tight">{solution.name}</span>
+                    </span>
+                    <span className="inline-flex items-center rounded-full border border-secondary/40 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-secondary">
+                      Preview
+                    </span>
                   </Link>
                 </li>
               ))}
             </ul>
-
-            <h3 className="text-sm font-semibold uppercase tracking-[0.3em] text-secondary">
-              Portfólio WM3
-            </h3>
-            <ul className="grid grid-cols-1 gap-2 text-sm text-slate-300">
-              {portfolioLinks.map((portfolio) => (
-                <li key={portfolio.name}>
-                  <Link
-                    href={portfolio.href}
-                    className="group inline-flex items-center gap-2 transition-colors duration-200 hover:text-secondary"
-                  >
-                    <ArrowUpRight className="h-3.5 w-3.5 opacity-70 transition-transform duration-200 group-hover:translate-x-1 group-hover:opacity-100" />
-                    {portfolio.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+            <Link
+              href="/servicos"
+              className="inline-flex items-center text-sm font-semibold text-secondary transition-colors duration-200 hover:text-secondary/80"
+            >
+              Ver visão geral de serviços
+              <ArrowUpRight className="ml-1 h-3.5 w-3.5" />
+            </Link>
           </motion.div>
 
           <motion.div
@@ -158,9 +183,9 @@ export function Footer() {
           >
             <div className="space-y-4">
               <h3 className="text-sm font-semibold uppercase tracking-[0.3em] text-secondary">
-                Empresa
+                Navegação
               </h3>
-              <ul className="space-y-2 text-sm text-slate-300">
+              <ul className="grid grid-cols-1 gap-2 text-sm text-slate-200/80 sm:grid-cols-2">
                 {companyLinks.map((item) => (
                   <li key={item.name}>
                     <Link
@@ -176,17 +201,16 @@ export function Footer() {
 
             <div className="space-y-3">
               <h3 className="text-sm font-semibold uppercase tracking-[0.3em] text-secondary">
-                Redes
+                Legal & Governança
               </h3>
-              <div className="flex gap-3">
-                {socialLinks.map(({ icon: Icon, label, href }) => (
+              <div className="flex flex-wrap gap-3 text-sm text-slate-200/80">
+                {legalLinks.map((item) => (
                   <Link
-                    key={label}
-                    href={href}
-                    className="flex h-10 w-10 items-center justify-center rounded-full border border-white/15 text-slate-200 transition-all duration-200 hover:scale-105 hover:border-secondary hover:text-secondary"
-                    aria-label={label}
+                    key={item.name}
+                    href={item.href}
+                    className="rounded-full border border-white/10 px-3 py-1 transition-colors duration-200 hover:border-secondary hover:text-secondary"
                   >
-                    <Icon className="h-4 w-4" />
+                    {item.name}
                   </Link>
                 ))}
               </div>
@@ -194,19 +218,11 @@ export function Footer() {
           </motion.div>
         </div>
 
-        <div className="mt-16 flex flex-col gap-4 border-t border-white/10 pt-8 text-xs text-slate-500 md:flex-row md:items-center md:justify-between">
-          <p>© {currentYear} WM3 Digital. Todos os direitos reservados.</p>
-          <div className="flex flex-wrap gap-4">
-            <Link href="/privacidade" className="transition-colors duration-200 hover:text-secondary">
-              Política de Privacidade
-            </Link>
-            <Link href="/termos" className="transition-colors duration-200 hover:text-secondary">
-              Termos de Uso
-            </Link>
-            <Link href="/cookies" className="transition-colors duration-200 hover:text-secondary">
-              Cookies
-            </Link>
-          </div>
+        <div className="mt-16 flex flex-col gap-4 border-t border-white/10 pt-8 text-xs text-slate-400">
+          <p className="text-center">© {currentYear} WM3 Digital. Todos os direitos reservados.</p>
+          <p className="text-center text-slate-400">
+            WM3 DIGITAL LTDA - CNPJ: 55.060.419/0001-20.
+          </p>
         </div>
       </div>
     </footer>

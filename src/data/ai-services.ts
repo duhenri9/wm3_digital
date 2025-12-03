@@ -10,7 +10,7 @@ export const aiServices: AIServiceDefinition[] = [
     name: 'Tema 360',
     priceBRL: 7900, // 79.00 BRL in cents
     shortDescription:
-      'Um tema, um pacote de conteúdo completo (artigo/roteiro, posts e hooks) gerado por IA em poucos minutos.',
+      'Um tema vira um pacote completo de conteúdo (artigo/roteiro, posts e hooks) em poucos minutos.',
     fullDescription:
       'Transformar um tema em um pacote de conteúdo para blog, vídeo e redes sociais. A IA gera um artigo/roteiro completo, posts para redes sociais e hooks cativantes.',
     inputFields: [
@@ -68,7 +68,7 @@ export const aiServices: AIServiceDefinition[] = [
     name: 'Raio-X de Landing',
     priceBRL: 9700, // 97.00 BRL in cents
     shortDescription:
-      'A IA analisa sua landing, identifica pontos fracos e sugere melhorias com novas versões de hero.',
+      'Análise automatizada da sua landing para identificar pontos fracos e sugerir novos heros.',
     fullDescription:
       'Diagnosticar uma landing page e sugerir melhorias baseadas em boas práticas de conversão. A IA analisa a estrutura, copy e oferece recomendações acionáveis.',
     inputFields: [
@@ -130,7 +130,7 @@ export const aiServices: AIServiceDefinition[] = [
     name: 'Brand Snapshot',
     priceBRL: 14900, // 149.00 BRL in cents
     shortDescription:
-      'Identidade visual inicial gerada por IA: duas rodadas de logos e paletas para você escolher a favorita antes de pagar.',
+      'Identidade visual inicial com duas rodadas de logos e paletas para escolher a favorita antes de pagar.',
     fullDescription:
       'Gere um snapshot de identidade visual inicial 100% por IA. Receba 4 variações de logo e paleta, com direito a uma segunda rodada de refinamento antes de escolher e pagar.',
     inputFields: [
@@ -186,7 +186,7 @@ export const aiServices: AIServiceDefinition[] = [
     name: 'Landing Blueprint',
     priceBRL: 14700, // 147.00 BRL in cents
     shortDescription:
-      'Blueprint textual completo de uma landing: estrutura, copy e sugestões de layout prontos para implementação.',
+      'Blueprint textual completo de uma landing: estrutura, copy e sugestões de layout prontos para implementar.',
     fullDescription:
       'Receba um blueprint textual completo da sua landing page, pronto para o desenvolvedor implementar. Inclui estrutura das seções, copy completa e sugestões de layout.',
     inputFields: [
@@ -245,7 +245,7 @@ export const aiServices: AIServiceDefinition[] = [
     name: 'QR Code',
     priceBRL: 3900, // 39.00 BRL in cents
     shortDescription:
-      'QR codes criativos gerados por IA: você define o destino e o estilo, vê variações e baixa o arquivo pronto para impressão ou web.',
+      'QR codes criativos: defina destino e estilo, veja variações e baixe arquivos prontos para impressão ou web.',
     fullDescription:
       'Gere QR codes estilizados e criativos com IA. Receba 4 variações visuais, com direito a uma segunda rodada de refinamento. Sempre legíveis e prontos para uso.',
     inputFields: [

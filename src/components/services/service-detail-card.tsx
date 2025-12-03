@@ -32,13 +32,13 @@ export function ServiceDetailCard({ service, index }: ServiceDetailCardProps) {
                 </span>
               )}
             </div>
-            <p className="text-muted-foreground">{service.fullDescription}</p>
+            <p className="text-slate-700">{service.fullDescription}</p>
           </div>
           <div className="flex flex-col items-start md:items-end gap-2 shrink-0">
             <div className="text-4xl font-bold text-primary">
               {formatPriceBRL(service.priceBRL)}
             </div>
-            <div className="text-sm text-muted-foreground">Preço fixo</div>
+            <div className="text-sm text-slate-700">Preço fixo</div>
           </div>
         </div>
 
@@ -46,7 +46,7 @@ export function ServiceDetailCard({ service, index }: ServiceDetailCardProps) {
         <div className="grid md:grid-cols-3 gap-6 mb-8">
           {/* What we need */}
           <div className="space-y-3">
-            <h4 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground flex items-center gap-2">
+            <h4 className="text-sm font-semibold uppercase tracking-wider text-slate-800 flex items-center gap-2">
               <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center text-xs font-bold text-primary">
                 1
               </div>
@@ -72,13 +72,13 @@ export function ServiceDetailCard({ service, index }: ServiceDetailCardProps) {
 
           {/* Preview */}
           <div className="space-y-3">
-            <h4 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground flex items-center gap-2">
+            <h4 className="text-sm font-semibold uppercase tracking-wider text-slate-800 flex items-center gap-2">
               <div className="w-6 h-6 rounded-full bg-secondary/10 flex items-center justify-center text-xs font-bold text-secondary">
                 2
               </div>
               Preview (antes de pagar)
             </h4>
-            <p className="text-sm text-muted-foreground leading-relaxed">
+            <p className="text-sm text-slate-700 leading-relaxed">
               {service.previewDescription}
             </p>
             <div className="inline-flex items-center gap-1 px-2 py-1 rounded-md bg-accent/10 text-xs font-medium text-accent">
@@ -89,7 +89,7 @@ export function ServiceDetailCard({ service, index }: ServiceDetailCardProps) {
 
           {/* Final delivery */}
           <div className="space-y-3">
-            <h4 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground flex items-center gap-2">
+            <h4 className="text-sm font-semibold uppercase tracking-wider text-slate-800 flex items-center gap-2">
               <div className="w-6 h-6 rounded-full bg-accent/10 flex items-center justify-center text-xs font-bold text-accent">
                 3
               </div>
@@ -108,13 +108,22 @@ export function ServiceDetailCard({ service, index }: ServiceDetailCardProps) {
 
         {/* CTA */}
         <div className="pt-6 border-t border-border/30">
-          <Link
-            href={`/servicos/${service.id}/start`}
-            className="btn btn-primary group inline-flex"
-          >
-            Começar agora
-            <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-          </Link>
+          <div className="flex flex-wrap items-center gap-3">
+            <Link
+              href={`/suporte?servico=${service.id}&fluxo=preview`}
+              className="btn btn-primary group inline-flex"
+            >
+              Iniciar preview
+              <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </Link>
+            <Link
+              href="/documentacao#apis"
+              className="btn btn-outline inline-flex items-center gap-2 text-sm font-semibold"
+            >
+              Ver APIs & integrações
+              <ArrowRight className="h-4 w-4" />
+            </Link>
+          </div>
         </div>
       </div>
     </motion.div>

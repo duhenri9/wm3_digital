@@ -17,8 +17,8 @@ export function AIServicesSection() {
             transition={{ duration: 0.5 }}
             className="inline-flex items-center gap-2 mb-6"
           >
-            <Sparkles className="w-5 h-5 text-secondary" />
-            <span className="text-sm font-medium uppercase tracking-wider text-muted-foreground">
+            <Sparkles className="w-5 h-5 text-primary" />
+            <span className="text-sm font-semibold uppercase tracking-[0.28em] text-primary">
               Ferramentas AI-First
             </span>
           </motion.div>
@@ -38,7 +38,7 @@ export function AIServicesSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto"
+            className="text-lg md:text-xl text-slate-800 max-w-3xl mx-auto"
           >
             Impulsione sua presença on-line com estas ferramentas de IA
             inovadoras.
@@ -74,14 +74,16 @@ export function AIServicesSection() {
                   </div>
 
                   {/* Description */}
-                  <p className="text-muted-foreground leading-relaxed flex-1 mb-4">
+                  <p className="text-slate-700 leading-relaxed flex-1 mb-4">
                     {service.shortDescription}
                   </p>
 
                   {/* CTA */}
-                  <div className="flex items-center gap-2 text-sm font-medium text-primary group-hover:gap-3 transition-all">
-                    <span>Ver detalhes</span>
-                    <ArrowRight className="w-4 h-4" />
+                  <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-primary group-hover:gap-3 transition-all">
+                    <span className="rounded-full border border-primary/30 bg-primary/10 px-2.5 py-1 text-primary">
+                      Ver Preview
+                    </span>
+                    <ArrowRight className="w-4 h-4 text-primary" />
                   </div>
 
                   {/* Hover effect */}

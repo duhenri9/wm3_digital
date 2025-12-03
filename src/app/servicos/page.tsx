@@ -20,7 +20,7 @@ export default function ServicosPage() {
               className="inline-flex items-center gap-2 mb-6"
             >
               <Sparkles className="w-5 h-5 text-secondary" />
-              <span className="text-sm font-medium uppercase tracking-wider text-muted-foreground">
+              <span className="text-sm font-semibold uppercase tracking-[0.28em] text-primary">
                 Ferramentas AI-First
               </span>
             </motion.div>
@@ -38,7 +38,7 @@ export default function ServicosPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="text-lg md:text-xl text-muted-foreground mb-8 leading-relaxed"
+              className="text-lg md:text-xl text-slate-800 mb-8 leading-relaxed"
             >
               Impulsione sua presença on-line com estas ferramentas de IA
               inovadoras.
@@ -50,7 +50,7 @@ export default function ServicosPage() {
               transition={{ duration: 0.5, delay: 0.3 }}
               className="card p-6 max-w-3xl mx-auto"
             >
-              <p className="text-base text-muted-foreground">
+              <p className="text-base text-slate-700">
                 <strong className="text-foreground">Como funciona:</strong>{' '}
                 Ferramentas com preço fechado, preview gerado por IA antes de
                 pagar, entrega final em minutos, 100% automatizada.

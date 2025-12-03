@@ -134,7 +134,7 @@ export default function EmBreve() {
       >
         <div className="text-center space-y-2">
           <h2 className="text-2xl font-bold">Próximos Lançamentos</h2>
-          <p className="text-muted-foreground">Inovações que vão revolucionar seu negócio</p>
+          <p className="text-slate-800">Inovações que vão revolucionar seu negócio</p>
         </div>
         
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
@@ -166,7 +166,7 @@ export default function EmBreve() {
                         }`}>
                           {feature.status}
                         </span>
-                        <span className="text-xs text-muted-foreground flex items-center">
+                        <span className="text-xs text-slate-700 flex items-center">
                           <Calendar className="w-3 h-3 mr-1" />
                           {feature.timeline}
                         </span>
@@ -183,7 +183,7 @@ export default function EmBreve() {
                   <h4 className="font-medium text-sm">Principais funcionalidades:</h4>
                   <ul className="space-y-1">
                     {feature.features.map((feat, idx) => (
-                      <li key={idx} className="flex items-center text-sm text-muted-foreground">
+                      <li key={idx} className="flex items-center text-sm text-slate-700">
                         <div className="w-1.5 h-1.5 rounded-full bg-primary mr-2" />
                         {feat}
                       </li>
@@ -212,7 +212,7 @@ export default function EmBreve() {
       >
         <div className="text-center space-y-2">
           <h2 className="text-2xl font-bold">Roadmap 2024-2025</h2>
-          <p className="text-muted-foreground">Nossa jornada de inovação</p>
+          <p className="text-slate-800">Nossa jornada de inovação</p>
         </div>
         
         <div className="relative">
@@ -248,7 +248,7 @@ export default function EmBreve() {
                     </span>
                   </div>
                   <h3 className="text-lg font-semibold mb-2">{item.title}</h3>
-                  <p className="text-muted-foreground">{item.description}</p>
+                  <p className="text-slate-700">{item.description}</p>
                 </div>
               </motion.div>
             ))}
@@ -265,7 +265,7 @@ export default function EmBreve() {
       >
         <div className="text-center space-y-2">
           <h2 className="text-2xl font-bold">Seja o Primeiro a Saber</h2>
-          <p className="text-muted-foreground">Cadastre-se para receber atualizações exclusivas</p>
+          <p className="text-slate-800">Cadastre-se para receber atualizações exclusivas</p>
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -282,7 +282,7 @@ export default function EmBreve() {
                   <Bell className="w-5 h-5 text-primary" />
                   <h3 className="font-semibold">{notification.title}</h3>
                 </div>
-                <p className="text-sm text-muted-foreground">
+                <p className="text-sm text-slate-700">
                   {notification.description}
                 </p>
                 <div className="p-3 bg-primary/10 rounded-lg">

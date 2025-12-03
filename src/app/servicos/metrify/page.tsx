@@ -62,7 +62,7 @@ export default function MetrifyPage() {
         <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
           Observabilidade que acelera decisões de produto
         </h1>
-        <p className="mx-auto max-w-3xl text-lg text-muted-foreground">
+        <p className="mx-auto max-w-3xl text-lg text-slate-800">
           A plataforma de métricas da WM3 reúne monitoramento, alertas e insights preditivos em um
           só lugar para que times SaaS atuem com velocidade, autonomia e foco em crescimento.
         </p>
@@ -96,7 +96,7 @@ export default function MetrifyPage() {
           >
             <item.icon className="h-10 w-10 text-primary" />
             <h3 className="mt-5 text-xl font-semibold text-foreground">{item.title}</h3>
-            <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{item.description}</p>
+            <p className="mt-3 text-sm leading-relaxed text-slate-700">{item.description}</p>
           </div>
         ))}
       </motion.section>
@@ -111,11 +111,11 @@ export default function MetrifyPage() {
         <div className="grid gap-8 lg:grid-cols-[1.2fr,0.8fr]">
           <div className="space-y-6">
             <h2 className="text-3xl font-semibold text-foreground">Stack de Telemetria Moderno</h2>
-            <p className="text-base text-muted-foreground">
+            <p className="text-base text-slate-700">
               Instrumente seus produtos com coletores leves, normalize eventos via n8n e mantenha
               uma visão unificada de clientes, assinaturas e performance técnica.
             </p>
-            <ul className="space-y-3 text-sm text-muted-foreground">
+            <ul className="space-y-3 text-sm text-slate-700">
               {dataSources.map((source) => (
                 <li key={source} className="flex items-center gap-3">
                   <Activity className="h-4 w-4 text-primary" />
@@ -133,7 +133,7 @@ export default function MetrifyPage() {
                   className="rounded-xl border border-primary/15 bg-primary/5 p-4 text-center"
                 >
                   <p className="text-2xl font-bold text-primary">{metric.value}</p>
-                  <p className="mt-2 text-xs text-muted-foreground">{metric.label}</p>
+                  <p className="mt-2 text-xs text-slate-700">{metric.label}</p>
                 </div>
               ))}
             </div>
@@ -174,7 +174,7 @@ export default function MetrifyPage() {
                 </div>
                 <h3 className="text-lg font-semibold">{step.title}</h3>
               </div>
-              <p className="mt-3 text-sm text-muted-foreground">{step.description}</p>
+              <p className="mt-3 text-sm text-slate-700">{step.description}</p>
             </div>
           ))}
         </div>
@@ -183,7 +183,7 @@ export default function MetrifyPage() {
             <h3 className="text-xl font-semibold text-foreground">
               Pronto para medir o que importa?
             </h3>
-            <p className="text-sm text-muted-foreground">
+            <p className="text-sm text-slate-700">
               Configuramos a instrumentação, pipelines e alertas em até 30 dias úteis.
             </p>
           </div>

@@ -71,7 +71,7 @@ export function DifferentialsSection() {
                 <h3 className="text-2xl font-semibold mb-4 group-hover:text-primary transition-colors">
                   {item.title}
                 </h3>
-                <p className="text-muted-foreground leading-relaxed flex-1">
+                <p className="text-slate-700 leading-relaxed flex-1">
                   {item.description}
                 </p>
 
