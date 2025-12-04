@@ -118,23 +118,23 @@ export default function SeoBlogWaitingListPage() {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="mx-auto max-w-4xl text-center space-y-6"
+            className="mx-auto max-w-4xl text-center space-y-5"
           >
-            <span className="inline-flex items-center justify-center rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.28em] text-primary">
+            <span className="inline-flex items-center justify-center rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.28em] text-primary">
               SEO Blog – seu conteúdo preparado para o Google e para as IAs
             </span>
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-semibold leading-tight tracking-tight">
-              Um blog profissional e um hub de conteúdo projetado para aparecer bem no Google, ser
-              entendido pelas principais IAs do mercado e transformar visitas em leads qualificados
-              para o seu SaaS.
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-semibold leading-tight tracking-tight text-foreground">
+              Conteúdo pronto para ser encontrado por pessoas, buscadores e IAs.
             </h1>
-            <div className="flex flex-col items-center gap-4">
+            <p className="mx-auto max-w-3xl text-lg md:text-xl text-muted-foreground leading-relaxed">
+              Um blog profissional e um hub de conteúdo projetado para aparecer bem no Google, ser entendido pelas principais IAs do mercado e transformar visitas em leads qualificados para o seu SaaS.
+            </p>
+            <div className="flex flex-col items-center gap-3">
               <Link href="#waitlist-form" className="btn btn-primary">
                 Entrar na lista de espera
               </Link>
               <p className="text-sm text-muted-foreground max-w-xl">
-                Vagas limitadas para a fase inicial. Sem compromisso, sem cartão de crédito. Apenas
-                prioridade na fila.
+                Vagas limitadas para a fase inicial. Sem compromisso, sem cartão de crédito. Apenas prioridade na fila.
               </p>
             </div>
           </motion.div>
@@ -144,7 +144,9 @@ export default function SeoBlogWaitingListPage() {
       <section className="py-16 md:py-20 bg-background">
         <div className="container grid gap-10 md:grid-cols-[1.1fr,1fr] items-start">
           <div className="space-y-4">
-            <h2 className="text-3xl md:text-4xl font-semibold">Não é mais só sobre rankear no Google</h2>
+            <h2 className="text-3xl md:text-4xl font-semibold text-foreground">
+              Não é mais só sobre rankear no Google
+            </h2>
             <p className="text-lg text-muted-foreground">
               Durante anos, otimizar conteúdo significava basicamente agradar o algoritmo do Google.
               Isso ainda importa – e muito – mas já não é suficiente.
@@ -203,7 +205,7 @@ export default function SeoBlogWaitingListPage() {
       <section className="py-16 md:py-20 bg-accent/5">
         <div className="container space-y-10">
           <div className="text-center space-y-3 max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-semibold">
+            <h2 className="text-3xl md:text-4xl font-semibold text-foreground">
               Recursos pensados para SEO real e para a era das IAs
             </h2>
             <p className="text-lg text-muted-foreground">
@@ -241,7 +243,9 @@ export default function SeoBlogWaitingListPage() {
       <section className="py-16 md:py-20 bg-background">
         <div className="container grid gap-8 md:grid-cols-2 items-start">
           <div className="space-y-4">
-            <h2 className="text-3xl md:text-4xl font-semibold">Para quem o SEO Blog foi pensado</h2>
+            <h2 className="text-3xl md:text-4xl font-semibold text-foreground">
+              Para quem o SEO Blog foi pensado
+            </h2>
             <ul className="space-y-3 text-muted-foreground">
               <li className="flex gap-2">
                 <span className="mt-1 h-2 w-2 rounded-full bg-primary" />
@@ -277,7 +281,9 @@ export default function SeoBlogWaitingListPage() {
             </p>
           </div>
           <div className="card p-6 bg-gradient-to-br from-secondary/5 via-background to-primary/5 border border-secondary/20 shadow-lg">
-            <h3 className="text-xl font-semibold mb-3">Por que entrar agora na lista de espera</h3>
+            <h3 className="text-xl font-semibold mb-3 text-foreground">
+              Por que entrar agora na lista de espera
+            </h3>
             <ul className="space-y-3 text-muted-foreground">
               <li className="flex gap-2">
                 <span className="mt-1 h-2 w-2 rounded-full bg-secondary" />
@@ -312,7 +318,7 @@ export default function SeoBlogWaitingListPage() {
         <div className="container max-w-4xl">
           <div className="card p-8 md:p-10 border border-border/60 bg-background shadow-xl">
             <div className="max-w-2xl space-y-4">
-              <h2 className="text-3xl md:text-4xl font-semibold">
+              <h2 className="text-3xl md:text-4xl font-semibold text-foreground">
                 Entre na lista de espera do SEO Blog
               </h2>
               <p className="text-lg text-muted-foreground">
