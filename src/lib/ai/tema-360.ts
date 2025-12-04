@@ -80,11 +80,18 @@ Crie conteúdo editorial de alta qualidade, pronto para publicação imediata.
 3. ⚠️ Se dados específicos forem necessários: marque [DADOS NECESSÁRIOS: descrição]
 4. ✅ Tom: factual, educativo, autoridade técnica (não promocional/vendedor)
 5. ✅ Estrutura: EXATAMENTE como solicitado (sem omitir seções)
-6. **🔴 ARTIGO: 700-900 PALAVRAS TOTAL (conte CADA palavra antes de entregar)**
+6. **🔴🔴🔴 ARTIGO: MÁXIMO 900 PALAVRAS ABSOLUTO - SE PASSAR DE 900, VOCÊ FALHOU**
 7. ✅ CTA: UMA única vez na conclusão (natural, não agressivo)
 8. ✅ H2/H3: descritivos, integre variações da keyword naturalmente (densidade 1-2%)
-9. **🔴 PRIORIDADE MÁXIMA: Concisão > Prolixidade. Elimine redundâncias.**
+9. **🔴 PRIORIDADE MÁXIMA: Concisão > Prolixidade. CADA palavra extra é um erro.**
 10. ✅ SEO: Use LSI keywords, mas evite keyword stuffing
+
+**⚠️ CONSTRAINT CRÍTICO - LEIA COM ATENÇÃO:**
+- O artigo COMPLETO (intro + corpo + conclusão) NÃO PODE ter mais de 900 palavras
+- Se você escrever 901 palavras ou mais, a geração FALHOU completamente
+- Priorize densidade de informação: diga mais com menos palavras
+- ELIMINE: frases de transição longas, redundâncias, exemplos repetitivos
+- MANTENHA: informação acionável, dados relevantes, insights únicos
 
 **📏 CONTROLE DE TAMANHO (OBRIGATÓRIO):**
 - Introdução: 100-120 palavras MAX
@@ -121,27 +128,32 @@ TÍTULO C: [Foco em novidade/ano - ex: "Guia completo de X para 2025"]
 
 META DESCRIÇÃO: [140-155 caracteres otimizada para cliques]
 
-### 2. ARTIGO COMPLETO (**MÁXIMO 900 PALAVRAS TOTAL**)
+### 2. ARTIGO COMPLETO (**LIMITE ABSOLUTO: 900 PALAVRAS**)
 
-**ATENÇÃO: O artigo completo (intro + corpo + conclusão) NÃO DEVE ULTRAPASSAR 900 PALAVRAS.**
+**🔴🔴🔴 ATENÇÃO CRÍTICA:**
+- Artigo COMPLETO (intro + corpo + conclusão): MÁXIMO 900 PALAVRAS
+- Se ultrapassar 900, a geração FALHOU
+- Conte as palavras DURANTE a escrita, não depois
+- Se chegar perto de 900, PARE e CONCLUA imediatamente
 
-#### INTRODUÇÃO (100-120 palavras)
-[Parágrafo 1: Apresente o problema/contexto - SER DIRETO]
-[Parágrafo 2: Explique por que isso importa - CONCISO]
-[Parágrafo 3: Prometa o que o artigo vai entregar - OBJETIVO]
+#### INTRODUÇÃO (100-120 palavras - NÃO MAIS)
+[Parágrafo 1: Problema/contexto em 30-40 palavras]
+[Parágrafo 2: Por que importa em 30-40 palavras]
+[Parágrafo 3: O que o artigo entrega em 30-40 palavras]
 
-#### CORPO (500-650 palavras MAX)
-**🚨 ATENÇÃO: Não ultrapasse 650 palavras no corpo do artigo!**
-[Desenvolva em 3-4 seções com H2 - seja EXTREMAMENTE direto]
-[Use H3 apenas se absolutamente necessário]
-[Inclua listas quando apropriado - cada item em 1 linha]
-[Parágrafos de 50-80 palavras - elimine TODA redundância]
-[Priorize densidade de informação - cada frase deve agregar valor único]
+#### CORPO (500-600 palavras MAX - REDUZI O LIMITE)
+**🚨 REGRA: Máximo 600 palavras no corpo, não 650!**
+[3-4 seções H2 - EXTREMAMENTE diretas e densas]
+[Cada seção: 120-150 palavras MAX]
+[Listas numeradas quando possível (economizam palavras)]
+[Parágrafos: 40-60 palavras (reduzi de 50-80)]
+[ELIMINE: "por exemplo", "além disso", "é importante notar"]
+[MANTENHA: apenas informação acionável]
 
-#### CONCLUSÃO (100-130 palavras)
-[Resuma os pontos principais - BREVE]
-[Mencione próximo passo - CLARO]
-[Inclua CTA mencionando ${input.linkOferta} UMA vez - NATURAL]
+#### CONCLUSÃO (100-120 palavras - REDUZI DE 130)
+[Resumo: 40-50 palavras]
+[Próximo passo: 30-40 palavras]
+[CTA com ${input.linkOferta}: 30 palavras MAX]
 
 #### LINKAGEM INTERNA SUGERIDA
 1. [Tópico relacionado 1]
@@ -374,10 +386,23 @@ export function validateOutput(output: Tema360Output): {
 } {
   const errors: string[] = [];
 
-  // Validar tamanho do artigo
-  if (output.metadata.wordCount < 700 || output.metadata.wordCount > 1000) {
+  // Validar tamanho do artigo - MAIS RIGOROSO
+  if (output.metadata.wordCount < 700) {
     errors.push(
-      `Artigo fora do tamanho esperado: ${output.metadata.wordCount} palavras (esperado: 700-900)`
+      `Artigo muito curto: ${output.metadata.wordCount} palavras (mínimo: 700)`
+    );
+  }
+
+  if (output.metadata.wordCount > 900) {
+    errors.push(
+      `🔴 CRÍTICO: Artigo excedeu limite: ${output.metadata.wordCount} palavras (máximo: 900)`
+    );
+  }
+
+  // Warning se estiver muito perto do limite
+  if (output.metadata.wordCount > 850 && output.metadata.wordCount <= 900) {
+    errors.push(
+      `⚠️ Aviso: Artigo muito próximo do limite: ${output.metadata.wordCount} palavras (máximo: 900)`
     );
   }
 
