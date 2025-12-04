@@ -22,9 +22,19 @@ export function middleware(req: NextRequest) {
   }
 
   const base64 = header.replace('Basic ', '');
+  const decode = (input: string) => {
+    if (typeof atob === 'function') {
+      return atob(input);
+    }
+    if (typeof Buffer !== 'undefined') {
+      return Buffer.from(input, 'base64').toString('utf-8');
+    }
+    throw new Error('No base64 decoder available');
+  };
+
   let decoded = '';
   try {
-    decoded = atob(base64);
+    decoded = decode(base64);
   } catch {
     return unauthorized();
   }
