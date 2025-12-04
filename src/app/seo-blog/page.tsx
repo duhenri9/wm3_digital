@@ -114,9 +114,15 @@ export default function SeoBlogWaitingListPage() {
         }),
       });
 
-      const data = await res.json();
+      let data: { success?: boolean; error?: string } = {};
+      try {
+        data = await res.json();
+      } catch {
+        data = { success: false, error: 'Resposta do servidor não pôde ser lida.' };
+      }
+
       if (!res.ok || !data.success) {
-        throw new Error(data.error || 'Erro ao enviar. Tente novamente.');
+        throw new Error(data.error || res.statusText || 'Erro ao enviar. Tente novamente.');
       }
 
       setIsSuccess(true);
@@ -125,7 +131,8 @@ export default function SeoBlogWaitingListPage() {
       setEmail('');
     } catch (err) {
       console.error('Erro ao enviar waitlist:', err);
-      setErrorMessage('Não foi possível enviar agora. Tente novamente em instantes.');
+      const message = err instanceof Error ? err.message : 'Não foi possível enviar agora. Tente novamente em instantes.';
+      setErrorMessage(message);
     } finally {
       setIsLoading(false);
     }
@@ -158,8 +165,8 @@ export default function SeoBlogWaitingListPage() {
               <Link href="#waitlist-form" className="btn btn-primary">
                 Entrar na lista de espera
               </Link>
-              <p className="text-sm text-muted-foreground max-w-xl">
-                Vagas limitadas para a fase inicial. Sem compromisso, sem cartão de crédito. Apenas prioridade na fila.
+              <p className="text-sm text-foreground max-w-xl">
+                Vagas limitadas para a fase inicial. Sem compromisso, sem cartão de crédito. Prioridade na fila.
               </p>
             </div>
           </motion.div>
