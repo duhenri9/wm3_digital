@@ -7,7 +7,11 @@ const nextConfig = {
   output: "standalone",
   reactStrictMode: true,
   images: {
-    domains: ["www.wm3digital.com.br", "localhost"],
+    remotePatterns: [
+      { protocol: 'https', hostname: 'www.wm3digital.com.br' },
+      { protocol: 'https', hostname: 'wm3digital.com.br' },
+      { protocol: 'http', hostname: 'localhost' },
+    ],
     formats: ["image/webp", "image/avif"],
   },
   eslint: {
