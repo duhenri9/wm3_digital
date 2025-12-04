@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+
 export default function NotFound() {
   return (
     <div className="min-h-screen flex items-center justify-center bg-background text-foreground">
@@ -8,9 +10,9 @@ export default function NotFound() {
         <p className="text-muted-foreground">
           O conteúdo que você procurou não existe ou foi movido.
         </p>
-        <a href="/" className="btn btn-primary">
+        <Link href="/" className="btn btn-primary">
           Voltar para a Home
-        </a>
+        </Link>
       </div>
     </div>
   );

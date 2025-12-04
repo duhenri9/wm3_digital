@@ -223,7 +223,8 @@ export default function SeoBlogWaitingListPage() {
           <div className="card p-6 bg-gradient-to-br from-primary/5 via-background to-secondary/5 border border-primary/20 shadow-lg">
             <h3 className="text-xl font-semibold mb-3">O que é o SEO Blog, na prática</h3>
             <p className="text-foreground mb-4">
-              O SEO Blog é um módulo de blog e conteúdo profissional para o seu SaaS, criado para:
+              O SEO Blog é uma solução voltada para criação de conteúdo de blog e marketing orgânico
+              profissional para o seu SaaS, criado para:
             </p>
             <ul className="space-y-2 text-foreground">
               <li className="flex gap-2">
