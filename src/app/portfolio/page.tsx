@@ -35,7 +35,13 @@ export default function PortfolioPage() {
         }),
       });
 
-      const data = await response.json();
+      let data: { success?: boolean; error?: string } = {};
+      try {
+        data = await response.json();
+      } catch {
+        // fallback if server respondeu HTML/erro genérico
+        data = { success: false, error: 'Não foi possível ler a resposta do servidor.' };
+      }
 
       if (!response.ok || !data.success) {
         throw new Error(data.error || 'Erro ao cadastrar');
