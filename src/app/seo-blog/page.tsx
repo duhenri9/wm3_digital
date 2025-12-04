@@ -3,11 +3,28 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import {
+  Bot,
+  Network,
+  Sparkles,
+  Layers,
+  FileText,
+  Workflow,
+  HelpCircle,
+  BarChart3,
+  BookOpen,
+  Link2,
+  Gauge,
+  RefreshCw,
+  Palette,
+  Users,
+} from 'lucide-react';
 
 interface Feature {
   title: string;
   what: string;
   why: string;
+  icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
 }
 
 const features: Feature[] = [
@@ -15,41 +32,49 @@ const features: Feature[] = [
     title: 'Resumo direto no topo de cada artigo',
     what: 'Bloco de abertura que resume, em poucas frases, a resposta mais importante do artigo – antes de qualquer enrolação.',
     why: 'IAs e buscadores favorecem respostas claras e objetivas. Quando você deixa a resposta principal bem sinalizada, aumenta a chance de ser citado como referência ou snippet.',
+    icon: FileText,
   },
   {
     title: 'Estrutura de conteúdo amigável para humanos e algoritmos',
     what: 'Modelo de artigo com seções bem definidas: contexto, passo a passo, exemplos, FAQ, referências e próximos passos.',
     why: 'Leitores entendem melhor e ficam mais tempo na página. Algoritmos conseguem identificar com precisão o que cada parte do texto está fazendo, o que melhora a compreensão do seu conteúdo.',
+    icon: Workflow,
   },
   {
     title: 'Blocos de FAQ integrados ao artigo',
     what: 'Espaço dedicado para perguntas e respostas frequentes dentro de cada post, organizado de forma clara.',
     why: 'Perguntas em formato direto aumentam as chances de o seu conteúdo aparecer quando alguém faz exatamente essas mesmas perguntas para buscadores ou IAs.',
+    icon: HelpCircle,
   },
   {
     title: 'Destaque de dados e estatísticas importantes',
     what: 'Sessão para números-chave e dados relevantes do artigo, em um formato fácil de ler.',
     why: 'Tanto pessoas quanto IAs adoram dados concretos. Quando você reúne os principais números em um bloco, facilita a citação do seu conteúdo como fonte confiável.',
+    icon: BarChart3,
   },
   {
     title: 'Referências e fontes bem organizadas',
     what: 'Área dedicada a citar de onde vieram dados, estudos ou pesquisas que você utiliza nos artigos.',
     why: 'Isso aumenta a credibilidade do seu conteúdo para o leitor e ajuda buscadores e IAs a identificar que você está se apoiando em fontes confiáveis, não em achismo.',
+    icon: BookOpen,
   },
   {
     title: 'Captura de leads integrada ao seu SaaS',
     what: 'Formulários, CTAs e convites estratégicos para teste, demo ou contato comercial, embutidos no contexto certo dentro do artigo.',
     why: 'SEO sem captura é só visita. O SEO Blog ajuda a transformar tráfego em pipeline: quem gostou do seu conteúdo tem caminhos claros para virar lead.',
+    icon: Link2,
   },
   {
     title: 'Atualização simples e contínua do conteúdo',
     what: 'Mecanismos para revisar e marcar quando um artigo foi atualizado, mantendo os temas principais sempre em dia.',
     why: 'Conteúdo antigo e desatualizado perde relevância para leitores, buscadores e IAs. Manter seus materiais vivos é parte essencial da estratégia.',
+    icon: RefreshCw,
   },
   {
     title: 'Integração visual com o seu produto',
     what: 'O blog segue o mesmo padrão de design do seu SaaS: tipografia, cores, componentes e estilo.',
     why: 'Passa sensação de produto sólido, profissional e bem cuidado. Quem chega via busca não sente que caiu em um blog genérico; sente que entrou no universo da sua solução.',
+    icon: Palette,
   },
 ];
 
@@ -126,7 +151,7 @@ export default function SeoBlogWaitingListPage() {
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-semibold leading-tight tracking-tight text-foreground">
               Conteúdo pronto para ser encontrado por pessoas, buscadores e IAs.
             </h1>
-            <p className="mx-auto max-w-3xl text-lg md:text-xl text-muted-foreground leading-relaxed">
+            <p className="mx-auto max-w-3xl text-lg md:text-xl text-foreground leading-relaxed">
               Um blog profissional e um hub de conteúdo projetado para aparecer bem no Google, ser entendido pelas principais IAs do mercado e transformar visitas em leads qualificados para o seu SaaS.
             </p>
             <div className="flex flex-col items-center gap-3">
@@ -147,25 +172,49 @@ export default function SeoBlogWaitingListPage() {
             <h2 className="text-3xl md:text-4xl font-semibold text-foreground">
               Não é mais só sobre rankear no Google
             </h2>
-            <p className="text-lg text-muted-foreground">
-              Durante anos, otimizar conteúdo significava basicamente agradar o algoritmo do Google.
-              Isso ainda importa – e muito – mas já não é suficiente.
-            </p>
-            <p className="text-lg text-muted-foreground">
-              Hoje, quando alguém pesquisa sobre um problema, muitas vezes a primeira resposta não
-              vem diretamente do Google, e sim de uma IA:
-            </p>
-            <ul className="list-disc pl-6 space-y-2 text-muted-foreground">
-              <li>ChatGPT, Copilot e MetaAI se apoiam em Bing e outras fontes</li>
-              <li>Gemini usa dados do próprio Google</li>
-              <li>Perplexity combina múltiplos motores e fontes próprias</li>
-              <li>Outras IAs fazem o mesmo, cada uma com sua forma de ler e entender conteúdo</li>
-            </ul>
-            <p className="text-lg text-muted-foreground">
+            <div className="grid gap-4 sm:grid-cols-2">
+              <div className="rounded-xl border border-border/70 bg-background p-4 shadow-sm flex items-start gap-3">
+                <div className="mt-1 rounded-full bg-primary/10 p-2 text-primary">
+                  <Sparkles className="h-4 w-4" />
+                </div>
+                <p className="text-foreground leading-relaxed">
+                  Durante anos, otimizar conteúdo significava basicamente agradar o algoritmo do Google.
+                  Isso ainda importa – e muito – mas já não é suficiente.
+                </p>
+              </div>
+              <div className="rounded-xl border border-border/70 bg-background p-4 shadow-sm flex items-start gap-3">
+                <div className="mt-1 rounded-full bg-secondary/10 p-2 text-secondary">
+                  <Bot className="h-4 w-4" />
+                </div>
+                <p className="text-foreground leading-relaxed">
+                  Hoje a primeira resposta muitas vezes vem de uma IA. Seu conteúdo precisa ser lido por
+                  modelos e buscadores ao mesmo tempo.
+                </p>
+              </div>
+            </div>
+            <div className="grid gap-3 sm:grid-cols-2">
+              <div className="rounded-lg bg-primary/5 border border-primary/20 p-3 flex items-center gap-3 text-foreground">
+                <Network className="h-4 w-4 text-primary" />
+                <span>ChatGPT, Copilot e MetaAI se apoiam em Bing e outras fontes</span>
+              </div>
+              <div className="rounded-lg bg-primary/5 border border-primary/20 p-3 flex items-center gap-3 text-foreground">
+                <Layers className="h-4 w-4 text-primary" />
+                <span>Gemini usa dados do próprio Google</span>
+              </div>
+              <div className="rounded-lg bg-primary/5 border border-primary/20 p-3 flex items-center gap-3 text-foreground">
+                <Bot className="h-4 w-4 text-primary" />
+                <span>Perplexity combina múltiplos motores e fontes próprias</span>
+              </div>
+              <div className="rounded-lg bg-primary/5 border border-primary/20 p-3 flex items-center gap-3 text-foreground">
+                <Sparkles className="h-4 w-4 text-primary" />
+                <span>Outras IAs seguem lógicas diferentes para ler e entender conteúdo</span>
+              </div>
+            </div>
+            <p className="text-lg text-foreground">
               Ou seja: o jogo não é apenas aparecer na página de resultados. É ser compreendido como
               a melhor resposta pelos sistemas que estão por trás dessas IAs.
             </p>
-            <p className="text-lg text-muted-foreground">
+            <p className="text-lg text-foreground">
               O SEO Blog nasce justamente para isso: organizar o seu conteúdo de forma clara,
               confiável e estruturada, pensando em Google, Bing e nas IAs que se alimentam desses
               ecossistemas.
@@ -173,28 +222,28 @@ export default function SeoBlogWaitingListPage() {
           </div>
           <div className="card p-6 bg-gradient-to-br from-primary/5 via-background to-secondary/5 border border-primary/20 shadow-lg">
             <h3 className="text-xl font-semibold mb-3">O que é o SEO Blog, na prática</h3>
-            <p className="text-muted-foreground mb-4">
+            <p className="text-foreground mb-4">
               O SEO Blog é um módulo de blog e conteúdo profissional para o seu SaaS, criado para:
             </p>
-            <ul className="space-y-2 text-muted-foreground">
+            <ul className="space-y-2 text-foreground">
               <li className="flex gap-2">
-                <span className="mt-1 h-2 w-2 rounded-full bg-primary" />
+                <Gauge className="h-4 w-4 text-primary" />
                 <span>organizar seus artigos, guias e materiais de forma clara;</span>
               </li>
               <li className="flex gap-2">
-                <span className="mt-1 h-2 w-2 rounded-full bg-primary" />
+                <Workflow className="h-4 w-4 text-primary" />
                 <span>aplicar boas práticas de SEO técnico sem você precisar virar especialista;</span>
               </li>
               <li className="flex gap-2">
-                <span className="mt-1 h-2 w-2 rounded-full bg-primary" />
+                <Network className="h-4 w-4 text-primary" />
                 <span>estruturar o conteúdo de um jeito que facilita o trabalho das IAs e dos buscadores;</span>
               </li>
               <li className="flex gap-2">
-                <span className="mt-1 h-2 w-2 rounded-full bg-primary" />
+                <Link2 className="h-4 w-4 text-primary" />
                 <span>transformar leitores em leads com CTAs e captação integrados ao seu produto.</span>
               </li>
             </ul>
-            <p className="text-muted-foreground mt-4">
+            <p className="text-foreground mt-4">
               Você continua escrevendo para pessoas. Nós ajudamos a entregar isso no formato que os
               algoritmos adoram consumir.
             </p>
@@ -208,7 +257,7 @@ export default function SeoBlogWaitingListPage() {
             <h2 className="text-3xl md:text-4xl font-semibold text-foreground">
               Recursos pensados para SEO real e para a era das IAs
             </h2>
-            <p className="text-lg text-muted-foreground">
+            <p className="text-lg text-foreground">
               Cada entrega foi desenhada para responder bem aos buscadores e às IAs, sem perder foco
               em quem realmente importa: seus leitores e futuros clientes.
             </p>
@@ -220,18 +269,23 @@ export default function SeoBlogWaitingListPage() {
                 className="card h-full p-6 border border-border/60 bg-background shadow-sm"
               >
                 <div className="space-y-3">
-                  <h3 className="text-lg font-semibold">{feature.title}</h3>
+                  <div className="flex items-center gap-3">
+                    <div className="rounded-full bg-primary/10 p-2 text-primary">
+                      <feature.icon className="h-5 w-5" />
+                    </div>
+                    <h3 className="text-lg font-semibold">{feature.title}</h3>
+                  </div>
                   <div className="space-y-1.5">
                     <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">
                       O que é
                     </p>
-                    <p className="text-sm text-muted-foreground leading-relaxed">{feature.what}</p>
+                    <p className="text-sm text-foreground leading-relaxed">{feature.what}</p>
                   </div>
                   <div className="space-y-1.5">
                     <p className="text-xs font-semibold uppercase tracking-[0.2em] text-secondary">
                       Por que isso importa
                     </p>
-                    <p className="text-sm text-muted-foreground leading-relaxed">{feature.why}</p>
+                    <p className="text-sm text-foreground leading-relaxed">{feature.why}</p>
                   </div>
                 </div>
               </div>
@@ -246,36 +300,25 @@ export default function SeoBlogWaitingListPage() {
             <h2 className="text-3xl md:text-4xl font-semibold text-foreground">
               Para quem o SEO Blog foi pensado
             </h2>
-            <ul className="space-y-3 text-muted-foreground">
-              <li className="flex gap-2">
-                <span className="mt-1 h-2 w-2 rounded-full bg-primary" />
-                <span>
-                  Founders de SaaS que querem construir tráfego orgânico recorrente, sem depender só de
-                  anúncios ou lançamentos.
-                </span>
-              </li>
-              <li className="flex gap-2">
-                <span className="mt-1 h-2 w-2 rounded-full bg-primary" />
-                <span>
-                  Times de marketing que precisam de uma base de conteúdo organizada e mensurável.
-                </span>
-              </li>
-              <li className="flex gap-2">
-                <span className="mt-1 h-2 w-2 rounded-full bg-primary" />
-                <span>
-                  Agências que desejam entregar blogs profissionais e prontos para SEO para seus clientes
-                  SaaS.
-                </span>
-              </li>
-              <li className="flex gap-2">
-                <span className="mt-1 h-2 w-2 rounded-full bg-primary" />
-                <span>
-                  Negócios digitais que estão migrando de infoprodutos para modelos mais próximos de
-                  produto e assinatura.
-                </span>
-              </li>
-            </ul>
-            <p className="text-lg text-muted-foreground">
+            <div className="grid gap-3 sm:grid-cols-2">
+              {[
+                { label: 'Founders de SaaS que querem construir tráfego orgânico recorrente, sem depender só de anúncios ou lançamentos.', icon: Gauge },
+                { label: 'Times de marketing que precisam de uma base de conteúdo organizada e mensurável.', icon: BarChart3 },
+                { label: 'Agências que desejam entregar blogs profissionais e prontos para SEO para seus clientes SaaS.', icon: Users },
+                { label: 'Negócios digitais que estão migrando de infoprodutos para modelos mais próximos de produto e assinatura.', icon: Layers },
+              ].map((item) => (
+                <div
+                  key={item.label}
+                  className="flex items-start gap-3 rounded-xl border border-border/70 bg-background p-4 shadow-sm text-foreground"
+                >
+                  <span className="mt-0.5 rounded-full bg-primary/10 p-2 text-primary">
+                    <item.icon className="h-4 w-4" />
+                  </span>
+                  <span className="leading-relaxed">{item.label}</span>
+                </div>
+              ))}
+            </div>
+            <p className="text-lg text-foreground">
               Se o seu objetivo é ser encontrado por quem já está buscando o que você faz, o SEO Blog
               foi desenhado para você.
             </p>
@@ -284,32 +327,24 @@ export default function SeoBlogWaitingListPage() {
             <h3 className="text-xl font-semibold mb-3 text-foreground">
               Por que entrar agora na lista de espera
             </h3>
-            <ul className="space-y-3 text-muted-foreground">
-              <li className="flex gap-2">
-                <span className="mt-1 h-2 w-2 rounded-full bg-secondary" />
-                <span>Prioridade no acesso às primeiras vagas e condições especiais de lançamento.</span>
-              </li>
-              <li className="flex gap-2">
-                <span className="mt-1 h-2 w-2 rounded-full bg-secondary" />
-                <span>
-                  Oportunidade de influenciar os primeiros ajustes do produto, com feedback direto.
-                </span>
-              </li>
-              <li className="flex gap-2">
-                <span className="mt-1 h-2 w-2 rounded-full bg-secondary" />
-                <span>
-                  Conteúdos exclusivos sobre SEO multiplataforma e presença em IAs, enviados apenas para
-                  a waiting list.
-                </span>
-              </li>
-              <li className="flex gap-2">
-                <span className="mt-1 h-2 w-2 rounded-full bg-secondary" />
-                <span>
-                  Vantagem competitiva: sair na frente enquanto a maioria ainda pensa apenas em SEO
-                  tradicional.
-                </span>
-              </li>
-            </ul>
+            <div className="space-y-3">
+              {[
+                { text: 'Prioridade no acesso às primeiras vagas e condições especiais de lançamento.', icon: Sparkles },
+                { text: 'Oportunidade de influenciar os primeiros ajustes do produto, com feedback direto.', icon: Workflow },
+                { text: 'Conteúdos exclusivos sobre SEO multiplataforma e presença em IAs, enviados apenas para a waiting list.', icon: BookOpen },
+                { text: 'Vantagem competitiva: sair na frente enquanto a maioria ainda pensa apenas em SEO tradicional.', icon: Gauge },
+              ].map((item) => (
+                <div
+                  key={item.text}
+                  className="flex items-start gap-3 rounded-xl border border-secondary/30 bg-background p-4 text-foreground"
+                >
+                  <span className="mt-0.5 rounded-full bg-secondary/15 p-2 text-secondary">
+                    <item.icon className="h-4 w-4" />
+                  </span>
+                  <span className="leading-relaxed">{item.text}</span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -321,7 +356,7 @@ export default function SeoBlogWaitingListPage() {
               <h2 className="text-3xl md:text-4xl font-semibold text-foreground">
                 Entre na lista de espera do SEO Blog
               </h2>
-              <p className="text-lg text-muted-foreground">
+              <p className="text-lg text-foreground">
                 Preencha seus dados e receba em primeira mão as novidades, a data de lançamento e
                 condições especiais para early adopters.
               </p>
@@ -391,7 +426,7 @@ export default function SeoBlogWaitingListPage() {
                 {isLoading ? 'Enviando...' : 'Entrar na lista de espera'}
               </button>
 
-              <p className="text-xs text-muted-foreground">
+              <p className="text-xs text-foreground">
                 Usaremos seus dados apenas para comunicar novidades sobre o SEO Blog e conteúdos
                 relacionados. Nada de spam.
               </p>
