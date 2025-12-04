@@ -91,11 +91,11 @@ export default function ServicosPage() {
             <h2 className="text-3xl md:text-4xl font-semibold mb-4">
               Pronto para começar?
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
+            <p className="text-lg text-foreground max-w-2xl mx-auto mb-8">
               Escolha a ferramenta ideal para o seu desafio e veja o preview
               gerado por IA antes de pagar.
             </p>
-            <div className="flex flex-wrap items-center justify-center gap-6 text-sm text-muted-foreground">
+            <div className="flex flex-wrap items-center justify-center gap-6 text-sm text-foreground">
               <div className="flex items-center gap-2">
                 <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
                 <span>Preview grátis</span>

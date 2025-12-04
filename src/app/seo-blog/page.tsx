@@ -159,7 +159,7 @@ export default function SeoBlogWaitingListPage() {
               Conteúdo pronto para ser encontrado por pessoas, buscadores e IAs.
             </h1>
             <p className="mx-auto max-w-3xl text-lg md:text-xl text-foreground leading-relaxed">
-              Um blog profissional e um hub de conteúdo projetado para aparecer bem no Google, ser entendido pelas principais IAs do mercado e transformar visitas em leads qualificados para o seu SaaS.
+              Solução profissional com hub de geração de conteúdo projetado para aparecer bem no Google, ser entendido pelas principais IAs do mercado e transformar visitas em leads qualificados para o seu SaaS.
             </p>
             <div className="flex flex-col items-center gap-3">
               <Link href="#waitlist-form" className="btn btn-primary">
