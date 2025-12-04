@@ -55,6 +55,10 @@ export interface Tema360Output {
     wordCount: number;
     estimatedReadingTime: number;
     generationCost: number;
+    tokens: {
+      input: number;
+      output: number;
+    };
   };
 }
 
@@ -244,10 +248,12 @@ export async function generateTema360(
 
     // Adicionar metadata
     const wordCount = generatedText.split(/\s+/).length;
+    const inputTokens = message.usage?.input_tokens ?? 0;
+    const outputTokens = message.usage?.output_tokens ?? 0;
     const generationCost = calculateCost(
       SERVICE_MODELS.TEMA_360,
-      message.usage.input_tokens,
-      message.usage.output_tokens
+      inputTokens,
+      outputTokens
     );
 
     const result: Tema360Output = {
@@ -256,6 +262,10 @@ export async function generateTema360(
         wordCount,
         estimatedReadingTime: Math.ceil(wordCount / 200),
         generationCost,
+        tokens: {
+          input: inputTokens,
+          output: outputTokens,
+        },
       },
     };
 

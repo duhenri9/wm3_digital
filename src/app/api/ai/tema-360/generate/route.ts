@@ -102,14 +102,15 @@ export async function POST(request: NextRequest) {
     }
 
     // 7. Registrar custo real e requisição
+    const { input: inputTokens, output: outputTokens } = output.metadata.tokens;
     const actualCost = output.metadata.generationCost;
     rateLimiter.recordRequest(ip, 'tema-360', actualCost);
     costMonitor.record({
       service: 'tema-360',
       cost: actualCost,
       model: 'claude-sonnet-4-5',
-      inputTokens: 0, // Será preenchido no tema-360.ts
-      outputTokens: 0,
+      inputTokens,
+      outputTokens,
     });
 
     const duration = Date.now() - startTime;
