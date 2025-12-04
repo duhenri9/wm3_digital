@@ -21,7 +21,14 @@ export function middleware(req: NextRequest) {
     return unauthorized();
   }
 
-  const decoded = Buffer.from(header.replace('Basic ', ''), 'base64').toString();
+  const base64 = header.replace('Basic ', '');
+  let decoded = '';
+  try {
+    decoded = atob(base64);
+  } catch {
+    return unauthorized();
+  }
+
   const [user, pass] = decoded.split(':');
   if (user !== ADMIN_USER || pass !== ADMIN_PASS) {
     return unauthorized();
