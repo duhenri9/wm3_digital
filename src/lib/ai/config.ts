@@ -14,9 +14,9 @@ export const anthropic = new Anthropic({
 });
 
 export const CLAUDE_MODELS = {
-  SONNET: 'claude-sonnet-4-5-20241022',
-  HAIKU: 'claude-haiku-3-5-20241022',
-  OPUS: 'claude-opus-4-20250514',
+  SONNET: 'claude-sonnet-4-5-20250929',  // Claude Sonnet 4.5 (melhor modelo disponível!)
+  HAIKU: 'claude-3-5-haiku-20241022',   // Claude 3.5 Haiku (rápido e barato)
+  OPUS: 'claude-3-opus-20240229',        // Claude 3 Opus (deprecated)
 } as const;
 
 // ============================================
@@ -105,12 +105,16 @@ export interface GenerationCost {
 
 const COST_PER_1M_TOKENS = {
   [CLAUDE_MODELS.SONNET]: {
-    input: 3.0, // USD
-    output: 15.0, // USD
+    input: 3.0,   // USD per 1M tokens
+    output: 15.0, // USD per 1M tokens
   },
   [CLAUDE_MODELS.HAIKU]: {
-    input: 0.25,
-    output: 1.25,
+    input: 0.25,  // USD per 1M tokens
+    output: 1.25, // USD per 1M tokens
+  },
+  [CLAUDE_MODELS.OPUS]: {
+    input: 15.0,  // USD per 1M tokens
+    output: 75.0, // USD per 1M tokens
   },
 } as const;
 

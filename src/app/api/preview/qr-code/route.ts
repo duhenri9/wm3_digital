@@ -24,9 +24,6 @@ export async function POST(request: NextRequest) {
 
     // Generate AI preview (stubbed for now)
     // In round 2, we would use feedback and previousOptions to refine
-    const brandColors = inputs.brandColors as string | undefined;
-    const style = inputs.style as string | undefined;
-
     const preview: QRCodePreview = {
       round: round as 1 | 2,
       options: [

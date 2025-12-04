@@ -69,9 +69,10 @@ const SYSTEM_PROMPT = `Você é um redator de conteúdo profissional especializa
 3. Se precisar de dados específicos, use marcador [DADOS NECESSÁRIOS]
 4. Mantenha tom factual e educativo, não promocional
 5. Siga EXATAMENTE a estrutura solicitada
-6. Artigo deve ter entre 700-900 palavras
+6. **ARTIGO DEVE TER ENTRE 700-900 PALAVRAS NO MÁXIMO - NÃO EXCEDA 900 PALAVRAS**
 7. CTA deve aparecer UMA única vez na conclusão
-8. H2/H3 devem ser descritivos (não genéricos)`;
+8. H2/H3 devem ser descritivos (não genéricos)
+9. **CRÍTICO: Seja conciso. Qualidade > Quantidade. Máximo 900 palavras total.**`;
 
 // ============================================
 // User Prompt Template
@@ -95,23 +96,26 @@ TÍTULO C: [Foco em novidade/ano - ex: "Guia completo de X para 2025"]
 
 META DESCRIÇÃO: [140-155 caracteres otimizada para cliques]
 
-### 2. ARTIGO COMPLETO (700-900 palavras)
+### 2. ARTIGO COMPLETO (**MÁXIMO 900 PALAVRAS TOTAL**)
 
-#### INTRODUÇÃO (100-150 palavras)
-[Parágrafo 1: Apresente o problema/contexto]
-[Parágrafo 2: Explique por que isso importa]
-[Parágrafo 3: Prometa o que o artigo vai entregar]
+**ATENÇÃO: O artigo completo (intro + corpo + conclusão) NÃO DEVE ULTRAPASSAR 900 PALAVRAS.**
 
-#### CORPO (400-600 palavras)
-[Desenvolva em 3-4 seções com H2]
-[Use H3 para sub-tópicos se necessário]
-[Inclua listas quando apropriado]
-[Parágrafos de 80-120 palavras]
+#### INTRODUÇÃO (100-120 palavras)
+[Parágrafo 1: Apresente o problema/contexto - SER DIRETO]
+[Parágrafo 2: Explique por que isso importa - CONCISO]
+[Parágrafo 3: Prometa o que o artigo vai entregar - OBJETIVO]
 
-#### CONCLUSÃO (100-150 palavras)
-[Resuma os pontos principais]
-[Mencione próximo passo]
-[Inclua CTA mencionando ${input.linkOferta} UMA vez]
+#### CORPO (500-650 palavras MAX)
+[Desenvolva em 3-4 seções com H2 - FOQUE NO ESSENCIAL]
+[Use H3 apenas se REALMENTE necessário]
+[Inclua listas quando apropriado - SEJA DIRETO]
+[Parágrafos de 60-100 palavras - ELIMINE REDUNDÂNCIAS]
+[PRIORIZE QUALIDADE E CONCISÃO]
+
+#### CONCLUSÃO (100-130 palavras)
+[Resuma os pontos principais - BREVE]
+[Mencione próximo passo - CLARO]
+[Inclua CTA mencionando ${input.linkOferta} UMA vez - NATURAL]
 
 #### LINKAGEM INTERNA SUGERIDA
 1. [Tópico relacionado 1]
@@ -245,7 +249,7 @@ function parseOutput(text: string): Omit<Tema360Output, 'metadata'> {
   // Implementação básica - você pode refinar com regex mais específicos
   const extractSection = (pattern: RegExp): string => {
     const match = text.match(pattern);
-    return match ? match[1].trim() : '';
+    return match && match[1] ? match[1].trim() : '';
   };
 
   const extractListItems = (section: string): string[] => {

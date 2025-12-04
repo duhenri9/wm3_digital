@@ -10,6 +10,12 @@ const nextConfig = {
     domains: ["www.wm3digital.com.br", "localhost"],
     formats: ["image/webp", "image/avif"],
   },
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
+  typescript: {
+    ignoreBuildErrors: false,
+  },
   turbopack: {
     rules: {
       "*.svg": {

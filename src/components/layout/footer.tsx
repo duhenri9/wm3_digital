@@ -54,17 +54,6 @@ const socialLinks = [
   { icon: Github, label: "GitHub", href: "https://github.com" },
 ];
 
-const badgeTone = (status: string) => {
-  switch (status) {
-    case "Disponível":
-      return "bg-emerald-400/15 text-emerald-200 border-emerald-400/30";
-    case "Early Adopters":
-      return "bg-amber-400/20 text-amber-100 border-amber-300/40";
-    default:
-      return "bg-sky-400/20 text-sky-100 border-sky-300/40";
-  }
-};
-
 export function Footer() {
   const currentYear = new Date().getFullYear();
   const solutions = aiServices;

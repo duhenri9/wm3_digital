@@ -382,11 +382,8 @@ export function MainNav({ mobile = false, onItemClick }: MainNavProps = {}) {
                         </span>
                       </div>
                       <p className="mt-2 line-clamp-2 text-xs text-slate-700">
-                        {project.headline}
+                        {project.description}
                       </p>
-                      {project.price && (
-                        <p className="mt-3 text-sm font-semibold text-primary">{project.price}</p>
-                      )}
                     </Link>
                   </NavigationMenuLink>
                 ))}

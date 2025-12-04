@@ -28,6 +28,7 @@ export default function ContatoPage() {
       setSubmitStatus('success');
       setFormData({ name: '', email: '', company: '', message: '' });
     } catch (error) {
+      console.error('Erro ao enviar mensagem de contato', error);
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
