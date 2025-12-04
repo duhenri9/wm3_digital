@@ -5,6 +5,7 @@
 
 import Anthropic from '@anthropic-ai/sdk';
 import { GoogleGenerativeAI } from '@google/generative-ai';
+import { VertexAI } from '@google-cloud/vertexai';
 
 // ============================================
 // Anthropic Claude Configuration
@@ -20,11 +21,19 @@ export const CLAUDE_MODELS = {
 } as const;
 
 // ============================================
-// Google Imagen 3 Configuration
+// Google Gemini Configuration (for text/chat)
 // ============================================
 export const googleAI = new GoogleGenerativeAI(
   process.env.GOOGLE_AI_API_KEY!
 );
+
+// ============================================
+// Google Vertex AI - Imagen 3 Configuration
+// ============================================
+export const vertexAI = new VertexAI({
+  project: process.env.GOOGLE_CLOUD_PROJECT || 'wm3-digital',
+  location: process.env.GOOGLE_CLOUD_LOCATION || 'us-central1',
+});
 
 export const IMAGEN_MODEL = 'imagegeneration@006';
 
@@ -132,4 +141,88 @@ export function calculateCost(
   const outputCost = (outputTokens / 1_000_000) * costs.output;
 
   return (inputCost + outputCost) * USD_TO_BRL;
+}
+
+// ============================================
+// Imagen 3 Cost Calculation
+// ============================================
+// Pricing: $0.020 per image (Imagen 3 on Vertex AI)
+// Source: https://cloud.google.com/vertex-ai/generative-ai/pricing
+const IMAGEN_COST_PER_IMAGE_USD = 0.02;
+
+export function calculateImagenCost(numberOfImages: number): number {
+  return numberOfImages * IMAGEN_COST_PER_IMAGE_USD * USD_TO_BRL;
+}
+
+// ============================================
+// Imagen 3 Helper Functions
+// ============================================
+export interface ImageGenerationParams {
+  prompt: string;
+  numberOfImages?: number;
+  aspectRatio?: '1:1' | '9:16' | '16:9' | '4:3' | '3:4';
+  negativePrompt?: string;
+}
+
+export interface ImageGenerationResult {
+  imageUrl?: string;
+  imageBase64?: string;
+  mimeType: string;
+  error?: string;
+}
+
+/**
+ * Generate images using Vertex AI Imagen 3
+ */
+export async function generateWithImagen3(
+  params: ImageGenerationParams
+): Promise<ImageGenerationResult[]> {
+  try {
+    const generativeModel = vertexAI.preview.getGenerativeModel({
+      model: IMAGEN_MODEL,
+    });
+
+    const prompt = params.prompt;
+    const numberOfImages = params.numberOfImages || 1;
+
+    console.log('[Imagen 3] Gerando imagens...', {
+      prompt: prompt.substring(0, 100),
+      numberOfImages,
+    });
+
+    // Generate images - Vertex AI Imagen uses simple text prompts
+    const response = await generativeModel.generateContent({
+      contents: [{
+        role: 'user',
+        parts: [{ text: prompt }]
+      }]
+    });
+
+    if (!response.response) {
+      throw new Error('Resposta vazia do Imagen 3');
+    }
+
+    const results: ImageGenerationResult[] = [];
+
+    // Process response parts
+    const parts = response.response.candidates?.[0]?.content?.parts || [];
+    for (const part of parts) {
+      if (part.inlineData) {
+        results.push({
+          imageBase64: part.inlineData.data,
+          mimeType: part.inlineData.mimeType || 'image/png',
+        });
+      }
+    }
+
+    console.log(`[Imagen 3] ${results.length} imagens geradas com sucesso`);
+    return results;
+  } catch (error) {
+    console.error('[Imagen 3] Erro ao gerar imagens:', error);
+    throw new AIServiceError(
+      'Erro ao gerar imagens com Imagen 3',
+      'imagen-3',
+      error
+    );
+  }
 }

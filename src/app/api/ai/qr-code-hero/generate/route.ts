@@ -9,6 +9,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import {
   generateQRCodeHero,
+  generateQRCodeHeroWithImages,
   validateOutput,
   type QRCodeHeroInput,
 } from '@/lib/ai/qr-code-hero';
@@ -59,7 +60,7 @@ export async function POST(request: NextRequest) {
     }
 
     // 3. Body
-    let body: QRCodeHeroInput;
+    let body: QRCodeHeroInput & { generateImages?: boolean };
     try {
       body = await request.json();
     } catch {
@@ -80,9 +81,12 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    // Check if user wants actual QR code generation
+    const generateImages = body.generateImages || false;
+
     // 4. Cost check
-    // Claude: ~R$ 0,25 + Imagen (6 QR codes): ~R$ 0,60 = ~R$ 0,85 total
-    const estimatedCost = 0.85;
+    // Concepts only: ~R$ 0,25 | With Imagen (6 QR codes): +R$ 0,60 = ~R$ 0,85 total
+    const estimatedCost = generateImages ? 0.85 : 0.25;
     const costCheck = costMonitor.canProcess(estimatedCost);
     if (!costCheck.allowed) {
       return NextResponse.json(
@@ -98,7 +102,10 @@ export async function POST(request: NextRequest) {
 
     // 5. Generate
     const output = await circuitBreaker.execute(
-      () => generateQRCodeHero(body),
+      () =>
+        generateImages
+          ? generateQRCodeHeroWithImages(body)
+          : generateQRCodeHero(body),
       { service: 'qr-code-hero', estimatedCost }
     );
 
@@ -131,13 +138,17 @@ export async function POST(request: NextRequest) {
         success: true,
         data: output,
         validation,
-        note: 'QR code concepts gerados. Integração com Imagen 3 para gerar imagens em desenvolvimento.',
+        mode: generateImages ? 'concepts + images' : 'concepts only',
+        note: generateImages
+          ? '6 QR code concepts + imagens geradas com Imagen 3. IMPORTANTE: Verificar escaneabilidade!'
+          : 'QR code concepts gerados. Use "generateImages": true para gerar imagens reais.',
       },
       {
         status: 200,
         headers: {
           'X-Generation-Time': duration.toString(),
           'X-Generation-Cost': actualCost.toFixed(4),
+          'X-Generation-Mode': generateImages ? 'with-images' : 'concepts-only',
         },
       }
     );

@@ -9,6 +9,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import {
   generateBrandSnapshot,
+  generateBrandSnapshotWithLogos,
   validateOutput,
   type BrandSnapshotInput,
 } from '@/lib/ai/brand-snapshot';
@@ -59,7 +60,7 @@ export async function POST(request: NextRequest) {
     }
 
     // 3. Parsear body
-    let body: BrandSnapshotInput;
+    let body: BrandSnapshotInput & { generateImages?: boolean };
     try {
       body = await request.json();
     } catch {
@@ -87,9 +88,12 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    // Check if user wants actual logo generation
+    const generateImages = body.generateImages || false;
+
     // 4. Verificar custo estimado
-    // Claude: ~R$ 0,35 + Imagen (6 logos): ~R$ 0,60 = ~R$ 0,95 total
-    const estimatedCost = 0.95;
+    // Concepts only: ~R$ 0,35 | With Imagen (6 logos): +R$ 0,60 = ~R$ 0,95 total
+    const estimatedCost = generateImages ? 0.95 : 0.35;
     const costCheck = costMonitor.canProcess(estimatedCost);
     if (!costCheck.allowed) {
       return NextResponse.json(
@@ -105,7 +109,10 @@ export async function POST(request: NextRequest) {
 
     // 5. Gerar Brand Snapshot via Circuit Breaker
     const output = await circuitBreaker.execute(
-      () => generateBrandSnapshot(body),
+      () =>
+        generateImages
+          ? generateBrandSnapshotWithLogos(body)
+          : generateBrandSnapshot(body),
       { service: 'brand-snapshot', estimatedCost }
     );
 
@@ -138,13 +145,17 @@ export async function POST(request: NextRequest) {
         success: true,
         data: output,
         validation,
-        note: 'Logos concepts gerados. Integração com Imagen 3 para gerar imagens em desenvolvimento.',
+        mode: generateImages ? 'concepts + images' : 'concepts only',
+        note: generateImages
+          ? '6 logo concepts + imagens geradas com Imagen 3'
+          : 'Logos concepts gerados. Use "generateImages": true para gerar imagens reais.',
       },
       {
         status: 200,
         headers: {
           'X-Generation-Time': duration.toString(),
           'X-Generation-Cost': actualCost.toFixed(4),
+          'X-Generation-Mode': generateImages ? 'with-images' : 'concepts-only',
         },
       }
     );

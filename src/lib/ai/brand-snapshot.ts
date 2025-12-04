@@ -10,6 +10,8 @@ import {
   DEFAULT_CLAUDE_PARAMS,
   createCachedSystemPrompt,
   calculateCost,
+  calculateImagenCost,
+  generateWithImagen3,
   AIServiceError,
 } from './config';
 
@@ -591,12 +593,96 @@ export function validateOutput(output: BrandSnapshotOutput): {
 }
 
 // ============================================
-// TODO: Google Imagen 3 Integration
+// Google Imagen 3 Integration
 // ============================================
-// Esta função será implementada para gerar os logos usando Imagen 3
-// export async function generateLogosWithImagen(
-//   concepts: BrandSnapshotOutput['logosConcepts']
-// ): Promise<BrandSnapshotWithLogos['logosGerados']> {
-//   // Implementar integração com Google Vertex AI Imagen 3
-//   // Usar SERVICE_MODELS.BRAND_SNAPSHOT_IMAGE (imagegeneration@006)
-// }
+
+/**
+ * Generate actual logo images using Imagen 3
+ * Takes the 6 logo concepts and generates images for each
+ */
+export async function generateLogosWithImagen(
+  concepts: BrandSnapshotOutput['logosConcepts']
+): Promise<BrandSnapshotWithLogos['logosGerados']> {
+  try {
+    console.log('[Brand Snapshot] Gerando 6 logos com Imagen 3...');
+
+    // Generate all 6 logos
+    const [
+      logo1_1,
+      logo1_2,
+      logo1_3,
+      logo2_1,
+      logo2_2,
+      logo2_3,
+    ] = await Promise.all([
+      // Rodada 1
+      generateWithImagen3({ prompt: concepts.rodada1.conceito1.prompt }),
+      generateWithImagen3({ prompt: concepts.rodada1.conceito2.prompt }),
+      generateWithImagen3({ prompt: concepts.rodada1.conceito3.prompt }),
+      // Rodada 2
+      generateWithImagen3({ prompt: concepts.rodada2.conceito1.prompt }),
+      generateWithImagen3({ prompt: concepts.rodada2.conceito2.prompt }),
+      generateWithImagen3({ prompt: concepts.rodada2.conceito3.prompt }),
+    ]);
+
+    // Convert base64 to data URLs
+    const toDataUrl = (results: any[]) => {
+      if (!results || results.length === 0) return undefined;
+      const img = results[0];
+      return img.imageBase64
+        ? `data:${img.mimeType};base64,${img.imageBase64}`
+        : undefined;
+    };
+
+    const logosGerados = {
+      rodada1: {
+        conceito1: toDataUrl(logo1_1),
+        conceito2: toDataUrl(logo1_2),
+        conceito3: toDataUrl(logo1_3),
+      },
+      rodada2: {
+        conceito1: toDataUrl(logo2_1),
+        conceito2: toDataUrl(logo2_2),
+        conceito3: toDataUrl(logo2_3),
+      },
+    };
+
+    console.log('[Brand Snapshot] 6 logos gerados com sucesso!');
+    return logosGerados;
+  } catch (error) {
+    console.error('[Brand Snapshot] Erro ao gerar logos:', error);
+    throw new AIServiceError(
+      'Erro ao gerar logos com Imagen 3',
+      'brand-snapshot-imagen',
+      error
+    );
+  }
+}
+
+/**
+ * Generate complete Brand Snapshot WITH logos
+ * This is the premium version that includes actual generated logos
+ */
+export async function generateBrandSnapshotWithLogos(
+  input: BrandSnapshotInput
+): Promise<BrandSnapshotWithLogos> {
+  // First, generate the strategy and concepts
+  const snapshot = await generateBrandSnapshot(input);
+
+  // Then, generate the actual logos
+  const logosGerados = await generateLogosWithImagen(snapshot.logosConcepts);
+
+  // Update costs
+  const imagenCost = calculateImagenCost(6); // 6 logos
+  const totalCost = snapshot.metadata.claudeCost + imagenCost;
+
+  return {
+    ...snapshot,
+    logosGerados,
+    metadata: {
+      ...snapshot.metadata,
+      imagenCost,
+      totalCost,
+    },
+  };
+}
