@@ -30,7 +30,7 @@ export function MainNav({ mobile = false, onItemClick }: MainNavProps = {}) {
     { title: 'Documentação', href: '/documentacao#apis', description: 'Preview, APIs e integrações' },
     { title: 'Sobre', href: '/sobre', description: 'Cultura e forma de trabalhar' },
     { title: 'Suporte', href: '/suporte', description: 'Atendimento e help desk' },
-    { title: 'SEO Blog', href: '/em-breve', description: 'Blog com conteúdo orientado a conversão' },
+    { title: 'SEO Blog', href: '/seo-blog', description: 'Blog com conteúdo orientado a conversão' },
     { title: 'DevYear Recap', href: '/projetos#dev-year-recap', description: 'Lançamento 05-06 Dez' },
   ];
 
