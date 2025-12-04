@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import {
   generateTema360,
+  generateTema360MultiStep,
   validateOutput,
   type Tema360Input,
 } from '@/lib/ai/tema-360';
@@ -72,6 +73,8 @@ export async function POST(request: NextRequest) {
       tom: body.tom,
       linkOferta: body.linkOferta || 'https://wm3digital.com.br',
     };
+    const mode = (body as { mode?: string })?.mode ?? 'single';
+    const useMultiStep = mode === 'multi' || mode === 'multi-step';
 
     // 4. Verificar custo estimado (Tema 360 ~R$ 0.20-0.30)
     const estimatedCost = 0.35; // Estimativa conservadora
@@ -88,10 +91,10 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // 5. Gerar conteúdo via Circuit Breaker
+    // 5. Gerar conteúdo via Circuit Breaker (modo single ou multi-step)
     const output = await circuitBreaker.execute(
-      () => generateTema360(input),
-      { service: 'tema-360', estimatedCost }
+      () => useMultiStep ? generateTema360MultiStep(input) : generateTema360(input),
+      { service: useMultiStep ? 'tema-360-multi' : 'tema-360', estimatedCost }
     );
 
     // 6. Validar qualidade
@@ -115,7 +118,7 @@ export async function POST(request: NextRequest) {
 
     const duration = Date.now() - startTime;
     console.log(
-      `✅ [Tema 360] Geração concluída em ${duration}ms | Custo: R$ ${actualCost.toFixed(4)} | IP: ${ip}`
+      `✅ [Tema 360${useMultiStep ? ' Multi-Step' : ''}] Geração concluída em ${duration}ms | Custo: R$ ${actualCost.toFixed(4)} | IP: ${ip}`
     );
 
     return NextResponse.json(

@@ -80,27 +80,36 @@ Crie conteúdo editorial de alta qualidade, pronto para publicação imediata.
 3. ⚠️ Se dados específicos forem necessários: marque [DADOS NECESSÁRIOS: descrição]
 4. ✅ Tom: factual, educativo, autoridade técnica (não promocional/vendedor)
 5. ✅ Estrutura: EXATAMENTE como solicitado (sem omitir seções)
-6. **🔴🔴🔴 ARTIGO: MÁXIMO 900 PALAVRAS ABSOLUTO - SE PASSAR DE 900, VOCÊ FALHOU**
+6. **🔴🔴🔴 ARTIGO: MÁXIMO ABSOLUTO 800 PALAVRAS - SE PASSAR DE 800, VOCÊ FALHOU 🔴🔴🔴**
 7. ✅ CTA: UMA única vez na conclusão (natural, não agressivo)
 8. ✅ H2/H3: descritivos, integre variações da keyword naturalmente (densidade 1-2%)
-9. **🔴 PRIORIDADE MÁXIMA: Concisão > Prolixidade. CADA palavra extra é um erro.**
+9. **🔴 PRIORIDADE MÁXIMA: Concisão > Prolixidade. CADA palavra extra = FALHA.**
 10. ✅ SEO: Use LSI keywords, mas evite keyword stuffing
 
-**⚠️ CONSTRAINT CRÍTICO - LEIA COM ATENÇÃO:**
-- O artigo COMPLETO (intro + corpo + conclusão) NÃO PODE ter mais de 900 palavras
-- Se você escrever 901 palavras ou mais, a geração FALHOU completamente
-- Priorize densidade de informação: diga mais com menos palavras
-- ELIMINE: frases de transição longas, redundâncias, exemplos repetitivos
-- MANTENHA: informação acionável, dados relevantes, insights únicos
+**⚠️⚠️⚠️ CONSTRAINT CRÍTICO - LEIA MÚLTIPLAS VEZES ⚠️⚠️⚠️**
 
-**📏 CONTROLE DE TAMANHO (OBRIGATÓRIO):**
-- Introdução: 100-120 palavras MAX
-- Corpo: 500-650 palavras MAX
-- Conclusão: 100-130 palavras MAX
-- **TOTAL ABSOLUTO: 700-900 palavras (conte antes de enviar!)**
+🚫 **LIMITE ABSOLUTO: 800 PALAVRAS NO ARTIGO COMPLETO** 🚫
+
+- O artigo COMPLETO (intro + corpo + conclusão) NÃO PODE ter mais de 800 palavras
+- Se você escrever 801 palavras ou mais, a geração FALHOU completamente
+- CONTE AS PALAVRAS DURANTE A ESCRITA, NÃO DEPOIS
+- Priorize densidade máxima: diga mais com menos palavras
+- ELIMINE TUDO: frases de transição, redundâncias, exemplos longos, advérbios desnecessários
+- MANTENHA APENAS: informação acionável, dados relevantes, insights únicos
+- Use listas numeradas sempre que possível (economizam 30-40% de palavras)
+- Parágrafos: 2-3 frases no máximo (30-50 palavras cada)
+
+**📏 ORÇAMENTO DE PALAVRAS POR SEÇÃO (RÍGIDO):**
+- ✅ Introdução: 80-100 palavras MÁXIMO
+- ✅ Corpo: 400-500 palavras MÁXIMO (dividido em 3-4 seções H2)
+- ✅ Conclusão: 80-100 palavras MÁXIMO
+- ✅ **TOTAL: 600-700 palavras (margem de segurança de 100 palavras)**
+
+**🔴 SE ULTRAPASSAR 800 PALAVRAS = VOCÊ FOI REPROVADO 🔴**
 
 **✔️ ANTES DE ENTREGAR, VERIFIQUE:**
-☐ Contei as palavras? (deve estar entre 700-900)
+☐ Contei as palavras DURANTE a escrita? (deve ser SIM)
+☐ Total está entre 600-800 palavras? (deve ser SIM)
 ☐ Usei primeira pessoa? (deve ser NÃO)
 ☐ Inventei algum dado? (deve ser NÃO)
 ☐ CTA aparece mais de 1x? (deve ser NÃO)
@@ -128,41 +137,63 @@ TÍTULO C: [Foco em novidade/ano - ex: "Guia completo de X para 2025"]
 
 META DESCRIÇÃO: [140-155 caracteres otimizada para cliques]
 
-### 2. ARTIGO COMPLETO (**LIMITE ABSOLUTO: 900 PALAVRAS**)
+### 2. ARTIGO COMPLETO (**ORÇAMENTO: 600-700 PALAVRAS | LIMITE MÁXIMO: 800 PALAVRAS**)
 
-**🔴🔴🔴 ATENÇÃO CRÍTICA:**
-- Artigo COMPLETO (intro + corpo + conclusão): MÁXIMO 900 PALAVRAS
-- Se ultrapassar 900, a geração FALHOU
-- Conte as palavras DURANTE a escrita, não depois
-- Se chegar perto de 900, PARE e CONCLUA imediatamente
+**🔴🔴🔴 ATENÇÃO CRÍTICA - LEIA 3 VEZES:**
+- Artigo COMPLETO: ORÇAMENTO de 600-700 palavras | LIMITE ABSOLUTO de 800 palavras
+- Se ultrapassar 800 palavras = GERAÇÃO FALHOU COMPLETAMENTE
+- CONTE AS PALAVRAS A CADA PARÁGRAFO QUE ESCREVER
+- Ao chegar em 700 palavras, FINALIZE IMEDIATAMENTE
+- Cada palavra acima de 800 = VOCÊ FOI REPROVADO
 
-#### INTRODUÇÃO (100-120 palavras - NÃO MAIS)
-[Parágrafo 1: Problema/contexto em 30-40 palavras]
-[Parágrafo 2: Por que importa em 30-40 palavras]
-[Parágrafo 3: O que o artigo entrega em 30-40 palavras]
+**📊 ORÇAMENTO POR SEÇÃO (SIGA RIGOROSAMENTE):**
 
-#### CORPO (500-600 palavras MAX - REDUZI O LIMITE)
-**🚨 REGRA: Máximo 600 palavras no corpo, não 650!**
-[3-4 seções H2 - EXTREMAMENTE diretas e densas]
-[Cada seção: 120-150 palavras MAX]
-[Listas numeradas quando possível (economizam palavras)]
-[Parágrafos: 40-60 palavras (reduzi de 50-80)]
-[ELIMINE: "por exemplo", "além disso", "é importante notar"]
-[MANTENHA: apenas informação acionável]
+#### INTRODUÇÃO (80-100 palavras | MÁXIMO ABSOLUTO: 100)
+**Orçamento: 80-100 palavras**
+[Parágrafo 1: Problema/contexto - 25-35 palavras]
+[Parágrafo 2: Por que importa - 25-35 palavras]
+[Parágrafo 3: O que o artigo entrega - 25-35 palavras]
 
-#### CONCLUSÃO (100-120 palavras - REDUZI DE 130)
-[Resumo: 40-50 palavras]
-[Próximo passo: 30-40 palavras]
-[CTA com ${input.linkOferta}: 30 palavras MAX]
+#### CORPO (400-500 palavras | MÁXIMO ABSOLUTO: 500)
+**Orçamento: 400-500 palavras TOTAL para TODAS as seções H2**
+**IMPORTANTE: Divida esse orçamento entre 3-4 seções H2 (100-125 palavras cada)**
+
+[SEÇÃO H2 #1: 100-125 palavras]
+- Use listas numeradas (economizam 30-40% de palavras)
+- Máximo 3-4 bullets por lista
+- Parágrafos: 2-3 frases (30-40 palavras cada)
+
+[SEÇÃO H2 #2: 100-125 palavras]
+[SEÇÃO H2 #3: 100-125 palavras]
+[SEÇÃO H2 #4 (opcional): 100-125 palavras]
+
+**ELIMINE COMPLETAMENTE:**
+- Frases de transição ("além disso", "por exemplo", "é importante notar")
+- Advérbios desnecessários ("realmente", "muito", "extremamente")
+- Redundâncias e repetições
+- Exemplos longos (use bullets)
+
+**MANTENHA APENAS:**
+- Informação acionável e prática
+- Dados relevantes (números, percentuais)
+- Insights únicos
+
+#### CONCLUSÃO (80-100 palavras | MÁXIMO ABSOLUTO: 100)
+**Orçamento: 80-100 palavras**
+[Resumo: 30-40 palavras]
+[Próximo passo: 25-35 palavras]
+[CTA com ${input.linkOferta}: 25-30 palavras]
+
+**🎯 TOTAL ESPERADO: 600-700 palavras (margem de 100 palavras até o limite de 800)**
 
 #### LINKAGEM INTERNA SUGERIDA
 1. [Tópico relacionado 1]
 2. [Tópico relacionado 2]
 3. [Tópico relacionado 3]
 
-#### FAQ (4 perguntas)
+#### FAQ (4 perguntas - RESPOSTAS CURTAS)
 ##### [Pergunta que o público faria ao Google]
-[Resposta direta de 40-60 palavras]
+[Resposta DIRETA de 35-50 palavras - SEM prolixidade]
 
 [Repetir para 4 perguntas]
 
@@ -192,11 +223,18 @@ OUTLINE COMPLETO:
 [Estrutura H1/H2/H3 do artigo]
 
 PARÁGRAFO INICIAL:
-[Primeiros 100 palavras da introdução]
+[Primeiros 80 palavras da introdução]
 
 ---
 
-**IMPORTANTE:** Entregue TODO o conteúdo seguindo EXATAMENTE esta estrutura em markdown bem formatado.`;
+**CHECKLIST FINAL ANTES DE ENVIAR:**
+☐ Contei as palavras do artigo completo? (deve estar entre 600-800)
+☐ Introdução tem 80-100 palavras?
+☐ Corpo tem 400-500 palavras?
+☐ Conclusão tem 80-100 palavras?
+☐ Total NÃO ultrapassa 800 palavras?
+
+**SE QUALQUER RESPOSTA FOR "NÃO", REESCREVA MAIS CURTO!**`;
 }
 
 // ============================================
@@ -301,6 +339,256 @@ export async function generateTema360(
 }
 
 // ============================================
+// Multi-Step Generation (Controle Preciso de Word Count)
+// ============================================
+
+/**
+ * Step 1: Gerar outline do artigo
+ */
+async function generateOutline(input: Tema360Input): Promise<{
+  titulo: string;
+  secoes: Array<{ h2: string; h3?: string[] }>;
+}> {
+  const prompt = `Crie um outline conciso para artigo sobre: "${input.tema}"
+
+PÚBLICO: ${input.publico}
+TOM: ${input.tom}
+
+RETORNE APENAS:
+TÍTULO: [título otimizado SEO]
+
+SEÇÃO 1: [H2 title - ex: "Como funciona X"]
+SEÇÃO 2: [H2 title]
+SEÇÃO 3: [H2 title]
+SEÇÃO 4: [H2 title - opcional]
+
+**Máximo 4 seções H2. Seja direto e claro.**`;
+
+  const message = await anthropic.messages.create({
+    model: SERVICE_MODELS.TEMA_360,
+    max_tokens: 500,
+    temperature: 0.7,
+    messages: [{ role: 'user', content: prompt }],
+  });
+
+  const text = message.content[0].type === 'text' ? message.content[0].text : '';
+
+  // Parse outline
+  const tituloMatch = text.match(/TÍTULO:\s*(.+)/i);
+  const titulo = tituloMatch ? tituloMatch[1].trim() : '';
+
+  const secoes: Array<{ h2: string }> = [];
+  const secaoMatches = text.matchAll(/SEÇÃO \d+:\s*(.+)/gi);
+
+  for (const match of secaoMatches) {
+    secoes.push({ h2: match[1].trim() });
+  }
+
+  return { titulo, secoes };
+}
+
+/**
+ * Step 2: Gerar seção específica com limite rígido
+ */
+async function generateSection(
+  sectionTitle: string,
+  input: Tema360Input,
+  wordLimit: number
+): Promise<string> {
+  const prompt = `Escreva APENAS esta seção do artigo:
+
+## ${sectionTitle}
+
+TEMA GERAL: ${input.tema}
+PÚBLICO: ${input.publico}
+TOM: ${input.tom}
+
+**🔴 LIMITE ABSOLUTO: ${wordLimit} PALAVRAS 🔴**
+
+REGRAS:
+- Use listas numeradas quando possível
+- Parágrafos: 2-3 frases (30-40 palavras)
+- ELIMINE: frases de transição, redundâncias
+- MANTENHA: apenas informação acionável
+
+**Pare IMEDIATAMENTE ao atingir ${wordLimit} palavras.**
+
+Escreva a seção agora:`;
+
+  const message = await anthropic.messages.create({
+    model: SERVICE_MODELS.TEMA_360,
+    max_tokens: Math.ceil(wordLimit * 1.5), // tokens ~= palavras * 1.5
+    temperature: 0.7,
+    messages: [{ role: 'user', content: prompt }],
+  });
+
+  const text = message.content[0].type === 'text' ? message.content[0].text : '';
+
+  // Truncar se exceder limite
+  const words = text.split(/\s+/);
+  if (words.length > wordLimit) {
+    return words.slice(0, wordLimit).join(' ') + '...';
+  }
+
+  return text;
+}
+
+/**
+ * Main Multi-Step Generation Function
+ */
+export async function generateTema360MultiStep(
+  input: Tema360Input
+): Promise<Tema360Output> {
+  try {
+    const startTime = Date.now();
+    console.log('[Tema 360 Multi-Step] Iniciando geração em etapas...');
+
+    // Step 1: Gerar outline
+    console.log('[Step 1/6] Gerando outline...');
+    const outline = await generateOutline(input);
+
+    // Step 2: Gerar introdução
+    console.log('[Step 2/6] Gerando introdução (90 palavras)...');
+    const introducao = await generateSection(
+      'Introdução',
+      { ...input, tema: `Introduza o tema: ${input.tema}` },
+      90
+    );
+
+    // Step 3: Gerar cada seção H2 do corpo
+      const corpoSections: string[] = [];
+
+    for (let i = 0; i < outline.secoes.length; i++) {
+      const secao = outline.secoes[i];
+      console.log(`[Step ${3 + i}/6] Gerando seção "${secao.h2}" (110 palavras)...`);
+
+        const secaoContent = await generateSection(secao.h2, input, 110);
+        corpoSections.push(`### ${secao.h2}\n\n${secaoContent}`);
+    }
+
+    const corpo = corpoSections.join('\n\n');
+
+    // Step 4: Gerar conclusão
+    console.log('[Step 5/6] Gerando conclusão (90 palavras)...');
+    const conclusao = await generateSection(
+      'Conclusão',
+      { ...input, tema: `Conclua o artigo sobre: ${input.tema}. CTA: ${input.linkOferta}` },
+      90
+    );
+
+    // Step 5: Gerar títulos, meta, hooks, posts (single call)
+    console.log('[Step 6/6] Gerando meta, hooks e posts sociais...');
+    const metaPrompt = `Gere APENAS:
+
+TÍTULO A: [foco benefício]
+TÍTULO B: [foco problema/solução]
+TÍTULO C: [foco novidade 2025]
+
+META DESCRIÇÃO: [140-155 caracteres]
+
+HOOK 1: [problema - 15 palavras]
+HOOK 2: [curiosidade - 15 palavras]
+HOOK 3: [solução - 15 palavras]
+
+POST LINKEDIN: [280 caracteres]
+POST INSTAGRAM: [350 caracteres]
+
+TEMA: ${input.tema}`;
+
+    const metaMessage = await anthropic.messages.create({
+      model: SERVICE_MODELS.TEMA_360,
+      max_tokens: 800,
+      temperature: 0.7,
+      messages: [{ role: 'user', content: metaPrompt }],
+    });
+
+    const metaText = metaMessage.content[0].type === 'text' ? metaMessage.content[0].text : '';
+
+    // Parse meta content
+    const tituloA = metaText.match(/TÍTULO A:\s*(.+)/i)?.[1]?.trim() || outline.titulo;
+    const tituloB = metaText.match(/TÍTULO B:\s*(.+)/i)?.[1]?.trim() || outline.titulo;
+    const tituloC = metaText.match(/TÍTULO C:\s*(.+)/i)?.[1]?.trim() || outline.titulo;
+    const metaDescricao = metaText.match(/META DESCRIÇÃO:\s*(.+)/i)?.[1]?.trim() || '';
+
+    const hookProblema = metaText.match(/HOOK 1:\s*(.+)/i)?.[1]?.trim() || '';
+    const hookCuriosidade = metaText.match(/HOOK 2:\s*(.+)/i)?.[1]?.trim() || '';
+    const hookSolucao = metaText.match(/HOOK 3:\s*(.+)/i)?.[1]?.trim() || '';
+
+    const linkedin = metaText.match(/POST LINKEDIN:\s*(.+)/i)?.[1]?.trim() || '';
+    const instagram = metaText.match(/POST INSTAGRAM:\s*(.+)/i)?.[1]?.trim() || '';
+
+    // Calcular word count total
+    const artigoCompleto = `${introducao}\n\n${corpo}\n\n${conclusao}`;
+    const wordCount = artigoCompleto.split(/\s+/).length;
+
+    // Mock FAQ (pode ser melhorado depois)
+    const faq = [
+      { pergunta: 'Pergunta 1', resposta: 'Resposta 1' },
+      { pergunta: 'Pergunta 2', resposta: 'Resposta 2' },
+      { pergunta: 'Pergunta 3', resposta: 'Resposta 3' },
+      { pergunta: 'Pergunta 4', resposta: 'Resposta 4' },
+    ];
+
+    // Calcular custo total (múltiplas chamadas)
+    const estimatedCost = 0.35; // Aproximado para multi-step
+
+    const result: Tema360Output = {
+      titulos: { tituloA, tituloB, tituloC },
+      metaDescricao,
+      artigo: {
+        introducao,
+        corpo,
+        conclusao,
+        linkagemSugerida: [
+          'Tópico relacionado 1',
+          'Tópico relacionado 2',
+          'Tópico relacionado 3',
+        ],
+        faq,
+      },
+      hooks: {
+        hookProblema,
+        hookCuriosidade,
+        hookSolucao,
+      },
+      postsSociais: {
+        linkedin,
+        instagram,
+        carrossel: [],
+      },
+      preview: {
+        tituloRecomendado: tituloA,
+        outline: outline.secoes.map(s => `## ${s.h2}`).join('\n'),
+        paragrafoInicial: introducao.substring(0, 200),
+      },
+      metadata: {
+        wordCount,
+        estimatedReadingTime: Math.ceil(wordCount / 200),
+        generationCost: estimatedCost,
+        tokens: {
+          input: 0, // Não temos token count preciso em multi-step
+          output: 0,
+        },
+      },
+    };
+
+    const duration = Date.now() - startTime;
+    console.log(
+      `[Tema 360 Multi-Step] ✅ Concluído em ${duration}ms | ${wordCount} palavras`
+    );
+
+    return result;
+  } catch (error) {
+    console.error('[Tema 360 Multi-Step] Erro:', error);
+    throw new AIServiceError(
+      'Erro na geração multi-step do Tema 360',
+      'tema-360-multistep',
+      error
+    );
+  }
+}
+
+// ============================================
 // Output Parser
 // ============================================
 function parseOutput(text: string): Omit<Tema360Output, 'metadata'> {
@@ -386,23 +674,30 @@ export function validateOutput(output: Tema360Output): {
 } {
   const errors: string[] = [];
 
-  // Validar tamanho do artigo - MAIS RIGOROSO
-  if (output.metadata.wordCount < 700) {
+  // Validar tamanho do artigo - RIGOROSO
+  if (output.metadata.wordCount < 600) {
     errors.push(
-      `Artigo muito curto: ${output.metadata.wordCount} palavras (mínimo: 700)`
+      `Artigo muito curto: ${output.metadata.wordCount} palavras (mínimo: 600)`
     );
   }
 
-  if (output.metadata.wordCount > 900) {
+  if (output.metadata.wordCount > 800) {
     errors.push(
-      `🔴 CRÍTICO: Artigo excedeu limite: ${output.metadata.wordCount} palavras (máximo: 900)`
+      `🔴 CRÍTICO: Artigo excedeu limite: ${output.metadata.wordCount} palavras (máximo: 800)`
     );
   }
 
   // Warning se estiver muito perto do limite
-  if (output.metadata.wordCount > 850 && output.metadata.wordCount <= 900) {
+  if (output.metadata.wordCount > 750 && output.metadata.wordCount <= 800) {
     errors.push(
-      `⚠️ Aviso: Artigo muito próximo do limite: ${output.metadata.wordCount} palavras (máximo: 900)`
+      `⚠️ Aviso: Artigo muito próximo do limite: ${output.metadata.wordCount} palavras (máximo: 800)`
+    );
+  }
+
+  // Alerta se estiver abaixo do orçamento ideal
+  if (output.metadata.wordCount < 650 && output.metadata.wordCount >= 600) {
+    errors.push(
+      `⚠️ Aviso: Artigo abaixo do orçamento ideal: ${output.metadata.wordCount} palavras (ideal: 650-750)`
     );
   }
 

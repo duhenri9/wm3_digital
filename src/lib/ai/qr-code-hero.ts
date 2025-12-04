@@ -472,9 +472,10 @@ export function validateOutput(output: QRCodeHeroOutput): {
  * Generate actual QR code images using Imagen 3
  * Takes the 6 QR code concepts and generates images for each
  */
+type ImagenResult = { imageBase64?: string; mimeType?: string };
+
 export async function generateQRCodesWithImagen(
-  concepts: QRCodeHeroOutput['conceitos'],
-  urlDestino: string
+  concepts: QRCodeHeroOutput['conceitos']
 ): Promise<QRCodeHeroWithImages['qrCodesGerados']> {
   try {
     console.log('[QR Code Hero] Gerando 6 QR codes com Imagen 3...');
@@ -503,7 +504,7 @@ export async function generateQRCodesWithImagen(
     ]);
 
     // Convert base64 to data URLs
-    const toDataUrl = (results: any[]) => {
+    const toDataUrl = (results: ImagenResult[]) => {
       if (!results || results.length === 0) return undefined;
       const img = results[0];
       return img.imageBase64
@@ -551,10 +552,7 @@ export async function generateQRCodeHeroWithImages(
   const qrCodeHero = await generateQRCodeHero(input);
 
   // Then, generate the actual QR code images
-  const qrCodesGerados = await generateQRCodesWithImagen(
-    qrCodeHero.conceitos,
-    input.urlDestino
-  );
+  const qrCodesGerados = await generateQRCodesWithImagen(qrCodeHero.conceitos);
 
   // Update costs
   const imagenCost = calculateImagenCost(6); // 6 QR codes

@@ -625,8 +625,9 @@ export async function generateLogosWithImagen(
       generateWithImagen3({ prompt: concepts.rodada2.conceito3.prompt }),
     ]);
 
+    type ImagenResult = { imageBase64?: string; mimeType?: string };
     // Convert base64 to data URLs
-    const toDataUrl = (results: any[]) => {
+    const toDataUrl = (results: ImagenResult[]) => {
       if (!results || results.length === 0) return undefined;
       const img = results[0];
       return img.imageBase64
