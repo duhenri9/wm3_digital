@@ -61,18 +61,39 @@ export interface Tema360Output {
 // ============================================
 // System Prompt (com cache)
 // ============================================
-const SYSTEM_PROMPT = `Você é um redator de conteúdo profissional especializado em artigos técnicos para blog e posts para redes sociais. Sua missão é criar conteúdo claro, útil e bem estruturado para SEO.
+const SYSTEM_PROMPT = `Você é um Especialista em Marketing de Conteúdo e SEO (E-E-A-T).
+Crie conteúdo editorial de alta qualidade, pronto para publicação imediata.
 
-**REGRAS CRÍTICAS:**
-1. NUNCA invente dados, estatísticas ou casos reais
-2. NUNCA use primeira pessoa ("eu fiz", "minha experiência")
-3. Se precisar de dados específicos, use marcador [DADOS NECESSÁRIOS]
-4. Mantenha tom factual e educativo, não promocional
-5. Siga EXATAMENTE a estrutura solicitada
-6. **ARTIGO DEVE TER ENTRE 700-900 PALAVRAS NO MÁXIMO - NÃO EXCEDA 900 PALAVRAS**
-7. CTA deve aparecer UMA única vez na conclusão
-8. H2/H3 devem ser descritivos (não genéricos)
-9. **CRÍTICO: Seja conciso. Qualidade > Quantidade. Máximo 900 palavras total.**`;
+**🎯 PRINCÍPIOS E-E-A-T (Google Quality):**
+- Experience: Use casos reais verificáveis (NUNCA invente experiências pessoais)
+- Expertise: Terminologia técnica precisa, sem erros
+- Authoritativeness: Cite fontes genéricas quando necessário ("segundo estudos de mercado")
+- Trustworthiness: NUNCA prometa resultados garantidos ou use hype excessivo
+
+**🚨 REGRAS ABSOLUTAS (VIOLAÇÃO = FALHA TOTAL):**
+1. ❌ NUNCA invente dados, estatísticas ou experiências pessoais
+2. ❌ NUNCA use primeira pessoa ("eu fiz", "minha experiência", "meu teste")
+3. ⚠️ Se dados específicos forem necessários: marque [DADOS NECESSÁRIOS: descrição]
+4. ✅ Tom: factual, educativo, autoridade técnica (não promocional/vendedor)
+5. ✅ Estrutura: EXATAMENTE como solicitado (sem omitir seções)
+6. **🔴 ARTIGO: 700-900 PALAVRAS TOTAL (conte CADA palavra antes de entregar)**
+7. ✅ CTA: UMA única vez na conclusão (natural, não agressivo)
+8. ✅ H2/H3: descritivos, integre variações da keyword naturalmente (densidade 1-2%)
+9. **🔴 PRIORIDADE MÁXIMA: Concisão > Prolixidade. Elimine redundâncias.**
+10. ✅ SEO: Use LSI keywords, mas evite keyword stuffing
+
+**📏 CONTROLE DE TAMANHO (OBRIGATÓRIO):**
+- Introdução: 100-120 palavras MAX
+- Corpo: 500-650 palavras MAX
+- Conclusão: 100-130 palavras MAX
+- **TOTAL ABSOLUTO: 700-900 palavras (conte antes de enviar!)**
+
+**✔️ ANTES DE ENTREGAR, VERIFIQUE:**
+☐ Contei as palavras? (deve estar entre 700-900)
+☐ Usei primeira pessoa? (deve ser NÃO)
+☐ Inventei algum dado? (deve ser NÃO)
+☐ CTA aparece mais de 1x? (deve ser NÃO)
+☐ Todas as 5 seções estão presentes? (deve ser SIM)`;
 
 // ============================================
 // User Prompt Template
@@ -106,11 +127,12 @@ META DESCRIÇÃO: [140-155 caracteres otimizada para cliques]
 [Parágrafo 3: Prometa o que o artigo vai entregar - OBJETIVO]
 
 #### CORPO (500-650 palavras MAX)
-[Desenvolva em 3-4 seções com H2 - FOQUE NO ESSENCIAL]
-[Use H3 apenas se REALMENTE necessário]
-[Inclua listas quando apropriado - SEJA DIRETO]
-[Parágrafos de 60-100 palavras - ELIMINE REDUNDÂNCIAS]
-[PRIORIZE QUALIDADE E CONCISÃO]
+**🚨 ATENÇÃO: Não ultrapasse 650 palavras no corpo do artigo!**
+[Desenvolva em 3-4 seções com H2 - seja EXTREMAMENTE direto]
+[Use H3 apenas se absolutamente necessário]
+[Inclua listas quando apropriado - cada item em 1 linha]
+[Parágrafos de 50-80 palavras - elimine TODA redundância]
+[Priorize densidade de informação - cada frase deve agregar valor único]
 
 #### CONCLUSÃO (100-130 palavras)
 [Resuma os pontos principais - BREVE]
@@ -203,8 +225,22 @@ export async function generateTema360(
       );
     }
 
+    // Debug: Log início do texto gerado
+    console.log('[Tema 360] Primeiros 500 caracteres:', generatedText.substring(0, 500));
+
     // Parsear output
-    const output = parseOutput(generatedText);
+    let output;
+    try {
+      output = parseOutput(generatedText);
+    } catch (parseError) {
+      console.error('[Tema 360] Erro ao parsear output:', parseError);
+      console.error('[Tema 360] Texto completo:', generatedText);
+      throw new AIServiceError(
+        'Erro ao parsear resposta do modelo',
+        'tema-360',
+        parseError
+      );
+    }
 
     // Adicionar metadata
     const wordCount = generatedText.split(/\s+/).length;
